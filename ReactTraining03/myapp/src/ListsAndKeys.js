@@ -24,6 +24,5 @@ function ListsAndKeys(props) {
       </div>
     );
   }
-  
 
 export default ListsAndKeys;

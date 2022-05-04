@@ -14,7 +14,7 @@ class EventDemo extends Component{
         })
     }
 
-    inputNameEvent(event){
+    inputNameEvent=(event)=>{
         this.setState({
             name:event.target.value
         })

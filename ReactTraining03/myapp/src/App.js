@@ -5,6 +5,11 @@ import JsxProgram from './JsxProgram';
 import ConditionalRendering from './ConditionalRendering';
 // import EventDemo from './EventDemo';
 import ListsAndKeys from './ListsAndKeys';
+import FormDemo from './FormDemo';
+import FormMultipleField from './FormMultipleField';
+import FraagmentsDemo from './FragmentsDemo';
+import RefDemo from './RefDemo';
+import ForwardRef from './ForwardRef';
 
 function App() {
   const posts = [
@@ -13,13 +18,18 @@ function App() {
   ];
   return (
     <div className="App">
-      <JsxProgram />
+      {/* <JsxProgram />
       <ConditionalRendering />
       <StateAndLifecycle />
       <eventHandling />
       <br />
       <hr />
       <ListsAndKeys posts={posts} />
+      <FormMultipleField />
+      <FormDemo />
+      <FraagmentsDemo posts={posts} />
+      <RefDemo /> */}
+      <ForwardRef />
     </div>
   );
 }
