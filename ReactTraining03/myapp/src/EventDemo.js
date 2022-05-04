@@ -23,10 +23,11 @@ class EventDemo extends Component{
     render(){
         return(
             <div>
-                <br/><hr /><br />
+                <br/>
                 Enter Your Data:<input type="text" value={this.state.name} onChange={(event)=>this.inputNameEvent(event)}/><br/><br />
                 <button onClick={()=>this.changeName()}>reset</button>
                 <h1>You Entered {this.state.name}</h1>
+                <hr /><br />
             </div>
         )
     }

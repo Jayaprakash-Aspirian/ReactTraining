@@ -1,4 +1,5 @@
 import {React,Component} from 'react';
+import EventDemo from './EventDemo';
 
 class ConditionalRendering extends Component{
     render(){
@@ -11,10 +12,11 @@ class ConditionalRendering extends Component{
         return(
             <div>
                 {LayoutIs}
+                <EventDemo />
             </div>
         )
 
     }
 }
 
-export default ConditionalRendering
+export default ConditionalRendering;
