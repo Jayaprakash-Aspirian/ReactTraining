@@ -1,5 +1,4 @@
 import {React,Component} from 'react';
-import eventHandling from './eventHandling';
 
 class ConditionalRendering extends Component{
     render(){

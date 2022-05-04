@@ -1,6 +1,6 @@
 import { React,Component } from 'react';
 
-class eventHandling extends Component{
+class EventDemo extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -23,12 +23,13 @@ class eventHandling extends Component{
     render(){
         return(
             <div>
-                Enter Your Name:<input type="text" value={this.state.name} onChange={(event)=>this.inputNameEvent(event)}/><br/>
-                <button onClick={()=>this.changeName()}>Click Me</button>
-                <h1>yes {this.state.name}</h1>
+                <br/><hr /><br />
+                Enter Your Data:<input type="text" value={this.state.name} onChange={(event)=>this.inputNameEvent(event)}/><br/><br />
+                <button onClick={()=>this.changeName()}>reset</button>
+                <h1>You Entered {this.state.name}</h1>
             </div>
         )
     }
 }
 
-export default eventHandling;
+export default EventDemo;

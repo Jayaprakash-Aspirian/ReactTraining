@@ -3,8 +3,7 @@ import './App.css';
 import StateAndLifecycle from './StateAndLifecycle';
 import JsxProgram from './JsxProgram';
 import ConditionalRendering from './ConditionalRendering';
-import eventHandling from './eventHandling';
-
+import EventDemo from './EventDemo';
 function App() {
   return (
     <div className="App">
@@ -12,6 +11,7 @@ function App() {
       <ConditionalRendering />
       <StateAndLifecycle />
       <eventHandling />
+      <EventDemo />
     </div>
   );
 }
