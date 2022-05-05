@@ -5,7 +5,7 @@ import React from 'react'
 export default React.forwardRef((props,ref)=>{
     return (
         <div>
-            <h1>Hello,</h1>
+            <h1>Hello,{props.name}</h1>
             <button ref={ref}>Click me</button>
         </div>
     )
@@ -16,7 +16,7 @@ export default React.forwardRef((props,ref)=>{
 // const hello=(props,ref)=>{
 //     return (
 //         <div>
-//             <h1>Hello,</h1>
+//             <h1>Hello,{props.name}</h1>
 //             <button ref={ref}>Click me</button>
 //         </div>
 //     )
@@ -29,7 +29,7 @@ export default React.forwardRef((props,ref)=>{
 // const hello=(props)=>{
 //     return(
 //         <div>
-//             <h1>Hello,</h1>
+//             <h1>Hello,{props.name}</h1>
 //             <Button ref={props.buttonReference} />
 //         </div>
 //     )

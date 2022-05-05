@@ -18,8 +18,8 @@ export default class ForwardRef extends Component {
          <Hello ref={this.buttonRef} name={this.state.name} />
 
          {/* demo3 */}
-         {/* <Hello buttonReference={this.buttonRef} name={this.state.name} />  */}
-         
+         {/* <Hello buttonReference={this.buttonRef} name={this.state.name} /> 
+          */}
          <p>Forward Ref is working</p>
      </div>
     )

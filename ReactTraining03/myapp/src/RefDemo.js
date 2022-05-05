@@ -15,6 +15,9 @@ class RefDemo extends React.Component {
     focusSecondTextInput(){
       this.secondText.current.focus();  
     }
+    componentDidMount(){
+      this.focusTextInput();
+    }
     render() {
       return (
         <div>
