@@ -12,19 +12,19 @@ import AsyncAwait from './components/AsyncAwait';
 function App() {
   return (
     <div className="App">
-      <DetailsGet />
-      {/* <hr />
-      <DetailsPost />
+      {/* <DetailsGet /> */}
+      <hr />
+      {/* <DetailsPost /> */}
       <hr />
       <DetailsPut />
       <hr />
-      <DetailsDelete />
+      {/* <DetailsDelete /> */}
       <hr />
-      <HandlingError />
+      {/* <HandlingError /> */}
       <hr />
-      <CreateInstance />
+      {/* <CreateInstance /> */}
       <hr />
-      <AsyncAwait /> */}
+      {/* <AsyncAwait /> */}
     </div>
   );
 }

@@ -8,6 +8,9 @@ import axios from 'axios';
 axios.interceptors.request.use(
   (req) => { 
      console.log("It request")
+     console.log(req.method)
+     if(req.method === 'post')
+        req.headers.channelName = 'react';
      return req;
   },
   (err) => {
@@ -21,6 +24,7 @@ axios.interceptors.response.use(
     console.log("It returned response")
      if (res.status === 201) {
         console.log('Posted Successfully');
+        console.log(res)
      }
      return res;
   },
