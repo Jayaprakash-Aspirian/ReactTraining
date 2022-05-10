@@ -8,9 +8,9 @@ export default class Shop extends Component {
     return (
       <div>
           <Stationary />
-            <Routes> 
+            {/* <Routes> 
                 <Route path='/shop/pen/' element={<Pen/>}></Route>
-            </Routes>       
+            </Routes>        */}
 
       </div>
 

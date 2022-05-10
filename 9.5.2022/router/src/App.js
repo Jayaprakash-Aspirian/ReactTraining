@@ -18,8 +18,7 @@ function App() {
           <Route path='/shop/*' element={<Shop/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
-          {/* <Route path='/shop/pen/' element={<Pen/>}></Route> */}
-          
+          <Route path='/shop/pen/' element={<Pen/>}></Route>
         </Routes>       
       </Router>
       

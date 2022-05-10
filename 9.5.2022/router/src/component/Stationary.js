@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
+import { getItems } from '../datas';
 
 export default class Stationary extends Component {
   constructor(props){
       super(props)
-      this.state={
-          items:["Pen","Pencil","Paper"]
-      }
+      let invoices = getItems();
+      // this.state={
+      //     items:["Pen","Pencil","Paper"]
+      // }
+      this.state={invoices}
+
   }
   render() {
-    const dataItems=this.state.items.map((item)=>{
-        return <Link to={`/shop/${item}`}><li>{item}</li></Link>
+    const dataItems=this.state.invoices.map((item)=>{
+        return <Link to={`/shop/${item.name}`}><li>{item.name}</li></Link>
 
     })
     return (
