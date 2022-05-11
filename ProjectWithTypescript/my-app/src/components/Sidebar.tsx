@@ -31,7 +31,7 @@ const Sidebar=() => {
             <Link to="/dashboard" className={location.pathname==='/dashboard'?'sidebar_active':'sidebar_inactive'}>Dashboard</Link>
             <Link to="/tabs"      className={location.pathname.includes('/tabs')?'sidebar_active':'sidebar_inactive'}>Tabs</Link>
             <Link to="/settings"  className={location.pathname==='/settings'?'sidebar_active':'sidebar_inactive'}>Settings</Link>
-            <Link to="/users"  className={location.pathname.includes('/users')?'sidebar_active':'sidebar_inactive'}>Settings</Link>
+            <Link to="/users"  className={location.pathname.includes('/users')?'sidebar_active':'sidebar_inactive'}>Users List</Link>
           
             { 
               location.pathname!=='/login' &&  <button onClick={logout}>Logout</button>

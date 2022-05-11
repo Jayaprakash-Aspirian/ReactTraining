@@ -34,7 +34,7 @@ const MainRoutes=() => {
                 </Route>
                 <Route path="settings" element={<Settings />} />
 
-                <Route path="users" element={<Users />} />
+                <Route path="users" element={<Users checkUp="it's working"/>} />
                 <Route path="users/:userId" element={<SingleUser />} />
                 <Route path="users/new" element={< NewUser/>} />
                 
