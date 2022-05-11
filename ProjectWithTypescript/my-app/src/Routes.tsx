@@ -16,6 +16,7 @@ import Tab3 from './components/Tab3';
 
 import ProtectedRoutes from './components/ProtectedRoutes';
 import PublicRoutes from './components/PublicRoutes';
+import PermissionDenied from './components/PermissionDenied';
 
 
 const MainRoutes=() => {
@@ -26,11 +27,16 @@ const MainRoutes=() => {
             <Route path="/" element={<InnerContent />} >
                 <Route path="/" element={<Navigate replace to="dashborad"/>} />
                 <Route path="dashboard" element={<Dashborad />} />
-                <Route path="tabs" element={<Tabs/>} >
+                <Route path="tabs" element={<Tabs />} >
                     <Route path="/tabs" element={<Navigate replace to="tab1"/>} />
                     <Route path="tab1" element={<Tab1 />} />
-                    <Route path="tab2" element={<Tab2 />} />
+
+                    <Route path="tab2" element={<ProtectedRoutes roleRequired="ADMIN"/>} >
+                      <Route path="/tabs/tab2" element={<Tab2 />} />
+                    </Route>
+
                     <Route path="tab3" element={<Tab3 />} />
+
                 </Route>
                 <Route path="settings" element={<Settings />} />
 
@@ -45,6 +51,9 @@ const MainRoutes=() => {
           <Route path="login" element={<PublicRoutes />} >
             <Route path="/login" element={<Login />} />
           </Route>
+
+          {/* Permission denied route */}
+          <Route path="/denied" element={<PermissionDenied />} />
 
         </Routes>
     </div>

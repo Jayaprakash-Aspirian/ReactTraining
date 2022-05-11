@@ -5,8 +5,11 @@ const Login=() =>{
 
   const navigate=useNavigate();
 
+  //Admin
+  //User
+
   const login=() => {
-    localStorage.setItem('user','test')
+    localStorage.setItem('user',JSON.stringify({role:'USER'}))
     navigate('/dashboard')
   }
 
