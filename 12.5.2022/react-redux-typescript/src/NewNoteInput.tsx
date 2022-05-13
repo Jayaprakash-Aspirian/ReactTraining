@@ -1,34 +1,34 @@
-import React, { ChangeEvent } from 'react'
+// import React, { ChangeEvent } from 'react'
 
 
-interface NewNoteInputProps{
-    addNote(note:string) : void;
-}
+// interface NewNoteInputProps{
+//     addNote(note:string) : void;
+// }
 
 
-const NewNoteInput : React.FC<NewNoteInputProps> = ({ addNote })=> {
+// const NewNoteInput : React.FC<NewNoteInputProps> = ({ addNote })=> {
   
-  const [note,setNote] = React.useState("")
+//   const [note,setNote] = React.useState("")
 
-  const updateNote = (event:ChangeEvent<HTMLInputElement>) =>{
-      setNote(event.target.value)
-  }
+//   const updateNote = (event:ChangeEvent<HTMLInputElement>) =>{
+//       setNote(event.target.value)
+//   }
 
-  const onAddNoteClick = () =>{
-      addNote(note)
-      setNote("")
-  }
+//   const onAddNoteClick = () =>{
+//       addNote(note)
+//       setNote("")
+//   }
 
-  return (
-    <div>
-        <input onChange={updateNote} value={note}  type="text" name="note" placeholder='Type your notes here' />
-        <button onClick={onAddNoteClick}>Add notes</button>
-    </div>
-  )
-}
-
-
+//   return (
+//     <div>
+//         <input onChange={updateNote} value={note}  type="text" name="note" placeholder='Type your notes here' />
+//         <button onClick={onAddNoteClick}>Add notes</button>
+//     </div>
+//   )
+// }
 
 
 
-export default NewNoteInput;
+
+
+// export default NewNoteInput;
