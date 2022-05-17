@@ -12,5 +12,5 @@ const middleware = applyMiddleware(
 
 const enhancer = middleware;
 
-export const configureStore= createStore(reducers, enhancer);
+export const store= createStore(reducers, enhancer);
 

@@ -6,6 +6,7 @@ import { createLogic } from "redux-logic"
 
 
 
+
 // interface DepositeAction {
 //     type : ActionType.DEPOSIT
 //     payload : number
@@ -20,7 +21,7 @@ import { createLogic } from "redux-logic"
 //     type:ActionType.BANKRUPT
 // }
 
-export type Action = DepositeAction | WithdrawAction | BankruptAction
+// export type Action = DepositeAction
 
 // export const depositMoney = (amount : number) => {
 //     return (dispatch : Dispatch<Action>) => {
@@ -32,35 +33,35 @@ export type Action = DepositeAction | WithdrawAction | BankruptAction
 // }
 
 
-export const depositMoney = createLogic({
-    type:ActionType.DEPOSIT,
-    validate({ getState, action }, allow, reject) {
+// export const depositMoney = createLogic({
+//     type:ActionType.DEPOSIT,
+//     validate({ getState, action }, allow, reject) {
         
-        const user = action.payload;
-        if (!getState().users[user.id]) { // can also hit server to check
-          allow(action);
-        } else {
-          reject({ type: USER_EXISTS_ERROR, payload: user, error: true })
-        }
-      }
+//         const user = action.payload;
+//         if (!getState().users[user.id]) { // can also hit server to check
+//           allow(action);
+//         } else {
+//           reject({ type: USER_EXISTS_ERROR, payload: user, error: true })
+//         }
+//       }
 
-})
+// })
 
 
 
-export const withdrawMoney = (amount : number) => {
-    return (dispatch : Dispatch<Action>) => {
-        dispatch({
-            type : ActionType.WITHDRAW,
-            payload:amount
-        })
-    }
-}
+// export const withdrawMoney = (amount : number) => {
+//     return (dispatch : Dispatch<Action>) => {
+//         dispatch({
+//             type : ActionType.WITHDRAW,
+//             payload:amount
+//         })
+//     }
+// }
 
-export const bankrupt = () => {
-    return (dispatch : Dispatch<Action>) => {
-        dispatch({
-            type : ActionType.BANKRUPT,
-        })
-    }
-}
+// export const bankrupt = () => {
+//     return (dispatch : Dispatch<Action>) => {
+//         dispatch({
+//             type : ActionType.BANKRUPT,
+//         })
+//     }
+// }
