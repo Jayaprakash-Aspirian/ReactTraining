@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 const InnerContent=() =>{
   return (
-    <div className='inner-content'>
+    <div className="dashboard-change">
        <Outlet />  
     </div>
   )

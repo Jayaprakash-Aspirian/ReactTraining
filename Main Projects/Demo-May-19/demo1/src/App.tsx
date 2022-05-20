@@ -8,17 +8,19 @@ import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <div className="container mt-4">
+    <div >
+      {/* <div className="container mt-4"> */}
+      <div>
           <div className="row">
             <Topbar />
-            <Sidebar />
+            <div id="main-body">
+              <Sidebar />
+              <MainRoutes/>
+            </div>
           </div>
       </div>
-
-          
-      <MainRoutes/>
-
+     
+      
 
     </div>
   );

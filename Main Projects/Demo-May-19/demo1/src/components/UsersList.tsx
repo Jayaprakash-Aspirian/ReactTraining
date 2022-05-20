@@ -1,8 +1,8 @@
 import React from 'react'
 
-function UsersList() {
+const UsersList=()=> {
   return (
-    <div>UsersList</div>
+    <div className="dashboard-change">UsersList</div>
   )
 }
 
