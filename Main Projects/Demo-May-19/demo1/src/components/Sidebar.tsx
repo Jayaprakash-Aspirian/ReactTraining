@@ -15,7 +15,7 @@ const Sidebar=() => {
                     <div className="h4 text-white">Account</div>
                     <ul>
                       <Link to="/dashboard"  style={{ textDecoration: 'inherit', color:'white'}}>
-                        <li className={location.pathname==='/dashboard' ?'active':''} > <div className="text-decoration-none d-flex align-items-start">
+                        <li className={location.pathname.includes ("/dashboard") ?'active':''} > <div className="text-decoration-none d-flex align-items-start">
                                 <div className="fas fa-box pt-2 me-3"></div>
                                 <div className="d-flex flex-column">
                                     <div className="link">My Account</div>

@@ -1,0 +1,26 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Sebastian",
+        "email": "sebastian@codingthesmartway.com",
+        "password":"asdfghjk",
+        "phone":"6382409787"
+  
+      },
+      {
+        "id": 2,
+        "name": "Steve",
+        "email": "steve@codingthesmartway.com",
+        "password":"asdfghjk",
+        "phone":"6382409783"
+      },
+      {
+        "id": 3,
+        "name": "Ann",
+        "email": "ann@codingthesmartway.com",
+        "password":"asdfghjk",
+        "phone":"6382409784"
+      }
+    ]
+  }

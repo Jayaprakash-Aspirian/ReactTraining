@@ -22,11 +22,11 @@ const Dashboard=() => {
   
             <div className="text-uppercase">Account</div>
        
-            <div className="order my-3 bg-light">
+            <div className="order my-3 bg-light" >
                 <br />
-                <div className="row">
+                <div style={{display:'flex',flexDirection:'column'}} >
                   
-                    <div className="col-lg-4">
+                    <div className="col-lg-4" style={{width:'20%'}}>
                       <Link to="accountbalance"  style={{ textDecoration: 'inherit', color:'white'}}  >
                         <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                             <div className="btn btn-primary text-uppercase">View Account Balance</div>
@@ -35,7 +35,7 @@ const Dashboard=() => {
                     </div>
                      
                 
-                    <div className="col-lg-4">
+                    <div className="col-lg-4" style={{width:'20%'}}>
                       <Link to="promotions"  style={{ textDecoration: 'inherit', color:'white'}}>
                         <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                             <div className="btn btn-primary text-uppercase">Promotions Deatails   </div>
@@ -44,7 +44,7 @@ const Dashboard=() => {
                     </div>
                 
                     
-                    <div className="col-lg-4">
+                    <div className="col-lg-4" style={{width:'20%'}}>
                       <Link to="transactions"  style={{ textDecoration: 'inherit', color:'white'}}>
                         <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                             <div className="btn btn-primary text-uppercase">Show Transaction History</div>
@@ -53,6 +53,7 @@ const Dashboard=() => {
                     </div>
                     
                 </div>
+              
             </div>
             <Outlet />
             

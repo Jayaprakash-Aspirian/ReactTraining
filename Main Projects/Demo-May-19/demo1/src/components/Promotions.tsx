@@ -28,7 +28,7 @@ const Promotions=()=> {
                    <div className="col-lg-4">
                      
                        <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                           <div >  details</div>
+                           <div>  details</div>
                        </div>
                
                    </div>

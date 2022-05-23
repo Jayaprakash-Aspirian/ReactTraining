@@ -12,15 +12,20 @@ function App() {
       {/* <div className="container mt-4"> */}
       <div>
           <div className="row">
+
             <Topbar />
+
             <div id="main-body">
-              <Sidebar />
+              {/* <Sidebar /> */}
+
               <MainRoutes/>
             </div>
           </div>
       </div>
-     
-      
+{/*      
+      <div className='footer'>
+        @
+      </div> */}
 
     </div>
   );
