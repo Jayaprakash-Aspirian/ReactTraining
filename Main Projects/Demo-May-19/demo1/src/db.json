@@ -1,14 +1,29 @@
+
+
 {
   "users": [
     {
       "firstname":"Kumar",
       "lastname" :"a",
       "email":"kumar12@gmailcom",
-      "password": "asdfghjk"
+      "password": "asdfghjk",
+      "mobile" : "6382409787"
+    },
+    {
+      "firstname":"kannan",
+      "lastname" :"a",
+      "email":"kum2312@gmailcom",
+      "password": "asdfghjk",
+      "mobile" : "6382403456"
     }
   ],
 
-  "transaction-history": {
+
+  "transaction-history":[
+    {
     "name": "typicode"
-  }
+  
+    }
+  ]
 }
+

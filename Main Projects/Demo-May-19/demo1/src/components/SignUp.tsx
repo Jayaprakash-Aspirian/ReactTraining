@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRef } from 'react';
 import { useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
@@ -7,35 +8,37 @@ type State = {
   lastname: string,
   email: any,
   passwrord: any,
-  confirmpassword:any
+  confirmpassword:any,
+  mobile:string
 };
 
-const SignUp =() => {
+const SignUp  =() => {
   const [firstname,setFName] = useState("")
   const [lastname,setLName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword]= useState("") 
-  console.log("As11")
+  console.log("As1")
   const[confirmpassword,setConfirmpassword]=useState("")
+  const [mobile,setMobile] = useState("")
+  
 
   const SubmitForm=()=>{
-    console.log("As1")
-
-    console.log("As2")
-    console.log(firstname)
-    console.log("As3")
-    let datas={"firstname":firstname,"lastname":lastname,"email":email,"password":password};
-    console.log("yes1")
-    fetch("http://localhost:3000/users", {
+   
+    debugger;
+    const datas={"firstname":firstname,"lastname":lastname,"email":email,"password":password,"mobile":mobile};
+    console.log(datas)
+    const a=JSON.stringify(datas)
+    console.log(a);
+    fetch("http://localhost:3000/users/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(datas)
-      
-    })
-    console.log("yes")
+      // body: [].push(datas)
     
+      body: JSON.stringify(datas)
+    })
+   
   }
 
   let navigate = useNavigate()
@@ -47,29 +50,30 @@ const SignUp =() => {
         <div className="card">
           <h2 className="card-title text-center" id="h2-signup">Register Page</h2>
             <div className="card-body py-md-4">
-              
+              <form onSubmit={SubmitForm}>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="firstname" placeholder="Enter the First Name" required/>
+                  <input type="text" className="form-control" id="firstname" placeholder="Enter the First Name" onChange={(e)=>setFName(e.target.value)} required/>
                 </div>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="lastname" placeholder="Enter the Last Name" required/>
+                  <input type="text" className="form-control" id="lastname" placeholder="Enter the Last Name" onChange={(e)=>setLName(e.target.value)} required/>
                 </div>
                 <div className="form-group">
-                  <input type="email" className="form-control" id="email" placeholder="Enter the Email" required/>
+                  <input type="email" className="form-control" id="email" placeholder="Enter the Email" onChange={(e)=>setEmail(e.target.value)} required/>
                 </div>           
                 <div className="form-group">
-                  <input type="password" className="form-control" id="password" placeholder="Enter the Password" required/>
+                  <input type="password" className="form-control" id="password" placeholder="Enter the Password" onChange={(e)=>setPassword(e.target.value)} required/>
                 </div>
                 <div className="form-group">
-                  <input type="password" className="form-control" id="confirmpassword" placeholder="Confirm-password" />
+                  <input type="password" className="form-control" id="confirmpassword" placeholder="Confirm-password" onChange={(e)=>setConfirmpassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="mobile" placeholder="Enter the Mobile Number" />
+                  <input type="text" className="form-control" id="mobile" placeholder="Enter the Mobile Number" onChange={(e)=>setMobile(e.target.value)}/>
                 </div> 
                 <div className="d-flex flex-row align-items-center justify-content-between">
                   <a className="btn btn-secondary" onClick={()=>{navigate("/login") }}>Login</a>
-                  <button className="btn btn-primary" onClick={SubmitForm} >Create Account</button>
+                  <button className="btn btn-primary"  type="submit">Create Account</button>
                 </div>
+              </form>
          
             </div>
           </div>
