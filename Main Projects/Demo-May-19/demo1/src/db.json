@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "firstname":"Kumar",
+      "lastname" :"a",
+      "email":"kumar12@gmailcom",
+      "password": "asdfghjk"
+    }
+  ],
+
+  "transaction-history": {
+    "name": "typicode"
+  }
+}
