@@ -10,36 +10,33 @@ type State = {
   confirmpassword:any
 };
 
-
-const SubmitForm=()=>{
-  console.log("As1")
+const SignUp =() => {
   const [firstname,setFName] = useState("")
   const [lastname,setLName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword]= useState("") 
-  console.log("As1")
+  console.log("As11")
   const[confirmpassword,setConfirmpassword]=useState("")
-  console.log("As2")
-  console.log(firstname)
-  console.log("As3")
-  let datas={"firstname":firstname,"lastname":lastname,"email":email,"password":password};
-  console.log("yes1")
-  fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(datas)
+
+  const SubmitForm=()=>{
+    console.log("As1")
+
+    console.log("As2")
+    console.log(firstname)
+    console.log("As3")
+    let datas={"firstname":firstname,"lastname":lastname,"email":email,"password":password};
+    console.log("yes1")
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datas)
+      
+    })
+    console.log("yes")
     
-  })
-  console.log("yes")
-  
-}
-
-
-const SignUp =() => {
-
-
+  }
 
   let navigate = useNavigate()
   return (
