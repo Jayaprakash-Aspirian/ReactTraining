@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import WithPermission from '../routes/WithPermission';
+import { State } from '../store';
 
 const Topbar=() => {
+  const navigate=useNavigate()
+  const user = useSelector((state:State) => state.userdata)
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,15 +21,17 @@ const Topbar=() => {
                     </div>
                 </div>
             </div>
+          <WithPermission roleRequired='USER' message="">
             <div className="collapse navbar-collapse" id="mynav">
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li className="nav-item"> <div className="nav-link active" aria-current="page">All Lists <span className="fas fa-th-large px-1"></span></div> </li>
                     <li className="nav-item"> </li>
                     <li className="nav-item">  </li>
-                    <li className="nav-item"> logout</li>
-                    <li className="nav-item">  <span className="fas fa-user pe-2"></span> Hello User</li>
+                    <li className="nav-item">  <span className="fas fa-user pe-2"></span> Hello {user}</li>
+                    <li className="nav-item" > <button className="btn btn-secondary" onClick={()=>{navigate("/login") }}>Logout</button></li>
                 </ul>
             </div>
+          </WithPermission>
         </div>
     </nav>
 

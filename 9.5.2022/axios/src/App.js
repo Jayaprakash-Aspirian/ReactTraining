@@ -12,11 +12,11 @@ import AsyncAwait from './components/AsyncAwait';
 function App() {
   return (
     <div className="App">
-      {/* <DetailsGet /> */}
+      <DetailsGet />
       <hr />
       {/* <DetailsPost /> */}
       <hr />
-      <DetailsPut />
+      {/* <DetailsPut /> */}
       <hr />
       {/* <DetailsDelete /> */}
       <hr />

@@ -8,7 +8,13 @@ export default function DetailsGet() {
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
+      debugger;
       setPost(response.data);
+      const a=post;
+      console.log("as")
+      console.log(a);
+      console.log("as1")
+      
     });
   }, []);
 

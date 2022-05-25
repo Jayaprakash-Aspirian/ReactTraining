@@ -1,8 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
+import { State } from '../store';
 import Welcome from './Welcome';
 
 const Dashboard=() => {
+  
+  const value = useSelector((state:State) => state.userdata)
+
+  const role = useSelector((state:State) => state.userrole)
+  console.log("As"+role +"As");
+
   return (
    <>
     <div className="dashboard-change">

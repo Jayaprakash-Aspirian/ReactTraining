@@ -17,7 +17,6 @@ const SignUp  =() => {
   const [lastname,setLName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword]= useState("") 
-  console.log("As1")
   const[confirmpassword,setConfirmpassword]=useState("")
   const [mobile,setMobile] = useState("")
   
@@ -29,15 +28,18 @@ const SignUp  =() => {
     console.log(datas)
     const a=JSON.stringify(datas)
     console.log(a);
-    fetch("http://localhost:3000/users/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      // body: [].push(datas)
-    
-      body: JSON.stringify(datas)
-    })
+    const axios = require('axios');
+    axios.post('http://localhost:3000/users', {
+      firstname:" Ara",
+      lastname :"a",
+      email:"kumar12@gmailcom",
+      password: "asdfghjk",
+      mobile : "63824097890"
+    }).then((resp:any)=> {
+      console.log(resp.data);
+    }).catch((error:any) => {
+      console.log(error);
+    });
    
   }
 

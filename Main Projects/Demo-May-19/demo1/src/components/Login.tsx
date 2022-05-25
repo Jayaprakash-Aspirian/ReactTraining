@@ -2,73 +2,89 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
 import { usersdata } from '../datas/datas'
+import { actionCreators } from '../store'
+import { demo } from '../store/action-creators'
+
 
 const Login =() => {
-  
-  // const baseURL = "http://localhost:3000/users/"
+  const navigate=useNavigate()
+  const dispatch = useDispatch()
   const [mobile,setMobile] = useState("")
   const [password,setPassword]= useState("") 
-  
-  const [users,setUsers] = useState([])
-  const [state,setState] = useState({
-    isLoading: true,
-    users: [],
-    error: null
-  });
+
+  const [datas,setDatas] =useState("")
+  const [useris,setUseris] = useState("")
+  // const [state,setState] = useState({
+  //   isLoading: true,
+  //   users: [],
+  //   error: null
+  // });
+
  
   const AuthenticateLogin=()=>{
-   
-    // useEffect(() => {
-    //   axios.get(baseURL).then((response) => {
-    //     const datas = {mobile,password}
-    //     console.log(datas)
-    //     console.log(response)
-    //     console.log(response.data)
-    //   });
-      
-    // }, []);
+    usersdata.map((data)=>{
+      authenticate(data.mobile,data.password,data.role);
 
-  //   getFetchUsers() {
-  //     this.setState({
-  //         loading: true
-  //     }, () => {
-  //         fetch("http://localhost:3000/posts").then(res => res.json()).then(result => this.setState({
-  //             loading: false,
-  //             users: result
-  //         })).catch(console.log);
-  //     });
-  // }
-
-  //   setState({
-  //    loading : true
-  //   },()=>{
-  //     fetch("http://localhost:3000/users").then(res =>res.json()).then(result => setState({
-  //       loading:false,
-  //       users:result
-  //       })).catch(console.log)
-  //     }))
-  //   })
-
-  //   fetch("http://localhost:3000/users").then(res => res.json()).then(result => setState({
-  //     setUsers = result
-  // })).catch(console.log);
- 
-    const user = { mobile: mobile };
-
+    }) 
     
-  
+
+    if(useris ==  ""){
+      console.log("it's not a user")
+    }
+    
   }
-  React.useEffect(() => {
-    axios.get("http://localhost:3000/users").then((response) => {
-      setUsers(response.data);
-      console.log(users)
-    });
-  }, []);
 
+  const authenticate= (val1:string,val2:string,data:string)=>{
+     if (val1 === mobile && val2 ===password)
+     {
+      setUseris(val1);
+     // const demois = () =>{}
+      
+      // const valdemo =(useris:string) =>{
+      //   dispatch(demo(useris))
+      //   console.log("yes2");
+      // };
+      
+      const { demo, demo1 } = bindActionCreators(actionCreators,dispatch);
+      console.log(useris)
+      demo(val1);
+      demo1(data);
 
-  const navigate=useNavigate()
+      
+      console.log("user")
+      // dispatch(demo(useris))
+      debugger;
+
+      navigate("/dashboard") 
+        
+     }
+  }
+
+  // const baseURL = "http://localhost:3000/users"
+  // React.useEffect(() => {
+  //   axios.get(baseURL).then((response) => {
+  //     debugger;
+  //     setDatas(response.data);
+  //     console.log(datas)
+  //     datas.map((data)=>{
+  //       authenticate(data.mobile,data.password);
+  //     }) 
+  //     console.log("as1")
+      
+  //   });
+  // }, []);
+
+  // React.useEffect(() => {
+  //   axios.get("http://localhost:3000/users").then((response) => {
+  //     setUsers(response.data);
+  //     console.log(users)
+  //   });
+  // }, []);
+
   return (
    <div className='body-signup'>
     <div className="container">
