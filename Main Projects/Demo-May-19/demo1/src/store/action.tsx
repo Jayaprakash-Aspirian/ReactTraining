@@ -10,4 +10,13 @@ interface RoleAction {
     payload : string
 }
 
-export type Action = UserDataAction | RoleAction
+'ActionBasis<ActionType.USERDATA>'
+
+interface UserDatasAction {
+    type : ActionType.USER
+    payload : any
+}
+
+
+
+export type Action = UserDataAction | RoleAction 

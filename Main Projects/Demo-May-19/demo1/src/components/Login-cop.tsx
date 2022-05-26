@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { usersdata } from '../datas/datas'
 import { actionCreators } from '../store'
-import { demo,demo1 } from '../store/action-creators'
+import { demo } from '../store/action-creators'
 
 
 const Login =() => {
@@ -15,29 +15,80 @@ const Login =() => {
   const dispatch = useDispatch()
   const [mobile,setMobile] = useState("")
   const [password,setPassword]= useState("") 
+
+  const [datas,setDatas] =useState("")
   const [useris,setUseris] = useState<string>()
+  // const [state,setState] = useState({
+  //   isLoading: true,
+  //   users: [],
+  //   error: null
+  // });
+
  
   const AuthenticateLogin=()=>{
     usersdata.map((data)=>{
-      authenticate(data.mobile,data.password,data.role,data);
+      authenticate(data.mobile,data.password,data.role);
+
     }) 
+    
     if(useris ==  ""){
       console.log("it's not a user")
-    } 
+    }
+    
   }
 
-  const authenticate= (val1:string,val2:string,role:string,data:any)=>{
+  const authenticate= (val1:string,val2:string,data:string)=>{
      if (val1 === mobile && val2 ===password)
      {
       setUseris(val1);
-      dispatch(demo(val1))
-      dispatch(demo1(role))
+      console.log(val1)
+     // const demois = () =>{}
+      
+      const valdemo =(val1 : string) =>{
+        debugger;
+        console.log(val1);
+        // dispatch(demo(val1))
+        
+      };
+      
+      // const { demo, demo1 } = bindActionCreators(actionCreators,dispatch);
 
+
+      console.log(useris)
+      // demo(val1);
+      // demo1(data);
+      valdemo(val1);
+
+      
+      console.log("user")
+      // dispatch(demo(useris))
       debugger;
-      navigate("/dashboard")  
+
+      navigate("/dashboard") 
+        
      }
   }
 
+  // const baseURL = "http://localhost:3000/users"
+  // React.useEffect(() => {
+  //   axios.get(baseURL).then((response) => {
+  //     debugger;
+  //     setDatas(response.data);
+  //     console.log(datas)
+  //     datas.map((data)=>{
+  //       authenticate(data.mobile,data.password);
+  //     }) 
+  //     console.log("as1")
+      
+  //   });
+  // }, []);
+
+  // React.useEffect(() => {
+  //   axios.get("http://localhost:3000/users").then((response) => {
+  //     setUsers(response.data);
+  //     console.log(users)
+  //   });
+  // }, []);
 
   return (
    <div className='body-signup'>

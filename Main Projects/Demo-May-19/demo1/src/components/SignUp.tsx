@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRef } from 'react';
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 type State = {
@@ -19,6 +20,7 @@ const SignUp  =() => {
   const [password,setPassword]= useState("") 
   const[confirmpassword,setConfirmpassword]=useState("")
   const [mobile,setMobile] = useState("")
+  const { t } = useTranslation()
   
 
   const SubmitForm=()=>{
@@ -50,7 +52,7 @@ const SignUp  =() => {
       <div className="row justify-content-center">
       <div className="col-md-5">
         <div className="card">
-          <h2 className="card-title text-center" id="h2-signup">Register Page</h2>
+          <h2 className="card-title text-center" id="h2-signup">{t('register_message')}</h2>
             <div className="card-body py-md-4">
               <form onSubmit={SubmitForm}>
                 <div className="form-group">

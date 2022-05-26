@@ -1,4 +1,6 @@
 export enum ActionType{
     USERDATA = "userdata",
-    USERROLE = "userrole"
+    USERROLE = "userrole",
+    USER="userdatas",
+    USERDATASUCCESS ="userdatasent"
 }

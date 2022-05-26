@@ -17,15 +17,11 @@ import PublicRoutes from "./PublicRoutes";
 
 const MainRoutes=() => {
     return (
-      <>'
-      
-        {/* <Sidebar /> */}
+      <>
        <Router>
         <div className="row" >
          <Topbar />
-
          <div id="main-body" >
-
           <Routes>
             <Route path="/" element={<ProtectedRoutes />} >
               <Route path="/" element={<Sidebar />} >
@@ -44,7 +40,6 @@ const MainRoutes=() => {
               <Route path="login" element={<Login />}></Route>
             </Route>
             <Route path="*" element={<PermissionDenied />} />
-
           </Routes>
          </div>
         </div>

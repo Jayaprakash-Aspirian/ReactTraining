@@ -31,6 +31,7 @@ type Props={
 
 const WithPermission=(props : Props)=> {
   const user= useSelector((state:State) => state.userdata);
+  console.log(user)
   const {roleRequired,message,children} =props
    
 

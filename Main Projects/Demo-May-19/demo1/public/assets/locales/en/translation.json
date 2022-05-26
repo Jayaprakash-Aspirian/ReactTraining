@@ -1,0 +1,7 @@
+{
+    "app_title": "Title",
+    "language": "Languages",
+    "register_message": "Registration Page",
+    
+    "days_since_release": "it's been {{number_of_days}} days since this video was released"
+}
