@@ -456,6 +456,7 @@ Link{
   .dropdown {
     position: relative;
     display: inline-block;
+    left:14%;
   }
   
   .dropdown-content {

@@ -4,13 +4,13 @@ import { ActionType } from './action-types/ActionTypes';
 
 const UserDataLogic = createLogic({
   
-  type: ActionType.USERDATA, 
-  latest:true,
+  type: ActionType.USER, 
 
   process({ getState, action }, dispatch, done) {
+    // const user:string = action.payload;
+
     
-    axios.get('http://localhost:3001/login').then()
-    dispatch({ type:ActionType.USERDATASUCCESS, payload: })
+    dispatch({ type:ActionType.USERDATASUCCESS });
      
   }
 });

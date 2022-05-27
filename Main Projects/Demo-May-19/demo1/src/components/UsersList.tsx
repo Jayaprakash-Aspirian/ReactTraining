@@ -1,41 +1,56 @@
-import React from 'react'
+import axios from 'axios';
+import { useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { State } from '../store';
+import Welcome from './Welcome';
+import { Person } from './types/typesimport';
+
 
 const UsersList = () =>{
+    const { t } = useTranslation()
+    const user = useSelector((state:State) => state.userdata)
+    const [amount,setAmount] = useState("")
+    const [post,setPost] = useState()
+    const baseURL = "http://localhost:3000/users/";
+
+    const SentAmount=()=>{
+        console.log(amount + "amount sent to" )
+    }
+
+    axios.get(baseURL).then((response) => {
+        const val = response.data;
+
+          setPost(val.map((datas :Person,index:any)=>{ 
+           if(user === datas.mobile){
+              return;
+           }
+           else {
+              return(
+                  <div >
+                      <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+                      <div className="text-uppercase">{datas.firstname} {datas.lastname}  - {datas.mobile}<pre></pre><input type="number" onChange={(e)=>setAmount(e.target.value)} style={{width:"30%"}}></input><br /><div className="btn btn-primary text-uppercase"style={{color:"green"}} onClick={({})=>{SentAmount()}}>{t("sent_money")}</div></div>
+                       </div>
+                       <hr />
+                 </div>
+              )}
+          }))      
+      });
+
+
   return (
    <>
     <div className="dashboard-change">
      <div id="main-content" className="bg-white border">
         <div className="d-flex flex-column">
-            <div className="h5">Any queries:</div>
-            <div> email id</div>
+            <Welcome />
         </div> 
         <br />
-      
-        {/* <div className="d-flex my-4 flex-wrap">
-            <div className="box me-4 my-1 bg-light" >  
-                <div className="d-flex align-items-center mt-2">
-                  <div className="h5">Any queries:</div>
-                  <div> email id</div>
-                </div>
-            </div>
-        </div> */}
 
-        <div className="text-uppercase">Other Deatils :</div>
+        <div className="text-uppercase">{t("users")} :</div>
    
         <div className="order my-3 bg-light">
-            <br />
-            <div className="row">
-              
-                <div className="col-lg-4">
-                  
-                    <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                        <div >  details</div>
-                    </div>
-            
-                </div>
-             
-                
-            </div>
+            <br />{post}
         </div>
     
     </div> 

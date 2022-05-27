@@ -1,15 +1,27 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { State } from '../store'
 import Welcome from './Welcome'
 
 const AccountBalance=() => {
-  
+  const { t } = useTranslation()
+  const [UserBalance,setUserBalance] = useState(false)
+  const [Userbank,setUserbank] = useState("")
   const user = useSelector((state:State) => state.userdata)
-
-  
-
+  const baseURL= "http://localhost:3000/users/";
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      const datas = response.data;
+      datas.map((userdatas:any)=>{
+       if(userdatas.mobile === user){
+        setUserBalance(userdatas.amount);
+        setUserbank(userdatas.account);
+       }
+    });
+  })
+  },[])
 
   return (
     <>
@@ -17,40 +29,22 @@ const AccountBalance=() => {
         <div id="main-content" className="bg-white border">
             <Welcome />
             <br />
-{/*       
-            <div className="d-flex my-4 flex-wrap">
-                <div className="box me-4 my-1 bg-light" >  
-                    
-                    <div className="d-flex align-items-center mt-2">
-                        <div className="tag">Total Schools</div>
-                        <div className="ms-auto number"></div>
-                    </div>
-                </div>
-            </div> */}
-  
-            <div className="text-uppercase">Account</div>
-       
+            <div className="text-uppercase">{t('account')}</div>
             <div className="order my-3 bg-light">
                 <br />
-                <div className="row">
-                  
-                    <div className="col-lg-4">
-                      
+                <div className="column">
+                    <div className="col-lg-8">
                         <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                            <div > Account Balance : </div>
+                            <div><p className="text-uppercase">{t('user_name')}<br />{t('name')} </p> <br />{Userbank}</div>
+                            <div > <p className="text-uppercase">{t('account')} <br />{t('balance')}</p><br />{UserBalance} </div>
                         </div>
-                
                     </div>
-                 
-                    
                 </div>
             </div>
-        
         </div> 
-    
      </div>
    </>
   )
 }
 
-export default AccountBalance
+export default AccountBalance;

@@ -6,7 +6,9 @@ export const usersdata =[
         email:"kumar12@gmailcom",
         password: "asdfghjk",
         mobile : "6382409787",
-        role :"USER"
+        role :"USER",
+        account :"icici",
+        amount :"10000"
     },
     {
         firstname:"Kannan",
@@ -14,7 +16,9 @@ export const usersdata =[
         email:"kum2312@gmailcom",
         password: "asdfghjk",
         mobile : "6382403456",
-        role :"USER"
+        role :"USER",
+        account :"sbi",
+        amount :"50000"
     },
     {
         firstname:"Kavin",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import WithPermission from '../routes/WithPermission';
 import { State } from '../store';
@@ -9,14 +9,13 @@ import cookies from 'js-cookie'
 import i18next from 'i18next';
 
 const Topbar=() => {
-  
+  const { t } = useTranslation()
   const navigate=useNavigate()
   const user = useSelector((state:State) => state.userdata)
  
   const currentLanguageCode = cookies.get('i18next') || 'en'
   const currentLanguage = languages.find((l) => l.code === currentLanguageCode)
-  const { t } = useTranslation()
-   
+  
   const GlobeIcon = ({ width = 24, height = 24 }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +31,6 @@ const Topbar=() => {
   
 
 
-
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,33 +41,22 @@ const Topbar=() => {
                     </div>
                     <div className="ms-3 d-flex flex-column">
                         <div className="h4">AsPay</div>
-                        <div className="fs-6">App</div>
+                        <div className="fs-6">{t('app')}</div>
                     </div>
                 </div>
             </div>
           <WithPermission roleRequired='USER' message="">
-            <div className="collapse navbar-collapse" id="mynav">
+            <div className="collapse navbar-collapse" id="mynav" style={{marginLeft:"30%"}}>
                 <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li className="nav-item"> <div className="nav-link active" aria-current="page">All Lists <span className="fas fa-th-large px-1"></span></div> </li>
+                    <li className="nav-item"> <div className="nav-link active" aria-current="page" onClick={()=>navigate("/userslist")}>{t('sent_money')} <span className="fas fa-th-large px-1"></span></div> </li>
                     <li className="nav-item"> </li>
                     <li className="nav-item">  </li>
-                    <li className="nav-item">  <span className="fas fa-user pe-2"></span> Hello {user}</li>
-                    <li className="nav-item" > <button className="btn btn-secondary" onClick={()=>{navigate("/login") }}>Logout</button></li>
+                    <li className="nav-item">  <span className="fas fa-user pe-2"></span> <button className="btn btn-secondary" >{t('hello')}{user}</button></li>
                 </ul>
             </div>
           </WithPermission>
           
-
-          {/* <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div> */}
-
-          <div className="dropdown">
+          <div className="dropdown" >
 
             <button
               className="dropbtn"

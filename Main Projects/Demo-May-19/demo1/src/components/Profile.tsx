@@ -1,48 +1,69 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { State } from '../store';
+import { Person } from './types/typesimport';
+import Welcome from './Welcome';
 
-const Profile = () =>{
-  return (
-   <>
-    <div className="dashboard-change">
-     <div id="main-content" className="bg-white border">
-        <div className="d-flex flex-column">
-            <div className="h5">Any queries:</div>
-            <div> email id</div>
-        </div> 
-        <br />
-      
-        {/* <div className="d-flex my-4 flex-wrap">
-            <div className="box me-4 my-1 bg-light" >  
-                <div className="d-flex align-items-center mt-2">
-                  <div className="h5">Any queries:</div>
-                  <div> email id</div>
-                </div>
-            </div>
-        </div> */}
 
-        <div className="text-uppercase">Other Deatils :</div>
-   
-        <div className="order my-3 bg-light">
-            <br />
-            <div className="row">
-              
-                <div className="col-lg-4">
-                  
-                    <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                        <div >  details</div>
-                    </div>
-            
-                </div>
-             
-                
-            </div>
-        </div>
+const TransactionHistory=()=> { 
+    const { t } = useTranslation()
+    const [UserData,setUserData] = useState({} as Person)
+    const user = useSelector((state:State) => state.userdata)
+  
+    const baseURL= "http://localhost:3000/users/";
+    useEffect(() => {
+      axios.get(baseURL).then((response) => {
+        const datas = response.data;
+        datas.map((userdatas:any)=>{
+            if(userdatas.mobile === user){
+                setUserData(userdatas);
+            }
+      });
+    })
+    },[])
     
-    </div> 
+  return (
+    <>
+    <div className="dashboard-change">
+       <div id="main-content" className="bg-white border">
+           <Welcome />
+           <br />
+           <div className="text-uppercase">{t("profile_page")}:</div>
+            <div className="order my-3 bg-light" >
+             <div className="column" >
+                <div className="col-lg-8">
+                    <div className="d-flex flex-column justify-content-between order-summary">
+                       <div>
+                            <div className="d-flex align-items-center">
+                                <div className="text-uppercase">{t("Name ")}</div>{UserData.firstname } {UserData.lastname}
+                            </div><br />
+                            <div className="d-flex align-items-center">
+                                <div className="text-uppercase">{t("Email")}:</div>{UserData.email } 
+                            </div><br />
+                            <div className="d-flex align-items-center">
+                                <div className="text-uppercase">{t("mobile")} :</div>{UserData.mobile } 
+                            </div>
+                       </div>
+                       <div>
+                       <br />
+                           <div className="d-flex align-items-center">
+                                <div className="text-uppercase">{t("accounts_have")}:</div>
+                                <div className="btn btn-primary text-uppercase" style={{color:"green"}}>{UserData.account} </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
 
-   </div>
+            </div>
+            </div>
+       </div> 
+   
+    </div>
   </>
   )
 }
 
-export default Profile;
+export default TransactionHistory;

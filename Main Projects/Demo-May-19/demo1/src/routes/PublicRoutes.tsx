@@ -14,11 +14,8 @@ const useAuth=()=>{
     } 
 }
 
-
 const PublicRoutes=(props:any)=> {
-
   const auth=useAuth()
-  
   return (
     auth? <Navigate to="/dashboard"/> : <Outlet />
   )

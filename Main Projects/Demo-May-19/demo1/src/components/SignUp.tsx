@@ -14,18 +14,16 @@ type State = {
 };
 
 const SignUp  =() => {
+  const { t } = useTranslation()
   const [firstname,setFName] = useState("")
   const [lastname,setLName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword]= useState("") 
   const[confirmpassword,setConfirmpassword]=useState("")
   const [mobile,setMobile] = useState("")
-  const { t } = useTranslation()
   
-
   const SubmitForm=()=>{
-   
-    debugger;
+  
     const datas={"firstname":firstname,"lastname":lastname,"email":email,"password":password,"mobile":mobile};
     console.log(datas)
     const a=JSON.stringify(datas)
@@ -56,10 +54,10 @@ const SignUp  =() => {
             <div className="card-body py-md-4">
               <form onSubmit={SubmitForm}>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="firstname" placeholder="Enter the First Name" onChange={(e)=>setFName(e.target.value)} required/>
+                  <input type="text" className="form-control" id="firstname" placeholder={t("enter_mobile")} onChange={(e)=>setFName(e.target.value)} required/>
                 </div>
                 <div className="form-group">
-                  <input type="text" className="form-control" id="lastname" placeholder="Enter the Last Name" onChange={(e)=>setLName(e.target.value)} required/>
+                  <input type="text" className="form-control" id="lastname" placeholder={t("enter_password")} onChange={(e)=>setLName(e.target.value)} required/>
                 </div>
                 <div className="form-group">
                   <input type="email" className="form-control" id="email" placeholder="Enter the Email" onChange={(e)=>setEmail(e.target.value)} required/>
@@ -74,8 +72,8 @@ const SignUp  =() => {
                   <input type="text" className="form-control" id="mobile" placeholder="Enter the Mobile Number" onChange={(e)=>setMobile(e.target.value)}/>
                 </div> 
                 <div className="d-flex flex-row align-items-center justify-content-between">
-                  <a className="btn btn-secondary" onClick={()=>{navigate("/login") }}>Login</a>
-                  <button className="btn btn-primary"  type="submit">Create Account</button>
+                  <a className="btn btn-secondary" onClick={()=>{navigate("/login") }}>{t('login')}</a>
+                  <button className="btn btn-primary"  type="submit">{t("create_account")}</button>
                 </div>
               </form>
          
