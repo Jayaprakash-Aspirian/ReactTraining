@@ -38,6 +38,7 @@ const useAuth=()=>{
   let user: any
   
   const _user =localStorage.getItem("user")
+  console.log(_user)
 
   if(_user){
     console.log(_user)

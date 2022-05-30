@@ -5,7 +5,9 @@ import { State } from '../store';
 
  
 const useAuth=()=>{
-    const user = useSelector((state:State) => state.userdata);
+    // const user = useSelector((state:State) => state.userdata);
+    const user =localStorage.getItem("user")
+    // const user = JSON.parse(userdetails)
     if(user){
       return true
     }

@@ -7,16 +7,36 @@ type Props={
     message:string,
     children?:React.ReactNode
 }
-    
+  
+
+const useRole=()=>{
+  let user: any
+  const userdetails =localStorage.getItem("user")
+  if(userdetails){
+    user = JSON.parse(userdetails)
+  }
+  if (user){
+    return user.role
+  }
+  else{
+    return "No USER";
+  }
+}
+
+
+
 
 const WithPermission=(props : Props)=> {
-  const user= useSelector((state:State) => state.userdata);
+  // const user= useSelector((state:State) => state.userdata);
+  // const userdetails : any=localStorage.getItem("user")
+
   const {roleRequired,message,children} =props
+  const role = useRole()
    
   return (
     <>
     {
-        user ? children :<h3>{message ? message: ''}</h3>
+      roleRequired === role ? children :<h3>{message ? message: ''}</h3>
     }
     </>
   )

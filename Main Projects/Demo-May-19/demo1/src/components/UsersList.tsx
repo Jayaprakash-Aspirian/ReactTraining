@@ -9,7 +9,9 @@ import { Person } from './types/typesimport';
 
 const UsersList = () =>{
     const { t } = useTranslation()
-    const user = useSelector((state:State) => state.userdata)
+    // const user = useSelector((state:State) => state.userdata)
+    const datas : any = localStorage.getItem("user")
+    const user = JSON.parse(datas)
     const [amount,setAmount] = useState("")
     const [post,setPost] = useState()
     const baseURL = "http://localhost:3000/users/";

@@ -3,23 +3,23 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { State } from '../store';
-import { Transactions } from './types/typesimport';
+import { Person, Transactions } from './types/typesimport';
 import Welcome from './Welcome';
 
 
 const TransactionHistory=()=> {
   const { t } = useTranslation()
-  const value = useSelector((state:State) => state.userdata)
-  const role = useSelector((state:State) => state.userrole)
+//   const value = useSelector((state:State) => state.userdata)
+  const datas : any = localStorage.getItem("user")
+  const userdetails = JSON.parse(datas)
   const [post,setPost] = useState()
   const baseURL = "http://localhost:3000/transaction-history/";
  
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
         const val = response.data;
-
         setPost(val.map((post :Transactions ,index:number)=>{ 
-         if(value === post.from){
+         if(userdetails.mobile === post.from){
             return(
              <div className="order my-3 bg-light" key={index}>
              <div className="column" >
@@ -40,7 +40,7 @@ const TransactionHistory=()=> {
             </div>
             </div>
             )}
-         else if(value === post.to){
+         else if(userdetails.mobile === post.to){
             return(
                 <div className="order my-3 bg-light" key={index}>
                 <div className="column" >
@@ -64,7 +64,7 @@ const TransactionHistory=()=> {
                </div>
             )}
 
-         else if(role === "ADMIN"){
+         else if(userdetails.role=== "ADMIN"){
             return(
                 <div className="order my-3 bg-light" key={index}>
                 <div className="column" >

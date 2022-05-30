@@ -6,13 +6,18 @@ import { State } from '../store';
 
 const useAuth=()=>{
    
-  const user = useSelector((state:State) => state.userdata);
-  const _role = useSelector((state:State) => state.userrole);
+  // const user = useSelector((state:State) => state.userdata);
+  const userdetails : any=localStorage.getItem("user")
+  let user:any  
+  console.log(user.role)
 
+  if(userdetails){
+    user= JSON.parse(userdetails)
+  }
   if (user){
     return{
       auth:true,
-      role:_role,
+      role:user.role,
     }
   }
   else{
@@ -21,6 +26,7 @@ const useAuth=()=>{
       role:null,
     }
   }
+  
 }
 
 

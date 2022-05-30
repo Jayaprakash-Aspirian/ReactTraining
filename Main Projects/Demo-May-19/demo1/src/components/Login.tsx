@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import {  useNavigate } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { usersdata } from '../datas/datas'
-import { MobileData, RoleData } from '../store/action-creators'
+import { MobileData } from '../store/action-creators'
 
 
 const Login =() => {
@@ -28,7 +28,9 @@ const Login =() => {
      {
       setUseris(val1);
       dispatch(MobileData(val1))
-      dispatch(RoleData(role))
+     
+      console.log(data)
+      localStorage.setItem('user',JSON.stringify(data))
       navigate("/dashboard")  
      }
   }

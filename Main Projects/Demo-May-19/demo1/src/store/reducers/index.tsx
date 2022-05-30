@@ -4,7 +4,7 @@ import userReducer, { roleReducer } from "./rootreducer";
 
 const reducers = combineReducers({
     userdata:userReducer,
-    userrole:roleReducer
+    
 });
 
 export default reducers;

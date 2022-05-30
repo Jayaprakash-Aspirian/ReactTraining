@@ -475,7 +475,7 @@ Link{
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: blue}
+  .dropdown-content li:hover {background-color: blue}
   
   .dropdown:hover .dropdown-content {
     display: block;
@@ -489,4 +489,9 @@ Link{
     list-style-type: none;
   }
 
+  .btn btn-secondary a:hover {background-color: blue}
 
+
+ 
+
+  

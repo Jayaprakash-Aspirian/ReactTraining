@@ -8,9 +8,3 @@ export const MobileData = (mobile:string) => {
     }
 }
 
-export const RoleData = (role:string) => {
-    return {
-    type: ActionType.USERROLE,
-    payload :role
-    }
-}

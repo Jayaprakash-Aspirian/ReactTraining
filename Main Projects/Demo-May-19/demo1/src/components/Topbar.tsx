@@ -11,7 +11,9 @@ import i18next from 'i18next';
 const Topbar=() => {
   const { t } = useTranslation()
   const navigate=useNavigate()
-  const user = useSelector((state:State) => state.userdata)
+  // const user = useSelector((state:State) => state.userdata)
+  const datas : any = localStorage.getItem("user")
+  const user = JSON.parse(datas)
  
   const currentLanguageCode = cookies.get('i18next') || 'en'
   const currentLanguage = languages.find((l) => l.code === currentLanguageCode)
@@ -29,6 +31,10 @@ const Topbar=() => {
     </svg>
   )
   
+  const logout = ()=>{
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
 
 
   return (
@@ -51,7 +57,13 @@ const Topbar=() => {
                     <li className="nav-item"> <div className="nav-link active" aria-current="page" onClick={()=>navigate("/userslist")}>{t('sent_money')} <span className="fas fa-th-large px-1"></span></div> </li>
                     <li className="nav-item"> </li>
                     <li className="nav-item">  </li>
-                    <li className="nav-item">  <span className="fas fa-user pe-2"></span> <button className="btn btn-secondary" >{t('hello')}{user}</button></li>
+                    <li className="nav-item"> 
+                     <div className="dropdown">  
+                      <span className="fas fa-user pe-2"></span> 
+                      <button className="btn btn-secondary"  id="dropdownMenuButton1" data-bs-toggle="dropdown" >{t('hi')} {user.mobile},</button>
+                      <ul className="dropdown-content" onClick={logout} ><li ><a >logout</a></li></ul>
+                     </div>
+                    </li>
                 </ul>
             </div>
           </WithPermission>

@@ -7,27 +7,84 @@ import { Person } from './types/typesimport';
 import Welcome from './Welcome';
 
 
+
 const TransactionHistory=()=> { 
     const { t } = useTranslation()
     const [UserData,setUserData] = useState({} as Person)
-    const user = useSelector((state:State) => state.userdata)
-  
-    const baseURL= "http://localhost:3000/users/";
-    useEffect(() => {
-      axios.get(baseURL).then((response) => {
-        const datas = response.data;
-        datas.map((userdatas:any)=>{
-            if(userdatas.mobile === user){
-                setUserData(userdatas);
-            }
-      });
-    })
+    // const[data,setData] = useState<any>([])
+    const datas : any = localStorage.getItem("user")
+    useEffect(()=>{
+        setUserData(JSON.parse(datas));
     },[])
+    // const user = useSelector((state:State) => state.userdata)
+    // const baseURL= "http://localhost:3000/users/";
+
+    //  useEffect(() => {
+    //     axios.get(baseURL).then((response) => {
+    //       setData(response.data)
+    //       console.log(response.data)
+    //     })
+    //     .catch(err=>{
+    //         console.log(err)
+    //     })
+    //   },[])
+
+    //   useEffect(()=>{
+    //     data.map((userdatas:any)=>{
+    //         if(userdatas.mobile === user){
+    //             setUserData(userdatas);
+    //         }     
+    //     })
+    //   })
+
+///////////////////
+    // const axioscall =()=>{ axios.get(baseURL).then((response) => {   
+    //     return response.data;
+    // });
+    // };
+
+    
+     
+
+    // useEffect(() => {
+    //     // type datas= axioscall <Person>
+    //     // console.log(typeof(datas))
+        
+    //     // for (let userdatas in datas){
+          
+    //     //     if(userdatas.mobile  === user) {
+    //     //         setUserData(userdatas);  
+    //     //     }
+
+    //     // }
+
+    //     // Object.keys(datas).map((userdatas :any )=>(
+    //     //     if(userdatas.mobile  === user) {
+    //     //         setUserData(userdatas);  
+    //     //     }
+
+    //     // ))
+    //     const datas = axioscall()
+
+    //     datas.map((userdatas:any)=>{
+    //         if(userdatas.mobile === user){
+    //             setUserData(userdatas);
+    //         }     
+    //     })
+
+
+    // //     datas.map((userdatas:any)=>{
+    // //         if(userdatas.mobile === user){
+    // //             setUserData(userdatas);
+    // //         }     
+    // // })
+    // },[])
     
   return (
     <>
     <div className="dashboard-change">
        <div id="main-content" className="bg-white border">
+       
            <Welcome />
            <br />
            <div className="text-uppercase">{t("profile_page")}:</div>

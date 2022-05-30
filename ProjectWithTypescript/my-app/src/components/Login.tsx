@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Login=() =>{
@@ -8,8 +9,12 @@ const Login=() =>{
   //Admin
   //User
 
+
+
+
   const login=() => {
     localStorage.setItem('user',JSON.stringify({role:'USER'}))
+    
     navigate('/dashboard')
   }
 

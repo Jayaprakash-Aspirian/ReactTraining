@@ -3,26 +3,42 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux'
 import { State } from '../store'
+import { Person } from './types/typesimport';
 import Welcome from './Welcome'
 
 const AccountBalance=() => {
   const { t } = useTranslation()
-  const [UserBalance,setUserBalance] = useState(false)
-  const [Userbank,setUserbank] = useState("")
-  const user = useSelector((state:State) => state.userdata)
-  const baseURL= "http://localhost:3000/users/";
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      const datas = response.data;
-      datas.map((userdatas:any)=>{
-       if(userdatas.mobile === user){
-        setUserBalance(userdatas.amount);
-        setUserbank(userdatas.account);
-       }
-    });
-  })
+  const [UserData,setUserData] = useState({} as Person)
+    // const[data,setData] = useState<any>([])
+  const datas : any = localStorage.getItem("user")
+  useEffect(()=>{
+    setUserData(JSON.parse(datas))
   },[])
+  
+  // const[data,setData] = useState<any>([])
+  // const user = useSelector((state:State) => state.userdata)
+  // const baseURL= "http://localhost:3000/users/";
 
+  // useEffect(() => {
+  //   axios.get(baseURL).then((response) => {
+  //     setData(response.data)
+  //     console.log(response.data)
+  //   })
+  //   .catch(err=>{
+  //       console.log(err)
+  //   })
+  // },[])
+
+  // useEffect(()=>{
+  //   data.map((userdatas:any)=>{
+  //       if(userdatas.mobile === user){
+  //         setUserBalance(userdatas.amount);
+  //         setUserbank(userdatas.account);
+  //       }     
+  //   })
+  // })
+
+  
   return (
     <>
      <div className="dashboard-change">
@@ -35,8 +51,8 @@ const AccountBalance=() => {
                 <div className="column">
                     <div className="col-lg-8">
                         <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                            <div><p className="text-uppercase">{t('user_name')}<br />{t('name')} </p> <br />{Userbank}</div>
-                            <div > <p className="text-uppercase">{t('account')} <br />{t('balance')}</p><br />{UserBalance} </div>
+                            <div><p className="text-uppercase">{t('user_name')}<br />{t('name')} </p> <br />{UserData.account}</div>
+                            <div > <p className="text-uppercase">{t('account')} <br />{t('balance')}</p><br />{UserData.amount} </div>
                         </div>
                     </div>
                 </div>

@@ -43,5 +43,6 @@
     "users":"Users",
     "logged_in_as":"Logged in as",
     "enter_mobile":"Enter the mobile number",
-    "enter_password":"Enter the Password"
+    "enter_password":"Enter the Password",
+    "hi":"Hi"
 }

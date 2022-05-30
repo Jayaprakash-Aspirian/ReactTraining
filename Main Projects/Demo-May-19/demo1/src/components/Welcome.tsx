@@ -8,23 +8,32 @@ import { Person } from './types/typesimport';
 
 
 const  Welcome=() => {
-
   const { t } = useTranslation()
   const [UserData,setUserData] = useState({} as Person)
+  const[data,setData] = useState<any>([])
 
-  const user = useSelector((state:State) => state.userdata)
+  const datas :any = localStorage.getItem("user")
+  const user = JSON.parse(datas)
+  // const user = useSelector((state:State) => state.userdata)
   
-    const baseURL= "http://localhost:3000/users/";
-    useEffect(() => {
+  const baseURL= "http://localhost:3000/users/";
+
+  useEffect(() => {
       axios.get(baseURL).then((response) => {
-        const datas = response.data;
-        datas.map((userdatas:any)=>{
-          if(userdatas.mobile === user){
-            setUserData(userdatas);
-          }
-      });
-    })
-    },[])
+        setData(response.data)
+      })
+      .catch(err=>{
+          console.log(err)
+      })
+  },[])
+
+  useEffect(()=>{
+      data.map((userdatas:any)=>{
+          if(userdatas.mobile === user.mobile){
+              setUserData(userdatas);
+          }     
+      })
+  })
 
   return (
     <>
