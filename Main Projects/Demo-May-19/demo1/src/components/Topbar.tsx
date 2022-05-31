@@ -15,7 +15,8 @@ const Topbar = () => {
   const user = JSON.parse(datas);
 
   const currentLanguageCode = cookies.get("i18next") || "en";
- 
+  console.log(currentLanguageCode)
+  const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
 
   const GlobeIcon = ({ width = 24, height = 24 }) => (
     <svg
@@ -118,7 +119,11 @@ const Topbar = () => {
 
               {languages.map(({ code, name, country_code }) => (
                 <li key={country_code}>
-                  <a>
+                  <a
+                    onClick={() => {
+                      i18next.changeLanguage(code);
+                    }}
+                  >
                     <span
                       className={`flag-icon flag-icon-${country_code} mx-2`}
                       style={{

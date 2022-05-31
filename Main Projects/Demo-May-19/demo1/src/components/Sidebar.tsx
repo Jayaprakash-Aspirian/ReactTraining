@@ -20,14 +20,14 @@ const Sidebar = () => {
                   location.pathname.includes("/dashboard") ? "active" : ""
                 }
               >
-                {" "}
+          
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="fas fa-box pt-2 me-3"></div>
                   <div className="d-flex flex-column">
                     <div className="link">{t("my_account")}</div>
                     <div className="link-desc">{t("dashboard")}</div>
                   </div>
-                </div>{" "}
+                </div>
               </li>
             </Link>
             <Link
@@ -37,14 +37,14 @@ const Sidebar = () => {
               <li
                 className={location.pathname === "/userslist" ? "active" : ""}
               >
-                {" "}
+            
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="far fa-address-book pt-2 me-3"></div>
                   <div className="d-flex flex-column">
                     <div className="link">{t("users_list")}</div>
                     <div className="link-desc">{t("userslist_subtitle")}</div>
                   </div>
-                </div>{" "}
+                </div>
               </li>
             </Link>
             <Link
@@ -52,14 +52,14 @@ const Sidebar = () => {
               style={{ textDecoration: "inherit", color: "white" }}
             >
               <li className={location.pathname === "/profile" ? "active" : ""}>
-                {" "}
+                
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="far fa-user pt-2 me-3"></div>
                   <div className="d-flex flex-column">
                     <div className="link">{t("profile")}</div>
                     <div className="link-desc">{t("profile_subtitile")}</div>
                   </div>
-                </div>{" "}
+                </div>
               </li>
             </Link>
             <Link
@@ -67,14 +67,14 @@ const Sidebar = () => {
               style={{ textDecoration: "inherit", color: "white" }}
             >
               <li className={location.pathname === "/contact" ? "active" : ""}>
-                {" "}
+                
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="fas fa-headset pt-2 me-3"></div>
                   <div className="d-flex flex-column">
                     <div className="link">{t("help")}</div>
                     <div className="link-desc">{t("help_subtitle")}</div>
                   </div>
-                </div>{" "}
+                </div>
               </li>
             </Link>
           </ul>
