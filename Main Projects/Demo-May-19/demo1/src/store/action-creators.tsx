@@ -1,10 +1,9 @@
-import { ActionType } from "./action-types/ActionTypes"
+import { ActionType } from "./action-types/ActionTypes";
 
-
-export const MobileData = (mobile:string) => {
-    return {
+export const UserData = (userdata: string) => {
+  console.log("okay1");
+  return {
     type: ActionType.USERDATA,
-    payload :mobile
-    }
-}
-
+    payload: userdata,
+  };
+};

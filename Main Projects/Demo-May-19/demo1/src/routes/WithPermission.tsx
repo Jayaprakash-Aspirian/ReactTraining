@@ -1,45 +1,33 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { State } from '../store'
+import React from "react";
 
-type Props={
-    roleRequired: 'ADMIN' |  'USER',
-    message:string,
-    children?:React.ReactNode
-}
-  
+type Props = {
+  roleRequired: "ADMIN" | "USER";
+  message: string;
+  children?: React.ReactNode;
+};
 
-const useRole=()=>{
-  let user: any
-  const userdetails =localStorage.getItem("user")
-  if(userdetails){
-    user = JSON.parse(userdetails)
+const useRole = () => {
+  let user: any;
+  const userdetails = localStorage.getItem("user");
+  if (userdetails) {
+    user = JSON.parse(userdetails);
   }
-  if (user){
-    return user.role
+  if (user) {
+    return user.role;
+  } else {
+    return "NO USER";
   }
-  else{
-    return "No USER";
-  }
-}
+};
 
+const WithPermission = (props: Props) => {
+  const { roleRequired, message, children } = props;
+  console.log(roleRequired);
+  const role = useRole();
+  console.log(role);
 
-
-
-const WithPermission=(props : Props)=> {
-  // const user= useSelector((state:State) => state.userdata);
-  // const userdetails : any=localStorage.getItem("user")
-
-  const {roleRequired,message,children} =props
-  const role = useRole()
-   
   return (
-    <>
-    {
-      roleRequired === role ? children :<h3>{message ? message: ''}</h3>
-    }
-    </>
-  )
-}
+    <>{roleRequired === role ? children : <h3>{message ? message : ""}</h3>}</>
+  );
+};
 
 export default WithPermission;

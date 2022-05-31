@@ -33,11 +33,12 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 
 const useAuth=()=>{
-  //get item from localstorage    
-
-  let user: any
+  //get item from localstorage  
   
   const _user =localStorage.getItem("user")
+
+  let user: any
+
   console.log(_user)
 
   if(_user){
