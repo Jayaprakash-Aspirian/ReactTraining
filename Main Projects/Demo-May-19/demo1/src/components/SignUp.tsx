@@ -1,6 +1,9 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { allusersdata } from "../axios/datas";
 
 type State = {
   firstname: string;
@@ -11,35 +14,40 @@ type State = {
   mobile: string;
 };
 
+
+
 const SignUp = () => {
+  
   const { t } = useTranslation();
   const [firstname, setFName] = useState("");
   const [lastname, setLName] = useState("");
   const [email, setEmail] = useState("");
+  const [users, setUsers] = useState<any>();
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [mobile, setMobile] = useState("");
 
-  const SubmitForm = () => {
+
+  useEffect(() => {
+      const getval = allusersdata.then(
+        (value:any)=>{
+      setUsers(value)
+    }
+  )
+  }, []);
+
+  const SubmitForm = (e:any) => {    
     const datas = {
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password,
-      mobile: mobile,
-    };
-    console.log(datas);
-    const a = JSON.stringify(datas);
-    console.log(a);
-    const axios = require("axios");
-    axios
-      .post("http://localhost:3000/users", {
-        firstname: " Ara",
-        lastname: "a",
-        email: "kumar12@gmailcom",
-        password: "asdfghjk",
-        mobile: "63824097890",
-      })
+        id:users.length+1,
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+        mobile: mobile,
+        role :" USER"
+      };
+      axios
+      .post("http://localhost:3000/users", datas)
       .then((resp: any) => {
         console.log(resp.data);
       })
@@ -65,7 +73,7 @@ const SignUp = () => {
                       type="text"
                       className="form-control"
                       id="firstname"
-                      placeholder={t("enter_mobile")}
+                      placeholder={t("enter_firstname")}
                       onChange={(e) => setFName(e.target.value)}
                       required
                     />
@@ -75,7 +83,7 @@ const SignUp = () => {
                       type="text"
                       className="form-control"
                       id="lastname"
-                      placeholder={t("enter_password")}
+                      placeholder={t("enter_lastname")}
                       onChange={(e) => setLName(e.target.value)}
                       required
                     />

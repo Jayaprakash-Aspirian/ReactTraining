@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { usersdata } from "../datas/datas";
 import { UserData } from "../store/action-creators";
+import { Person } from "./types/typesimport";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ const Login = () => {
     usersdata.map((data) => {
       authenticate(data.mobile, data.password, data.role, data);
     });
-    if (useris == "") {
+    if (useris === "") {
       console.log("it's not a user");
     }
   };

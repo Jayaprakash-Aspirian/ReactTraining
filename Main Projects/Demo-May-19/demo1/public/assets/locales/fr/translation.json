@@ -45,5 +45,7 @@
     "logged_in_as":"connecté en tant que",
     "enter_mobile":"Entrez le numéro de portable",
     "enter_password":"Entrer le mot de passe",
+    "enter_firstname":"Entrez le prénom",
+    "enter_lastname":"Entrez le nom de famille",
     "hi": "Salut"
 }

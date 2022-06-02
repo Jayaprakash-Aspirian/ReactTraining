@@ -44,5 +44,7 @@
     "logged_in_as":"Logged in as",
     "enter_mobile":"Enter the mobile number",
     "enter_password":"Enter the Password",
+    "enter_firstname":"Enter the Firstname",
+    "enter_lastname":"Enter the Lastname",
     "hi":"Hi"
 }

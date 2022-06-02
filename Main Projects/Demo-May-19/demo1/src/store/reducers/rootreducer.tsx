@@ -11,4 +11,3 @@ export const userReducer = (state: string = initialState, action: Action) => {
       return state;
   }
 };
-

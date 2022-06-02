@@ -1,55 +1,91 @@
 {
   "users": [
     {
-      "firstname":"Kumar",
-      "lastname" :"a",
-      "email":"kumar12@gmailcom",
+      "id": 1,
+      "firstname": "Kumar",
+      "lastname": "a",
+      "email": "kumar12@gmailcom",
       "password": "asdfghjk",
-      "mobile" : "6382409787",
-      "role" :"USER",
-      "account" :"icici",
-      "amount" :"10000"
-  },
-  {
-      "firstname":"Kannan",
-      "lastname" :"a",
-      "email":"kum2312@gmailcom",
+      "mobile": "6382409787",
+      "role": "USER",
+      "account": "icici",
+      "amount": "10000"
+    },
+    {
+      "id": 2,
+      "firstname": "Kannan",
+      "lastname": "a",
+      "email": "kum2312@gmailcom",
       "password": "asdfghjk",
-      "mobile" : "6382403456",
-      "role" :"USER",
-      "account" :"sbi",
-      "amount" :"50000"
-  },
-  {
-      "firstname":"Kavin",
-      "lastname" :"a",
-      "email":"kavin2312@gmailcom",
+      "mobile": "6382403456",
+      "role": "USER",
+      "account": "sbi",
+      "amount": "50000"
+    },
+    {
+      "id": 3,
+      "firstname": "Kavin",
+      "lastname": "a",
+      "email": "kavin2312@gmailcom",
       "password": "asdfghjk",
-      "mobile" : "6382401234",
-      "role" :"ADMIN"
-  }
+      "mobile": "6382401234",
+      "role": "ADMIN"
+    },
+    {
+      "id": 4,
+      "firstname": "indra",
+      "lastname": "s",
+      "email": "indra4112000@gmail.com",
+      "password": "asdfghjk",
+      "mobile": "6382409787",
+      "role": "USER"
+    },
+    {
+      "id": 5,
+      "firstname": "naveen",
+      "lastname": "s",
+      "email": "naven4112000@gmail.com",
+      "password": "asdfghjk",
+      "mobile": "6387389327",
+      "role": " USER"
+    },
+    {
+      "id": 6,
+      "firstname": "kamal",
+      "lastname": "s",
+      "email": "kamal4112000@gmail.com",
+      "password": "asd",
+      "mobile": "63348909787",
+      "role": " USER"
+    },
+    {
+      "id": 7,
+      "firstname": "venky",
+      "lastname": "s",
+      "email": "venky4112000@gmail.com",
+      "password": "asdfghjk",
+      "mobile": "6387789908",
+      "role": " USER"
+    }
   ],
-
-
-  "transaction-history":[
+  "transaction-history": [
     {
-    "from" : "6382409787",
-    "to" : "6382403456",
-    "sentmoney" : "10",
-    "date" :"Thu May 26 2022 09:36:14"
+      "from": "6382409787",
+      "to": "6382403456",
+      "sentmoney": "10",
+      "date": "Thu May 26 2022 09:36:14"
     },
     {
-      "from" : "6382403456",
-      "to" : "6382409787",
-      "sentmoney" : "30",
-      "date" :"Thu May 27 2022 12:30:10"
+      "from": "6382403456",
+      "to": "6382409787",
+      "sentmoney": "30",
+      "date": "Thu May 27 2022 12:30:10"
     },
     {
-      "from" : "6382409123",
-      "to" : "6382403456",
-      "sentmoney" : "20",
-      "date" : "Thu May 28 2022 10:20:40"
+      "from": "6382409123",
+      "to": "6382403456",
+      "sentmoney": "20",
+      "date": "Thu May 28 2022 10:20:40"
     }
   ]
 }
-

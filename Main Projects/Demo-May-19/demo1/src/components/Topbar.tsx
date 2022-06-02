@@ -118,7 +118,10 @@ const Topbar = () => {
 
               {languages.map(({ code, name, country_code }) => (
                 <li key={country_code}>
-                  <a>
+                  <a                     
+                    onClick={() => {
+                      i18next.changeLanguage(code)
+                    }}>
                     <span
                       className={`flag-icon flag-icon-${country_code} mx-2`}
                       style={{

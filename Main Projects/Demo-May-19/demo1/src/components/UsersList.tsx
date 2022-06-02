@@ -13,48 +13,49 @@ const UsersList = () => {
   const baseURL = "http://localhost:3000/users/";
 
   const SentAmount = () => {
-    console.log(amount + "amount sent to");
+    console.log(amount + "amount sent ");
   };
 
   useEffect(() => {
-   axios.get(baseURL).then((response) => {
-    const val = response.data;
+    axios.get(baseURL).then((response) => {
+      const val = response.data;
+      console.log(val.length)
 
-    setPost(
-      val.map((datas: Person, index: any) => {
-        if (user.mobile === datas.mobile) {
-          return;
-        } else {
-          return (
-            <div>
-              <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                <div className="text-uppercase">
-                  {datas.firstname} {datas.lastname} - {datas.mobile}
-                  <pre></pre>
-                  <input
-                    type="number"
-                    onChange={(e) => setAmount(e.target.value)}
-                    style={{ width: "30%" }}
-                  ></input>
-                  <br />
-                  <div
-                    className="btn btn-primary text-uppercase"
-                    style={{ color: "green" }}
-                    onClick={({}) => {
-                      SentAmount();
-                    }}
-                  >
-                    {t("sent_money")}
+      setPost(
+        val.map((datas: Person, index: any) => {
+          if (user.mobile === datas.mobile) {
+            return;
+          } else {
+            return (
+              <div>
+                <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+                  <div className="text-uppercase">
+                    {datas.firstname} {datas.lastname} - {datas.mobile}
+                    <pre></pre>
+                    <input
+                      type="number"
+                      onChange={(e) => setAmount(e.target.value)}
+                      style={{ width: "30%" }}
+                    ></input>
+                    <br />
+                    <div
+                      className="btn btn-primary text-uppercase"
+                      style={{ color: "green" }}
+                      onClick={({}) => {
+                        SentAmount();
+                      }}
+                    >
+                      {t("sent_money")}
+                    </div>
                   </div>
                 </div>
+                <hr />
               </div>
-              <hr />
-            </div>
-          );
-        }
-      })
-    );
-  });
+            );
+          }
+        })
+      );
+    });
   }, []);
 
   return (

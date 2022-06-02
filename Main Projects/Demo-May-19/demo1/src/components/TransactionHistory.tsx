@@ -21,7 +21,7 @@ const TransactionHistory = () => {
               <div className="order my-3 bg-light" key={index}>
                 <div className="column">
                   <div className="col-lg-8">
-                    <div className="d-flex flex-column justify-content-between order-summary">
+                    <div className="d-flex flex-column justify-content-between order-summary" >
                       <div>
                         <div className="d-flex align-items-center">
                           <div className="text-uppercase">{post.to}</div>
@@ -114,6 +114,7 @@ const TransactionHistory = () => {
         })
       );
     });
+    
   }, []);
   return (
     <>
