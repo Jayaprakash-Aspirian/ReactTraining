@@ -15,7 +15,6 @@ type State = {
 };
 
 
-
 const SignUp = () => {
   
   const { t } = useTranslation();

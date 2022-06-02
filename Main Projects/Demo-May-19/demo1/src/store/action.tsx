@@ -1,7 +1,7 @@
 import { Person } from "../components/types/typesimport";
 import { ActionType } from "./action-types/ActionTypes";
 
-interface UserDataAction {
+export interface UserDataAction {
   type: ActionType.USERDATA;
   payload: string;
 }

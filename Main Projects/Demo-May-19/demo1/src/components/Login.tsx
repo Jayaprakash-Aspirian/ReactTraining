@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { usersdata } from "../datas/datas";
+import { allusersdata } from "../axios/datas";
 import { UserData } from "../store/action-creators";
-import { Person } from "./types/typesimport";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -13,9 +12,18 @@ const Login = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [useris, setUseris] = useState<string>();
+  const [users, setUsers] = useState<any>();
+  
+  useEffect(() => {
+      const getval = allusersdata.then(
+        (value:any)=>{
+      setUsers(value)
+    }
+  )
+  }, []);
 
   const AuthenticateLogin = () => {
-    usersdata.map((data) => {
+    users.map((data:any) => {
       authenticate(data.mobile, data.password, data.role, data);
     });
     if (useris === "") {
@@ -29,7 +37,8 @@ const Login = () => {
     data: any
   ) => {
     if (val1 === mobile && val2 === password) {
-      setUseris(val1);
+      console.log(val1)
+     
       dispatch(UserData(val1));
 
       localStorage.setItem("user", JSON.stringify(data));

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import {  useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
 import WithPermission from "../routes/WithPermission";
-import { State } from "../store";
+// import { State } from "../store";
 import { languages } from "./Languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
@@ -10,7 +10,7 @@ import i18next from "i18next";
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const usermobile = useSelector((state: State) => state.userdata);
+  const usermobile = useSelector((state:any) => state.userdata);
   const datas: any = localStorage.getItem("user");
   const user = JSON.parse(datas);
 
