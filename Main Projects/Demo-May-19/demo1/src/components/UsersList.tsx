@@ -3,8 +3,15 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Welcome from "./Welcome";
 import { Person } from "./types/typesimport";
+import { useDispatch, useSelector } from "react-redux";
+import { features } from "process";
+// import fetchusersLogic from "../store/logic/all-users-data-logic";
 
 const UsersList = () => {
+
+  const dispatch = useDispatch()
+  const [users, setUsers] = useState<any>();
+
   const { t } = useTranslation();
   const userdetails: any = localStorage.getItem("user");
   const user = JSON.parse(userdetails);
@@ -12,9 +19,23 @@ const UsersList = () => {
   const [post, setPost] = useState();
   const baseURL = "http://localhost:3000/users/";
 
+  const usersare= useSelector((state:any) => state.usersdata);
+
   const SentAmount = () => {
     console.log(amount + "amount sent ");
   };
+
+//////
+
+  console.log("start")
+
+  
+  // dispatch(fetchusersLogic);
+  console.log(usersare)
+  
+
+  console.log("exit")
+//////////
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {

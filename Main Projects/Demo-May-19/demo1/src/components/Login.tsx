@@ -39,7 +39,7 @@ const Login = () => {
     if (val1 === mobile && val2 === password) {
       console.log(val1)
      
-      dispatch(UserData(val1));
+      // dispatch(UserData(val1));
 
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/dashboard");

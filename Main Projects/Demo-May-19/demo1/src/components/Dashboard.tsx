@@ -4,12 +4,13 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { allusersdata } from "../axios/datas";
+import { usersFetchLogic } from "../store/logic/all-users-logic";
 import { Person } from "./types/typesimport";
 import Welcome from "./Welcome";
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   // const [users, setUsers] = useState<any>();
 
   // console.log(typeof(allusersdata))
@@ -37,10 +38,16 @@ const Dashboard = () => {
   //   console.log(data.firstname)
   // })
   // console.log(allusersdata)
-   
-  
+  useEffect(() => {  
+    dispatch(usersFetchLogic);
+  }, []);
 
-  
+  const allusersare = useSelector((state:any) => state.allusersdata);
+  console.log(allusersare)
+
+  console.log("need")
+
+
 
   return (
     <>

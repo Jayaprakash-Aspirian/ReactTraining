@@ -11,9 +11,9 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector'
 import HttpApi from 'i18next-http-backend'
-import { store } from "./store/store";
 import Sidebar from "./components/Sidebar";
 import WithPermission from "./routes/WithPermission";
+import configureStore from "./store/store";
 
 
 i18next
@@ -32,13 +32,13 @@ i18next
     },
   })
 
+
+
 function App() {
-  
-  
   return (
     < >
      <Suspense fallback={loadingMarkup}>
-      <Provider store={store}>
+      <Provider store={(configureStore())}>
        <Router>
         <div className="row">
           <Topbar />
@@ -57,3 +57,5 @@ function App() {
 }
 
 export default App;
+
+
