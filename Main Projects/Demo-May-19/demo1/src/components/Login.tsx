@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { allusersdata } from "../axios/datas";
-import { UserData } from "../store/action-creators";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -38,9 +37,7 @@ const Login = () => {
   ) => {
     if (val1 === mobile && val2 === password) {
       console.log(val1)
-     
       // dispatch(UserData(val1));
-
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/dashboard");
     }

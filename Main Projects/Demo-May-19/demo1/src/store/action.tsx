@@ -40,7 +40,26 @@ interface CanceledUsersDataAction{
  
 }
 
+interface AllTransactionsDataAction {
+  type: ActionType.TRANSACTIONS_FETCH ;
+}
+
+interface SuccessAllTransactionsDataAction{
+  type:ActionType.TRANSACTIONS_FETCH_CANCEL;
+  payload:any
+}
+
+interface RejectedTransactionsDataAction{
+  type:ActionType.TRANSACTIONS_FETCH_FULLFILLED;
+  payload:any
+}
+interface CanceledTransactionsDataAction{
+  type:ActionType.TRANSACTIONS_FETCH_REJECTED;
+}
+
+
 
 export type Action = UserDataAction;
 export type UsersAction =  UsersDataAction | SuccessUsersDataAction  | FailedUsersDataAction ;
 export type AllUsersAction = AllUsersDataAction | SuccessAllUsersDataAction | RejectedUsersDataAction |CanceledUsersDataAction ; 
+export type AllTransactionsAction = AllTransactionsDataAction | SuccessAllTransactionsDataAction | RejectedTransactionsDataAction |CanceledTransactionsDataAction ; 
