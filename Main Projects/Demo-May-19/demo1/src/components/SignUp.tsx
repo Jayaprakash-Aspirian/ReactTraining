@@ -109,7 +109,7 @@ const SignUp = () => {
                       type="password"
                       className="form-control"
                       id="confirmpassword"
-                      placeholder="Confirm-password"
+                      placeholder="Confirm password"
                       onChange={(e) => setConfirmpassword(e.target.value)}
                     />
                   </div>

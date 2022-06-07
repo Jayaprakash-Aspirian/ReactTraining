@@ -14,7 +14,6 @@ const UsersList = () => {
   const userdetails: any = localStorage.getItem("user");
   const user = JSON.parse(userdetails);
   const [amount, setAmount] = useState("");
-  const baseURL = "http://localhost:3000/users/";
 
   const SentAmount = () => {
     console.log(amount + "amount sent ");
@@ -31,7 +30,6 @@ const UsersList = () => {
     return user.mobile !== datas.mobile ; 
   })
 
-  console.log(withoutuserdata)
   const usersdatas  = withoutuserdata.map((datas :any) =>
     <div>
       <div className="d-sm-flex align-items-sm-start justify-content-sm-between">

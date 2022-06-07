@@ -20,7 +20,6 @@ const Sidebar = () => {
                   location.pathname.includes("/dashboard") ? "active" : ""
                 }
               >
-          
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="fas fa-box pt-2 me-3"></div>
                   <div className="d-flex flex-column">
