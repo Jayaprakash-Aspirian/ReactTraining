@@ -66,6 +66,15 @@
       "password": "asdfghjk",
       "mobile": "6387789908",
       "role": " USER"
+    },
+    {
+      "id": 8,
+      "firstname": "madhu",
+      "lastname": "a",
+      "email": "madhu123@gmailcom",
+      "password": "asdfghjk",
+      "mobile": "63982735232",
+      "role": " USER"
     }
   ],
   "transaction-history": [

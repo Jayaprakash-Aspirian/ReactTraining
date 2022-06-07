@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { allusersdata } from "../axios/datas";
+import { usersFetchLogic } from "../store/logic/all-users-logic";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -11,18 +11,15 @@ const Login = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [useris, setUseris] = useState<string>();
-  const [users, setUsers] = useState<any>();
   
-  useEffect(() => {
-      const getval = allusersdata.then(
-        (value:any)=>{
-      setUsers(value)
-    }
-  )
+  useEffect(() => {  
+    dispatch(usersFetchLogic);
   }, []);
 
+  const allusersare = useSelector((state:any) => state.allusersdata.list);
+
   const AuthenticateLogin = () => {
-    users.map((data:any) => {
+    allusersare.map((data:any) => {
       authenticate(data.mobile, data.password, data.role, data);
     });
     if (useris === "") {
@@ -38,6 +35,7 @@ const Login = () => {
     if (val1 === mobile && val2 === password) {
       console.log(val1)
       // dispatch(UserData(val1));
+      setUseris(val1)
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/dashboard");
     }

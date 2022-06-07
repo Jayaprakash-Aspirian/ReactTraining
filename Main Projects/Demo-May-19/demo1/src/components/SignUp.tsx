@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { allusersdata } from "../axios/datas";
+import { usersFetchLogic } from "../store/logic/all-users-logic";
 
 type State = {
   firstname: string;
@@ -18,26 +18,23 @@ type State = {
 const SignUp = () => {
   
   const { t } = useTranslation();
+  const dispatch = useDispatch()
   const [firstname, setFName] = useState("");
   const [lastname, setLName] = useState("");
   const [email, setEmail] = useState("");
-  const [users, setUsers] = useState<any>();
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [mobile, setMobile] = useState("");
 
-
-  useEffect(() => {
-      const getval = allusersdata.then(
-        (value:any)=>{
-      setUsers(value)
-    }
-  )
+  useEffect(() => {  
+    dispatch(usersFetchLogic);
   }, []);
 
+  const allusersare = useSelector((state:any) => state.allusersdata.list);
+  
   const SubmitForm = (e:any) => {    
     const datas = {
-        id:users.length+1,
+        id:allusersare.length+1,
         firstname: firstname,
         lastname: lastname,
         email: email,
