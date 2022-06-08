@@ -1,19 +1,19 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import AccountBalance from "../components/AccountBalance";
-import Contact from "../components/Contact";
-import Dashboard from "../components/Dashboard";
-import Login from "../components/Login";
-import PermissionDenied from "../components/PermissionDenied";
-import Profile from "../components/Profile";
-import Promotions from "../components/Promotions";
-import Sidebar from "../components/Sidebar";
-import SignUp from "../components/SignUp";
-import Topbar from "../components/Topbar";
-import TransactionHistory from "../components/TransactionHistory";
-import UsersList from "../components/UsersList";
-import ProtectedRoutes from "./ProtectedRoutes";
-import PublicRoutes from "./PublicRoutes";
+import AccountBalance from "../components/accountBalance";
+import Contact from "../components/contact";
+import Dashboard from "../components/dashboard";
+import Login from "../components/login";
+import PermissionDenied from "../components/permissionDenied";
+import Profile from "../components/profile";
+import Promotions from "../components/promotions";
+import Sidebar from "../components/sidebar";
+import SignUp from "../components/signUp";
+import Topbar from "../components/topbar";
+import TransactionHistory from "../components/transactionHistory";
+import UsersList from "../components/usersList";
+import ProtectedRoutes from "./protectedRoutes";
+import PublicRoutes from "./publicRoutes";
 
 const MainRoutes = () => {
   return (

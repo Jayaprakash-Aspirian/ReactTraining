@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Welcome from "./Welcome";
+import Welcome from "./welcome";
 
 const Promotions = () => {
   const { t } = useTranslation();

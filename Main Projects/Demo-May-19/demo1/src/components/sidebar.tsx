@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link, Outlet, useLocation} from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -36,7 +36,6 @@ const Sidebar = () => {
               <li
                 className={location.pathname === "/userslist" ? "active" : ""}
               >
-            
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="far fa-address-book pt-2 me-3"></div>
                   <div className="d-flex flex-column">
@@ -51,7 +50,6 @@ const Sidebar = () => {
               style={{ textDecoration: "inherit", color: "white" }}
             >
               <li className={location.pathname === "/profile" ? "active" : ""}>
-                
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="far fa-user pt-2 me-3"></div>
                   <div className="d-flex flex-column">
@@ -66,7 +64,6 @@ const Sidebar = () => {
               style={{ textDecoration: "inherit", color: "white" }}
             >
               <li className={location.pathname === "/contact" ? "active" : ""}>
-                
                 <div className="text-decoration-none d-flex align-items-start">
                   <div className="fas fa-headset pt-2 me-3"></div>
                   <div className="d-flex flex-column">

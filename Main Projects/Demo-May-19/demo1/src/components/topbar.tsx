@@ -1,18 +1,16 @@
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import WithPermission from "../routes/WithPermission";
-import { languages } from "./Languages";
+import WithPermission from "../routes/withPermission";
+import { languages } from "./languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
 
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const usermobile = useSelector((state: any) => state.userdata);
   const datas: any = localStorage.getItem("user");
   const user = JSON.parse(datas);
-  const currentLanguageCode = cookies.get("i18next") || "en";
+  const currentLanguageCode = cookies.get("i18next");
 
   const GlobeIcon = ({ width = 24, height = 24 }) => (
     <svg
@@ -88,7 +86,7 @@ const Topbar = () => {
                       id="dropdownMenuButton1"
                       data-bs-toggle="dropdown"
                     >
-                      {t("hi")} {user && usermobile ? usermobile : ""},
+                      {t("hi")} {user && user.mobile ? user.mobile : ""},
                     </button>
                     <ul className="dropdown-content" onClick={logout}>
                       <li>
@@ -115,19 +113,19 @@ const Topbar = () => {
               <hr />
 
               {languages.map(({ code, name, country_code }) => (
-                <li key={country_code}                       
-                style={{
-                  backgroundColor : currentLanguageCode === code ? "#55009b" : "",
-                  color: currentLanguageCode === code ? "white" : ""
-                }}>
+                <li
+                  key={country_code}
+                  style={{
+                    backgroundColor:
+                      currentLanguageCode === code ? "#55009b" : "",
+                    color: currentLanguageCode === code ? "white" : "",
+                  }}
+                >
                   <a
                     onClick={() => {
                       i18next.changeLanguage(code);
                     }}
                   >
-                    {/* <span
-                      className={`flag-icon flag-icon-${country_code} mx-2`}
-                    ></span> */}
                     {name}
                   </a>
                 </li>

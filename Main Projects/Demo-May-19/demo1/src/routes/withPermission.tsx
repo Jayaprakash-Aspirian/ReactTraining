@@ -21,9 +21,7 @@ const useRole = () => {
 
 const WithPermission = (props: Props) => {
   const { roleRequired, message, children } = props;
-  console.log(roleRequired);
   const role = useRole();
-  console.log(role);
 
   return (
     <>{roleRequired === role ? children : <h3>{message ? message : ""}</h3>}</>

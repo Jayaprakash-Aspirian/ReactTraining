@@ -24,6 +24,9 @@ function App() {
       <hr />
       <UpdatedClickCounter  name="Kavin"/>
       <UpdatedHoverCounter />
+      <div className='horedstr'> </div>
+      <div className='ukflag'></div>
+
     </div>
   ); 
 }

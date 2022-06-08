@@ -5,20 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
 
-type State = {
-  firstname: string;
-  lastname: string;
-  email: any;
-  passwrord: any;
-  confirmpassword: any;
-  mobile: string;
-};
-
-
 const SignUp = () => {
-  
   const { t } = useTranslation();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [firstname, setFName] = useState("");
   const [lastname, setLName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,23 +15,23 @@ const SignUp = () => {
   const [confirmpassword, setConfirmpassword] = useState("");
   const [mobile, setMobile] = useState("");
 
-  useEffect(() => {  
+  useEffect(() => {
     dispatch(usersFetchLogic);
   }, []);
 
-  const allusersare = useSelector((state:any) => state.allusersdata.list);
-  
-  const SubmitForm = (e:any) => {    
+  const allusersare = useSelector((state: any) => state.allusersdata.list);
+
+  const SubmitForm = () => {
     const datas = {
-        id:allusersare.length+1,
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
-        mobile: mobile,
-        role :" USER"
-      };
-      axios
+      id: allusersare.length + 1,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      password: password,
+      mobile: mobile,
+      role: " USER",
+    };
+    axios
       .post("http://localhost:3000/users", datas)
       .then((resp: any) => {
         console.log(resp.data);
@@ -50,6 +39,7 @@ const SignUp = () => {
       .catch((error: any) => {
         console.log(error);
       });
+    alert("Account created Successfully");
   };
 
   let navigate = useNavigate();

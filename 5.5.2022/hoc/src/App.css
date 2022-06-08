@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+ 
+.ukflag{
+  background: #00257d;
+	width: 200px;
+  height: 238px;
+  z-index: 990;
+}
+
+.horedstr{
+	background: #ff0000;
+  position: absolute;
+  margin-top: 50px;
+  width: 200px;
+  height: 20px;
+  z-index: 999;
+}

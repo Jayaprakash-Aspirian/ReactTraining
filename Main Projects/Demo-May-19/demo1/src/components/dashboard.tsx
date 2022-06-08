@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-import Welcome from "./Welcome";
+import Welcome from "./welcome";
 
 const Dashboard = () => {
   const { t } = useTranslation();

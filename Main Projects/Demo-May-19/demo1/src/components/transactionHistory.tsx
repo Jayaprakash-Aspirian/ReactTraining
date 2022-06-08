@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
 import { Transactions } from "./types/typesimport";
-import Welcome from "./Welcome";
+import Welcome from "./welcome";
 
 const TransactionHistory = () => {
   const { t } = useTranslation();

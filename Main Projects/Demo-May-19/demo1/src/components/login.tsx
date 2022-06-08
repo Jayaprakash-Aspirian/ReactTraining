@@ -10,35 +10,31 @@ const Login = () => {
   const dispatch = useDispatch();
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
-  const [useris, setUseris] = useState<string>();
-  
-  useEffect(() => {  
+  const [mobileError, setMobileError] = useState<string>();
+  const [passwordError, setPasswordError] = useState<string>();
+
+  useEffect(() => {
     dispatch(usersFetchLogic);
   }, []);
 
-  const allusersare = useSelector((state:any) => state.allusersdata.list);
+  const allusersare = useSelector((state: any) => state.allusersdata.list);
 
-  const AuthenticateLogin = () => {
-    allusersare.map((data:any) => {
-      authenticate(data.mobile, data.password, data.role, data);
-    });
-    if (useris === "") {
-      console.log("it's not a user");
-    }
-  };
-  const authenticate = (
-    val1: string,
-    val2: string,
-    role: string,
-    data: any
-  ) => {
-    if (val1 === mobile && val2 === password) {
-      console.log(val1)
-      // dispatch(UserData(val1));
-      setUseris(val1)
-      localStorage.setItem("user", JSON.stringify(data));
+  const AuthenticateLogin = (e: any) => {
+    const useris = allusersare.find(
+      (data: any) => data.mobile === mobile && data.password === password
+    );
+    const mobileis = allusersare.find((data: any) => data.mobile === mobile);
+    if (useris) {
+      localStorage.setItem("user", JSON.stringify(useris));
       navigate("/dashboard");
+    } else if (mobileis) {
+      setMobileError(undefined);
+      setPasswordError("Invalid Password");
+    } else {
+      setMobileError("Invalid Mobile Number");
+      setPasswordError(undefined);
     }
+    e.preventDefault();
   };
 
   return (
@@ -61,6 +57,9 @@ const Login = () => {
                       name="phone"
                       onChange={(e) => setMobile(e.target.value)}
                     />
+                    {mobileError ? (
+                      <h5 style={{ color: "red" }}>{mobileError}</h5>
+                    ) : null}
                   </div>
                   <div className="form-group">
                     <input
@@ -71,7 +70,11 @@ const Login = () => {
                       name="password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
+                    {passwordError ? (
+                      <h5 style={{ color: "red" }}>{passwordError}</h5>
+                    ) : null}
                   </div>
+                  <br />
                   <div className="d-flex flex-row align-items-center justify-content-between">
                     <a
                       className="btn btn-secondary"
