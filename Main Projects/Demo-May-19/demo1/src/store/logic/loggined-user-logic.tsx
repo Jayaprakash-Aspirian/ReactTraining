@@ -8,10 +8,6 @@ export const adduserLogic = createLogic({
   latest: true,
 
   process({ getState, action }, dispatch, done) {
-    console.log("start")
-    console.log(action)
-    console.log(action)
-    console.log("end")
     axios
       .get(`http://localhost:3000/users/`)
       .then((resp) => resp.data.polls)
