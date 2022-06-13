@@ -8,4 +8,11 @@ export enum ActionType {
   TRANSACTIONS_FETCH_CANCEL = "fetchcanceltransactionsdata",
   TRANSACTIONS_FETCH_FULLFILLED = "fetchfullfilledtransactionsdata",
   TRANSACTIONS_FETCH_REJECTED = "fetchrejectedtransactionsdata",
+
+  USER_FETCH = "fetchuserdata",
+  USER_FETCH_CANCEL = "fetchcanceluserdata",
+  USER_FETCH_FULLFILLED = "fetchfullfilleduserdata",
+  USER_FETCH_REJECTED = "fetchrejecteduserdata",
+
+  LOGGINED_USER_DATA= "loggineduserdata"
 }

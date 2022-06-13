@@ -8,7 +8,7 @@ const Welcome = () => {
   const [UserData, setUserData] = useState({} as Person);
   const [data, setData] = useState<any>([]);
 
-  const datas: any = localStorage.getItem("user");
+  const datas: any = sessionStorage.getItem("user");
   const user = JSON.parse(datas);
 
   const baseURL = "http://localhost:3000/users/";

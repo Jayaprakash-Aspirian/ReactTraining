@@ -1,14 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import WithPermission from "../routes/withPermission";
-import { languages } from "./languages";
+import { languages } from "../translation-i18next/languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
 
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const datas: any = localStorage.getItem("user");
+  const datas: any = sessionStorage.getItem("user");
   const user = JSON.parse(datas);
   const currentLanguageCode = cookies.get("i18next");
 
@@ -26,7 +26,7 @@ const Topbar = () => {
   );
 
   const logout = () => {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     navigate("/login");
   };
 

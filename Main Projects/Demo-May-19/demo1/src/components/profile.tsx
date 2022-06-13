@@ -6,7 +6,7 @@ import Welcome from "./welcome";
 const TransactionHistory = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const datas: any = localStorage.getItem("user");
+  const datas: any = sessionStorage.getItem("user");
   useEffect(() => {
     setUserData(JSON.parse(datas));
   }, []);

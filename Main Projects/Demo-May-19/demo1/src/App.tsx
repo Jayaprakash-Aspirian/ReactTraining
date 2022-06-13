@@ -5,7 +5,7 @@ import "./App.css";
 import Topbar from "./components/topbar";
 import { loadingMarkup } from "./loading-markup";
 import MainRoutes from "./routes/mainRoutes";
-import "./translation";
+import "./translation-i18next/translation";
 import configureStore from "./store/store";
 
 function App() {

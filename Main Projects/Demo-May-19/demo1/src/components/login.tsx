@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Userdetails } from "../store/actions/user-details";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
+import { adduserLogic } from "../store/logic/loggined-user-logic";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -18,14 +20,27 @@ const Login = () => {
   }, []);
 
   const allusersare = useSelector((state: any) => state.allusersdata.list);
-
+  
   const AuthenticateLogin = (e: any) => {
     const useris = allusersare.find(
       (data: any) => data.mobile === mobile && data.password === password
     );
     const mobileis = allusersare.find((data: any) => data.mobile === mobile);
-    if (useris) {
-      localStorage.setItem("user", JSON.stringify(useris));
+    console.log(mobileis)
+    console.log(useris)
+    useEffect(() => {
+      dispatch(adduserLogic);
+    }, []);
+    if (useris) { 
+      // dispatch(userdetails(JSON.stringify(useris)));
+      // dispatch(Userdetails(useris));
+      
+      // useEffect(() => {
+      //   dispatch(adduserLogic);
+      // }, []);
+
+      Userdetails(useris)
+      sessionStorage.setItem("user", JSON.stringify(useris));
       navigate("/dashboard");
     } else if (mobileis) {
       setMobileError(undefined);

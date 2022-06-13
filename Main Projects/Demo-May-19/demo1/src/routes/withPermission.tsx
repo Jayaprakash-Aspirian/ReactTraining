@@ -8,7 +8,7 @@ type Props = {
 
 const useRole = () => {
   let user: any;
-  const userdetails = localStorage.getItem("user");
+  const userdetails = sessionStorage.getItem("user");
   if (userdetails) {
     user = JSON.parse(userdetails);
   }

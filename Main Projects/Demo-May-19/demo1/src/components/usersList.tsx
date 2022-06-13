@@ -11,7 +11,7 @@ import { DateTime } from "luxon";
 const UsersList = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const userdetails: any = localStorage.getItem("user");
+  const userdetails: any = sessionStorage.getItem("user");
   const user = JSON.parse(userdetails);
   const [amount, setAmount] = useState<any>();
 

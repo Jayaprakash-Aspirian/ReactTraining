@@ -34,6 +34,13 @@ interface CanceledTransactionsDataAction {
   type: ActionType.TRANSACTIONS_FETCH_REJECTED;
 }
 
+interface LogginedUserData{
+  type: ActionType.LOGGINED_USER_DATA;
+  payload:any;
+}
+
+export type UserDataAction = LogginedUserData
+
 export type AllUsersAction =
   | AllUsersDataAction
   | SuccessAllUsersDataAction
