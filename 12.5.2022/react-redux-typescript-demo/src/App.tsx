@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch()
 
   const { depositMoney, withdrawMoney , bankrupt } = bindActionCreators(actionCreators,dispatch);
+  
 
   const amount = useSelector((state:State) => state.bank)
 

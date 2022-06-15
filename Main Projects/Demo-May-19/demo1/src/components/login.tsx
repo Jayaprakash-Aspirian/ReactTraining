@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { applyMiddleware } from "redux";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
-import { adduserLogic } from "../store/logic/loggined-user-logic";
+import { LoginValidation } from "../validation/login-validation";
+import api from '../services/services-data'
 
 const Login = () => {
   const { t } = useTranslation();
@@ -13,6 +15,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [mobileError, setMobileError] = useState<string>();
   const [passwordError, setPasswordError] = useState<string>();
+  const [clientErrors, setClientErrors] = useState("");
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     dispatch(usersFetchLogic);
@@ -25,8 +29,23 @@ const Login = () => {
       (data: any) => data.mobile === mobile && data.password === password
     );
     const mobileis = allusersare.find((data: any) => data.mobile === mobile);
+    const data = { mobile : mobile , password :password}
+    const validation = LoginValidation(mobile,password)
+    
+    if (validation) {
+      setClientErrors(validation)
+    }else{
+      api.authenticateuser(data)
+      
+     
+      debugger;
+
+    }
+    
     if (useris) { 
       sessionStorage.setItem("user", JSON.stringify(useris));
+      console.log('session');
+      debugger;
       navigate("/dashboard");
     } else if (mobileis) {
       setMobileError(undefined);

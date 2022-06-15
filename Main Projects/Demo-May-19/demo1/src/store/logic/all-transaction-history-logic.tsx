@@ -1,16 +1,16 @@
 import axios from "axios";
 import { createLogic } from "redux-logic";
-import { ActionType } from "../action-types/action-types";
+import { CANCEL_GET_TRANSACTIONS_ACTIVITY, FULLFILLED_GET_TRANSACTIONS_ACTIVITY, GET_TRANSACTIONS_ACTIVITY, REJECTED_GET_TRANSACTIONS_ACTIVITY } from "../activity.actions";
 
 export const transactionsFetchLogic = createLogic({
-  type: ActionType.TRANSACTIONS_FETCH,
-  cancelType: ActionType.TRANSACTIONS_FETCH_CANCEL,
+  type: GET_TRANSACTIONS_ACTIVITY,
+  cancelType: CANCEL_GET_TRANSACTIONS_ACTIVITY,
   latest: true,
 
   processOptions: {
     dispatchReturn: true,
-    successType: ActionType.TRANSACTIONS_FETCH_FULLFILLED,
-    failType: ActionType.TRANSACTIONS_FETCH_REJECTED,
+    successType: FULLFILLED_GET_TRANSACTIONS_ACTIVITY,
+    failType:REJECTED_GET_TRANSACTIONS_ACTIVITY ,
   },
 
   async process() {

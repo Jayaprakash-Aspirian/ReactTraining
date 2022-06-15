@@ -8,7 +8,7 @@ import Welcome from "./welcome";
 const TransactionHistory = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const datas: any = sessionStorage.getItem("user");
+  const datas: any =sessionStorage.getItem("user");
   const userdetails = JSON.parse(datas);
 
   useEffect(() => {

@@ -1,15 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import WithPermission from "../routes/withPermission";
+import WithPermission from "./withPermission";
 import { languages } from "../translation-i18next/languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
 
 const Topbar = () => {
+  
+  localStorage.removeItem("user")
   const { t } = useTranslation();
   const navigate = useNavigate();
   const datas: any = sessionStorage.getItem("user");
   const user = JSON.parse(datas);
+  console.log(user)
   const currentLanguageCode = cookies.get("i18next");
 
   const GlobeIcon = ({ width = 24, height = 24 }) => (

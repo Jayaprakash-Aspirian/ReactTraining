@@ -6,31 +6,31 @@ import { Person } from "./types/typesimport";
 const Welcome = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const [data, setData] = useState<any>([]);
-
   const datas: any = sessionStorage.getItem("user");
   const user = JSON.parse(datas);
-
-  const baseURL = "http://localhost:3000/users/";
-
   useEffect(() => {
-    axios
-      .get(baseURL)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setUserData(user)
   }, []);
+  
+  // const baseURL = "http://localhost:3000/users/";
+  // useEffect(() => {
+  //   axios
+  //     .get(baseURL)
+  //     .then((response) => {
+  //       setData(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    data.map((userdatas: any) => {
-      if (userdatas.mobile === user.mobile) {
-        setUserData(userdatas);
-      }
-    });
-  });
+  // useEffect(() => {
+  //   data.map((userdatas: any) => {
+  //     if (userdatas.mobile === user.mobile) {
+  //       setUserData(userdatas);
+  //     }
+  //   });
+  // },[]);
 
   return (
     <>

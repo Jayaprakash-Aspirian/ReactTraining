@@ -1,5 +1,4 @@
-import { AllUsersAction } from "../action";
-import { ActionType } from "../action-types/action-types";
+import { CANCEL_GET_USERS_ACTIVITY, FULLFILLED_GET_USERS_ACTIVITY, GET_USERS_ACTIVITY, REJECTED_GET_USERS_ACTIVITY } from "../activity.actions";
 
 const initialState = {
   list: [],
@@ -7,24 +6,24 @@ const initialState = {
 
 export const AllUsersDataReducer = (
   state = initialState,
-  action: AllUsersAction
+  action:any
 ) => {
   switch (action.type) {
-    case ActionType.USERS_FETCH:
+    case GET_USERS_ACTIVITY:
       return {
         ...state,
         list: [],
       };
-    case ActionType.USERS_FETCH_FULLFILLED:
+    case FULLFILLED_GET_USERS_ACTIVITY:
       return {
         ...state,
         list: action.payload,
       };
-    case ActionType.USERS_FETCH_REJECTED:
+    case REJECTED_GET_USERS_ACTIVITY:
       return {
         ...state,
       };
-    case ActionType.USERS_FETCH_CANCEL:
+    case CANCEL_GET_USERS_ACTIVITY:
       return {
         ...state,
       };

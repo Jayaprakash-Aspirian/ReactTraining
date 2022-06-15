@@ -19,27 +19,22 @@ const MainRoutes = () => {
   return (
     <>
       <Routes>
-        <Route  element={<ProtectedRoutes />}>
-          <Route path="/" element={<Sidebar />}>
-            <Route path="/" element={<Navigate replace to="dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route
-              path="dashboard/accountbalance"
-              element={<AccountBalance />}
-            />
-            <Route path="dashboard/promotions" element={<Promotions />} />
-            <Route
-              path="dashboard/transactions"
-              element={<TransactionHistory />}
-            />
-            <Route path="userslist" element={<UsersList />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<Navigate replace to="dashboard" />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard/accountbalance" element={<AccountBalance />} />
+          <Route path="dashboard/promotions" element={<Promotions />} />
+          <Route
+            path="dashboard/transactions"
+            element={<TransactionHistory />}
+          />
+          <Route path="userslist" element={<UsersList />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="" element={<PublicRoutes />}>
-          <Route path="signup" element={<SignUp />}></Route>
-          <Route path="login" element={<Login />}></Route>
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="*" element={<PermissionDenied />} />
       </Routes>

@@ -3,6 +3,7 @@ import { createLogicMiddleware } from "redux-logic";
 import reducers from "./reducers";
 import { usersFetchLogic } from "./logic/all-users-logic";
 import { transactionsFetchLogic } from "./logic/all-transaction-history-logic";
+import { useSelector } from "react-redux";
 
 const allLogic: any = [usersFetchLogic, transactionsFetchLogic];
 
@@ -15,6 +16,7 @@ export default function configureStore() {
     {},
     compose(applyMiddleware(...middlewares))
   );
+
 
   return store;
 }

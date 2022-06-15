@@ -1,5 +1,4 @@
-import { AllTransactionsAction } from "../action";
-import { ActionType } from "../action-types/action-types";
+import { CANCEL_GET_TRANSACTIONS_ACTIVITY, FULLFILLED_GET_TRANSACTIONS_ACTIVITY, GET_TRANSACTIONS_ACTIVITY, REJECTED_GET_TRANSACTIONS_ACTIVITY } from "../activity.actions";
 
 const initialState = {
   transactions: [],
@@ -7,24 +6,24 @@ const initialState = {
 
 export const AllTransactionsDataReducer = (
   state = initialState,
-  action: AllTransactionsAction
+  action :any
 ) => {
   switch (action.type) {
-    case ActionType.TRANSACTIONS_FETCH:
+    case GET_TRANSACTIONS_ACTIVITY:
       return {
         ...state,
         transactions: [],
       };
-    case ActionType.TRANSACTIONS_FETCH_FULLFILLED:
+    case FULLFILLED_GET_TRANSACTIONS_ACTIVITY:
       return {
         ...state,
         transactions: action.payload,
       };
-    case ActionType.TRANSACTIONS_FETCH_REJECTED:
+    case CANCEL_GET_TRANSACTIONS_ACTIVITY:
       return {
         ...state,
       };
-    case ActionType.TRANSACTIONS_FETCH_CANCEL:
+    case REJECTED_GET_TRANSACTIONS_ACTIVITY:
       return {
         ...state,
       };
