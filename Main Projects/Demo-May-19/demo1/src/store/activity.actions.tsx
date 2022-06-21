@@ -15,6 +15,19 @@ export const REJECTED_GET_USER_ACTIVITY = " REJECTED_GET_USER_ACTIVITY "
 
 export const SIGNUP_DATA = "SIGNUP_DATA"
 
+export const ADD_USERS_ACTIVITY = "ADD_USERS_ACTIVITY"
+
+export const ADD_TRANSACTIONS = "ADD_TRANSACTIONS"
+export const ADD_TRANSACTIONS_CANCEL = "ADD_TRANSACTIONS_CANCEL"
+export const ADD_TRANSACTIONS_ACTIVITY = "ADD_TRANSACTIONS_ACTIVITY"
+export const REJECT_TRANSACTIONS_ACTIVITY ="REJECT_TRANSACTIONS_ACTIVITY"
+
+export const addTransactionsData = (payload :any) =>{
+    return { type: ADD_TRANSACTIONS_ACTIVITY,payload };
+}
+export const rejecttransactionsData = (payload :any) =>{
+    return { type: REJECT_TRANSACTIONS_ACTIVITY,payload };
+}
 
 
 export const getActivityUsersData = (payload:any)=>{

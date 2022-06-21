@@ -56,12 +56,13 @@ const UsersList = () => {
     //     console.log(error);
     //   });
 
+    
     api.addTransactionsData(transactions);
 
     alert(
       "Amount " +
         amount[datas.mobile] +
-        
+
         " sent to the " +
         datas.firstname +
         " " +
