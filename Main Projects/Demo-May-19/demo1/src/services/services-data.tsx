@@ -6,8 +6,8 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:3000'
 })
 
-const allUsersData = () =>
-    axiosInstance({
+export const allUsersData = async () =>
+    await axiosInstance({
         method: 'get',
         url: '/users'
     })
@@ -36,19 +36,25 @@ const allUsersData = () =>
 
 // }
 
-const allTransactionsData = (data:any) =>
+const addTransactionsData = (data:any) =>
     axiosInstance({
         method: 'POST',
         url: '/transaction-history',
         data:data
     })
 
+export const allTransactionsData = async() =>
+    await axiosInstance({
+        method: 'get',
+        url: '/transaction-history'
+    })
+
+
+
 export default {
-    allUsersData,
-    allTransactionsData
+    addTransactionsData,
 }
 
-// const axios:any = require('axios').default;
 
 axiosInstance.interceptors.request.use((x:any) =>{
     console.log(x)
@@ -60,4 +66,3 @@ axiosInstance.interceptors.response.use((x:any) =>{
     return x;
 })
 
-// axios.post('https://jsonplaceholder.typicode.com/posts',{myproperty:true}).then()
