@@ -12,34 +12,40 @@ const allUsersData = () =>
         url: '/users'
     })
 
-const authenticateuser = (data :any) =>{
+// const authenticateuser = (data :any) =>{
 
-    allUsersData()
-      .then(res => {
-            console.log(res)  
-            const useris = res.data.filter(
-                (datas: any) => datas.mobile === data.mobile && datas.password === data.password
-            );
-            if(useris[0]){
-                sessionStorage.setItem("user", JSON.stringify(useris[0]));
-                debugger;
-            }
-            else{
+//     allUsersData()
+//       .then(res => {
+//             console.log(res)  
+//             const useris = res.data.filter(
+//                 (datas: any) => datas.mobile === data.mobile && datas.password === data.password
+//             );
+//             if(useris[0]){
+//                 sessionStorage.setItem("user", JSON.stringify(useris[0]));
+//                 debugger;
+//             }
+//             else{
 
-            }  
-      })
-      .catch((err) => {
-        //   setError(err.response.data.error)
-      })
-
-
-}
+//             }  
+//       })
+//       .catch((err) => {
+        
+//         //   setError(err.response.data.error)
+//       })
 
 
+// }
+
+const allTransactionsData = (data:any) =>
+    axiosInstance({
+        method: 'POST',
+        url: '/transaction-history',
+        data:data
+    })
 
 export default {
     allUsersData,
-    authenticateuser
+    allTransactionsData
 }
 
 // const axios:any = require('axios').default;

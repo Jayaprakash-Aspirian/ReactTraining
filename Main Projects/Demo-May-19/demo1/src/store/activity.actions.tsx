@@ -13,6 +13,8 @@ export const CANCEL_GET_USER_ACTIVITY = "CANCEL_GET_USER_ACTIVITY"
 export const FULLFILLED_GET_USER_ACTIVITY = "FULLFILLED_GET_USER_ACTIVITY"
 export const REJECTED_GET_USER_ACTIVITY = " REJECTED_GET_USER_ACTIVITY "
 
+export const SIGNUP_DATA = "SIGNUP_DATA"
+
 
 
 export const getActivityUsersData = (payload:any)=>{

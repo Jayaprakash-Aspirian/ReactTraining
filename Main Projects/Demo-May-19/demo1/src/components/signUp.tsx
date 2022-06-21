@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { SIGNUP_DATA } from "../store/activity.actions";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
 
 const SignUp = () => {
@@ -31,6 +32,9 @@ const SignUp = () => {
       mobile: mobile,
       role: " USER",
     };
+
+    // dispatch({ type: SIGNUP_DATA,payload:datas })
+
     axios
       .post("http://localhost:3000/users", datas)
       .then((resp: any) => {

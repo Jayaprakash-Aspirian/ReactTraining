@@ -22,28 +22,28 @@ const Login = () => {
     dispatch(usersFetchLogic);
   }, []);
 
+
   const allusersare = useSelector((state: any) => state.allusersdata.list);
   
   const AuthenticateLogin = (e: any) => {
-    const useris = allusersare.find(
+    const useris = allusersare.filter(
       (data: any) => data.mobile === mobile && data.password === password
     );
-    const mobileis = allusersare.find((data: any) => data.mobile === mobile);
-    const data = { mobile : mobile , password :password}
-    const validation = LoginValidation(mobile,password)
+    const mobileis = allusersare.filter((data: any) => data.mobile === mobile);                          
+    // const data = { mobile : mobile , password :password}
+    // const validation = LoginValidation(mobile,password)
     
-    if (validation) {
-      setClientErrors(validation)
-    }else{
-      api.authenticateuser(data)
+    // if (validation) {
+    //   setClientErrors(validation)
+    // }else{
+    //   api.authenticateuser(data)
       
-     
-      debugger;
+    //   debugger;                                                                                                 
 
-    }
+    // }
     
-    if (useris) { 
-      sessionStorage.setItem("user", JSON.stringify(useris));
+    if (useris[0]) { 
+      sessionStorage.setItem("user", JSON.stringify(useris[0]));
       console.log('session');
       debugger;
       navigate("/dashboard");

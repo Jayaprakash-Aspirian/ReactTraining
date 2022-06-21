@@ -19,4 +19,9 @@ export const usersFetchLogic = createLogic({
       .then((resp) => resp.data);
     return users;
   },
+  
+  // process() {
+  //   const users = allUsersData()
+  //   return users;
+  // },
 });

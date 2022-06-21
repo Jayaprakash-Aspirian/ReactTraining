@@ -7,6 +7,7 @@ import { usersFetchLogic } from "../store/logic/all-users-logic";
 import axios from "axios";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
 import { DateTime } from "luxon";
+import api from "../services/services-data";
 
 const UsersList = () => {
   const dispatch = useDispatch();
@@ -46,14 +47,17 @@ const UsersList = () => {
       date: datedetails,
     };
 
-    axios
-      .post("http://localhost:3000/transaction-history", transactions)
-      .then((resp: any) => {
-        console.log(resp.data);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+    // axios
+    //   .post("http://localhost:3000/transaction-history", transactions)
+    //   .then((resp: any) => {
+    //     console.log(resp.data);
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
+
+    api.allTransactionsData(transactions);
+
     alert(
       "Amount " +
         amount[datas.mobile] +
@@ -75,7 +79,7 @@ const UsersList = () => {
     return user.mobile !== datas.mobile;
   });
 
-  const usersdatas = withoutuserdata.map((datas: any,index:number) => (
+  const usersdatas = withoutuserdata.map((datas: any, index: number) => (
     <div key={index}>
       <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
         <div className="text-uppercase">
