@@ -17,16 +17,21 @@ export const SIGNUP_DATA = "SIGNUP_DATA"
 
 export const ADD_USERS_ACTIVITY = "ADD_USERS_ACTIVITY"
 
-export const ADD_TRANSACTIONS = "ADD_TRANSACTIONS"
-export const ADD_TRANSACTIONS_CANCEL = "ADD_TRANSACTIONS_CANCEL"
-export const ADD_TRANSACTIONS_ACTIVITY = "ADD_TRANSACTIONS_ACTIVITY"
-export const REJECT_TRANSACTIONS_ACTIVITY ="REJECT_TRANSACTIONS_ACTIVITY"
+// export const ADD_TRANSACTIONS = "ADD_TRANSACTIONS"
+// export const ADD_TRANSACTIONS_CANCEL = "ADD_TRANSACTIONS_CANCEL"
 
-export const addTransactionsData = (payload :any) =>{
-    return { type: ADD_TRANSACTIONS_ACTIVITY,payload };
+export const ADD_TRANSACTIONS_ACTIVITY = "ADD_TRANSACTIONS_ACTIVITY"
+export const CANCEL_ADD_TRANSACTIONS_ACTIVITY = "CANCEL_ADD_TRANSACTIONS_ACTIVITY"
+export const FULLFILLED_ADD_TRANSACTIONS_ACTIVITY = "FULLFILLED_ADD_TRANSACTIONS_ACTIVITY"
+export const REJECTED_ADD_TRANSACTIONS_ACTIVITY= "REJECTED_ADD_TRANSACTIONS_ACTIVITY"
+
+
+export const addTransactionsData = (transactions :any) =>{
+    return { type: ADD_TRANSACTIONS_ACTIVITY,payload:transactions };
 }
+
 export const rejecttransactionsData = (payload :any) =>{
-    return { type: REJECT_TRANSACTIONS_ACTIVITY,payload };
+    return { type: REJECTED_ADD_TRANSACTIONS_ACTIVITY,payload };
 }
 
 

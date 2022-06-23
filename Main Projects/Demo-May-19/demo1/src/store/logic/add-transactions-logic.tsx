@@ -1,8 +1,10 @@
 import axios from "axios";
+import { applyMiddleware } from "redux";
 import { createLogic } from "redux-logic";
-import { allTransactionsData } from "../../services/services-data";
+import { allTransactionsData,addingTransactionsData } from "../../services/services-data";
+import { ADD_TRANSACTIONS_ACTIVITY,getActivityUsersData,ADD_USERS_ACTIVITY, CANCEL_GET_TRANSACTIONS_ACTIVITY, FULLFILLED_GET_TRANSACTIONS_ACTIVITY, GET_TRANSACTIONS_ACTIVITY, REJECTED_GET_TRANSACTIONS_ACTIVITY, addTransactionsData, rejecttransactionsData, FULLFILLED_ADD_TRANSACTIONS_ACTIVITY, REJECTED_ADD_TRANSACTIONS_ACTIVITY, CANCEL_ADD_TRANSACTIONS_ACTIVITY } from "../activity.actions";
 
-import { ADD_TRANSACTIONS_ACTIVITY,getActivityUsersData,ADD_USERS_ACTIVITY, CANCEL_GET_TRANSACTIONS_ACTIVITY, FULLFILLED_GET_TRANSACTIONS_ACTIVITY, GET_TRANSACTIONS_ACTIVITY, REJECTED_GET_TRANSACTIONS_ACTIVITY, addTransactionsData, ADD_TRANSACTIONS, ADD_TRANSACTIONS_CANCEL, rejecttransactionsData } from "../activity.actions";
+
 
 // export const transactionsAddLogic = createLogic({
 //   type: addTransactionsData ,
@@ -37,13 +39,55 @@ import { ADD_TRANSACTIONS_ACTIVITY,getActivityUsersData,ADD_USERS_ACTIVITY, CANC
 //     // return transactions;
 //   },
 // });
+
+// export const transactionsAddLogic = createLogic({
+//     type: ADD_TRANSACTIONS_ACTIVITY,
+//     latest: true, 
+//     async process({ action }) {
+//         console.log("work")
+//         console.log(action)
+//         console.log("works")  
+//     }                                                                               
+    
+// });
+////////
+// export const transactionsAddLogic = createLogic({
+//   type: ADD_TRANSACTIONS_ACTIVITY,
+// //   cancelType: CANCEL_GET_TRANSACTIONS_ACTIVITY,
+//   latest: true,
+
+//   process({action}){
+//         console.log("work")
+//         console.log(action)
+//         console.log("works")  
+//   }
+// });
+
 export const transactionsAddLogic = createLogic({
-    type: addTransactionsData,
-    latest: true, 
-  
-    process({ action }) {
-        console.log("work")
-        console.log(action.payload)
-        console.log("works")  
-    }
-  });
+  type:ADD_TRANSACTIONS_ACTIVITY,
+  // cancelType: CANCEL_ADD_TRANSACTIONS_ACTIVITY,
+  latest: true,
+
+  // processOptions: {
+  //   dispatchReturn: true,
+  //   successType: FULLFILLED_ADD_TRANSACTIONS_ACTIVITY,
+  //   failType:REJECTED_ADD_TRANSACTIONS_ACTIVITY ,
+  // },
+
+  // validate({getState,action},allow,reject){
+  //   console.log("called validate")
+  //   console.log(action)
+  // }
+
+  process({getState, action},dispatch,done) {
+    const transactions = allTransactionsData().then((resp) => resp.data)
+    console.log("works")
+    console.log(action)
+    
+    console.log("it's working")
+    addingTransactionsData(action)
+    return transactions;
+  },
+});
+
+

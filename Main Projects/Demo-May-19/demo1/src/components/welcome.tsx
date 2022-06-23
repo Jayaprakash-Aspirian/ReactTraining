@@ -2,36 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Person } from "./types/typesimport";
+import {  userdetails } from "./session-storage";
 
 const Welcome = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const datas: any = sessionStorage.getItem("user");
-  const user = JSON.parse(datas);
+  const user = JSON.parse(userdetails);
   useEffect(() => {
     setUserData(user)
   }, []);
   
-  // const baseURL = "http://localhost:3000/users/";
-  // useEffect(() => {
-  //   axios
-  //     .get(baseURL)
-  //     .then((response) => {
-  //       setData(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   data.map((userdatas: any) => {
-  //     if (userdatas.mobile === user.mobile) {
-  //       setUserData(userdatas);
-  //     }
-  //   });
-  // },[]);
-
   return (
     <>
       <div className="d-flex flex-column">

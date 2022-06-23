@@ -29,7 +29,11 @@ const Login = () => {
     const useris = allusersare.filter(
       (data: any) => data.mobile === mobile && data.password === password
     );
-    const mobileis = allusersare.filter((data: any) => data.mobile === mobile);                          
+    const mobileis = allusersare.filter((data: any) => data.mobile === mobile);       
+    
+    
+
+    
     // const data = { mobile : mobile , password :password}
     // const validation = LoginValidation(mobile,password)
     

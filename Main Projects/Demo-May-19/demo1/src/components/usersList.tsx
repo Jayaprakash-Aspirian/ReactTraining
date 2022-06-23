@@ -8,27 +8,32 @@ import axios from "axios";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
 import { DateTime } from "luxon";
 import api from "../services/services-data";
+import { transactionsAddLogic } from "../store/logic/add-transactions-logic";
+import { addTransactionsData, ADD_TRANSACTIONS_ACTIVITY } from "../store/activity.actions";
+import {  userdetails } from "./session-storage";
 
 const UsersList = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const userdetails: any = sessionStorage.getItem("user");
   const user = JSON.parse(userdetails);
+  const [transactions, setTransaction] = useState({})
   const [amount, setAmount] = useState<any>();
+  const alltransactions = useSelector(
+    (state: any) => state.alltransactionsdata.transactions
+  );
 
   useEffect(() => {
     dispatch(transactionsFetchLogic);
   }, []);
 
-  const alltransactions = useSelector(
-    (state: any) => state.alltransactionsdata.transactions
-  );
+  useEffect(() => {
+    dispatch(addTransactionsData(transactions))
+  },[transactions])
 
   const SentAmount = (datas: Person) => {
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const dateis = new Date();
     const day = days[dateis.getDay()];
-    const userdatas = JSON.parse(userdetails);
     const datedetails =
       day +
       " " +
@@ -39,25 +44,38 @@ const UsersList = () => {
       dateis.getMinutes() +
       ":" +
       dateis.getSeconds();
-    const transactions = {
+
+    const userdatas = JSON.parse(userdetails);
+
+    setTransaction({
       id: alltransactions.length + 1,
       from: userdatas.mobile,
       to: datas.mobile,
       sentmoney: amount[datas.mobile],
       date: datedetails,
-    };
+    })
+    
 
-    // axios
-    //   .post("http://localhost:3000/transaction-history", transactions)
-    //   .then((resp: any) => {
-    //     console.log(resp.data);
-    //   })
-    //   .catch((error: any) => {
-    //     console.log(error);
-    //   });
+    // dispatch(transactio)nsAddLogic({type:ADD_TRANSACTIONS_ACTIVITY}))
+    // dispatch(transactionsAddLogic)
 
     
-    api.addTransactionsData(transactions);
+    // api.addTransactionsData(transactions);
+
+    // dispatch({
+    //   type:ADD_TRANSACTIONS_ACTIVITY,
+    //   payload:transactions
+    // });
+
+    // dispatch({
+    //   type:addTransactionsData,
+    //   payload:transactions
+    // });
+
+
+    // useEffect(() => {
+    //   dispatch(transactionsAddLogic);
+    // }, []);
 
     alert(
       "Amount " +

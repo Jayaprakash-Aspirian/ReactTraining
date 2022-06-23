@@ -1,4 +1,4 @@
-import { EMAIL_REGX, MOBILE_NUMBER_LENGTH, PASSWORD_LENGTH,PASSWORD_REGX } from "../constants/constants"
+import { EMAIL_REGX, MOBILE_NUMBER_LENGTH, PASSWORD_LENGTH,PASSWORD_REGX } from "../utils/constants/constants"
 
 const RegisterValidation = (userdata:any) => {
     var userErrors = {firstname:"",lastname:"",email:"",mobile:"",password:""}

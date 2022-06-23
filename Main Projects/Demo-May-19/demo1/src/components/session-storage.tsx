@@ -1,0 +1,1 @@
+export const userdetails: any = sessionStorage.getItem("user");

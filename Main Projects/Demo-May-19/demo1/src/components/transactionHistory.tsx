@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
+import { userdetails as datas } from "./session-storage";
 import { Transactions } from "./types/typesimport";
 import Welcome from "./welcome";
 
 const TransactionHistory = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const datas: any =sessionStorage.getItem("user");
+
   const userdetails = JSON.parse(datas);
 
   useEffect(() => {

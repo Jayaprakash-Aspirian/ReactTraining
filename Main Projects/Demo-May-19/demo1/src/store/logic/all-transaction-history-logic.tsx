@@ -24,6 +24,7 @@ export const transactionsFetchLogic = createLogic({
 
   process() {
     const transactions = allTransactionsData().then((resp) => resp.data)
+    console.log("ath")
     return transactions;
   },
 });

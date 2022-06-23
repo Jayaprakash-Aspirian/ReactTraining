@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Person } from "./types/typesimport";
 import Welcome from "./welcome";
+import {  userdetails } from "./session-storage";
 
 const TransactionHistory = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const datas: any = sessionStorage.getItem("user");
+
   useEffect(() => {
-    setUserData(JSON.parse(datas));
+    setUserData(JSON.parse(userdetails));
   }, []);
 
   return (
@@ -24,7 +25,7 @@ const TransactionHistory = () => {
                 <div className="d-flex flex-column justify-content-between order-summary">
                   <div>
                     <div className="d-flex align-items-center">
-                      <div className="text-uppercase">{t("Name ")}</div>
+                      <div className="text-uppercase">{t("Name ")}:</div>
                       {UserData.firstname} {UserData.lastname}
                     </div>
                     <br />
@@ -48,7 +49,7 @@ const TransactionHistory = () => {
                         className="btn btn-primary text-uppercase"
                         style={{ color: "green" }}
                       >
-                        {UserData.account}{" "}
+                        {UserData.account}
                       </div>
                     </div>
                   </div>

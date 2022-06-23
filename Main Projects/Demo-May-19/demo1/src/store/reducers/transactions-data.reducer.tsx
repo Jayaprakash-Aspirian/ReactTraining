@@ -8,13 +8,17 @@ export const AllTransactionsDataReducer = (
   state = initialState,
   action :any
 ) => {
+  console.log("y")
+  console.log(action)
   switch (action.type) {
     case GET_TRANSACTIONS_ACTIVITY:
+      console.log("athr1")
       return {
         ...state,
         transactions: [],
       };
     case FULLFILLED_GET_TRANSACTIONS_ACTIVITY:
+      console.log("athr2")
       return {
         ...state,
         transactions: action.payload,

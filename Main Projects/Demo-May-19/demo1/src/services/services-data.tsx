@@ -36,7 +36,7 @@ export const allUsersData = async () =>
 
 // }
 
-const addTransactionsData = (data:any) =>
+export const addingTransactionsData = (data:any) =>
     axiosInstance({
         method: 'POST',
         url: '/transaction-history',
@@ -52,7 +52,7 @@ export const allTransactionsData = async() =>
 
 
 export default {
-    addTransactionsData,
+    addingTransactionsData,
 }
 
 

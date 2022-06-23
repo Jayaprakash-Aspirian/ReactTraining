@@ -4,14 +4,13 @@ import WithPermission from "./withPermission";
 import { languages } from "../translation-i18next/languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
+import { userdetails } from "./session-storage";
 
 const Topbar = () => {
   
-  localStorage.removeItem("user")
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const datas: any = sessionStorage.getItem("user");
-  const user = JSON.parse(datas);
+  const user = JSON.parse(userdetails);
   console.log(user)
   const currentLanguageCode = cookies.get("i18next");
 
@@ -29,7 +28,7 @@ const Topbar = () => {
   );
 
   const logout = () => {
-    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("user"); 
     navigate("/login");
   };
 

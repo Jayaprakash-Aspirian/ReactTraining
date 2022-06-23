@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import {  userdetails } from "./session-storage";
 import { Person } from "./types/typesimport";
 import Welcome from "./welcome";
 
 const AccountBalance = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const datas: any = sessionStorage.getItem("user");
+  
   useEffect(() => {
-    setUserData(JSON.parse(datas));
+    setUserData(JSON.parse(userdetails));
   }, []);
 
   return (
