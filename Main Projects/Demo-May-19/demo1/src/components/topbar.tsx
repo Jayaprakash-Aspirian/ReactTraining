@@ -5,13 +5,15 @@ import { languages } from "../translation-i18next/languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
 import { userdetails } from "./session-storage";
+import { useEffect, useState } from "react";
+import { Person } from "./types/typesimport";
 
 const Topbar = () => {
-  
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const user = JSON.parse(userdetails);
-  console.log(user)
+
+  const user = JSON.parse(userdetails());
+  console.log(user);
   const currentLanguageCode = cookies.get("i18next");
 
   const GlobeIcon = ({ width = 24, height = 24 }) => (
@@ -28,7 +30,7 @@ const Topbar = () => {
   );
 
   const logout = () => {
-    sessionStorage.removeItem("user"); 
+    sessionStorage.removeItem("user");
     navigate("/login");
   };
 

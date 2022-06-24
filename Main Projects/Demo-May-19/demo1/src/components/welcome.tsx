@@ -7,9 +7,14 @@ import {  userdetails } from "./session-storage";
 const Welcome = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  const user = JSON.parse(userdetails);
+  // const user = JSON.parse(userdetails());
+  // useEffect(() => {
+  //   setUserData(user)
+  // },);
+  // const [user, setUserData] = useState({} as Person);
+  
   useEffect(() => {
-    setUserData(user)
+    setUserData(JSON.parse(userdetails()));
   }, []);
   
   return (

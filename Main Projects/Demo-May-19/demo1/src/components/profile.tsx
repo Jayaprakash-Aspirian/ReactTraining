@@ -9,7 +9,7 @@ const TransactionHistory = () => {
   const [UserData, setUserData] = useState({} as Person);
 
   useEffect(() => {
-    setUserData(JSON.parse(userdetails));
+    setUserData(JSON.parse(userdetails()));
   }, []);
 
   return (

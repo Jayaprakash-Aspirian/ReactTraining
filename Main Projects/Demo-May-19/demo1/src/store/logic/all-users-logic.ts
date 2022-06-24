@@ -14,12 +14,6 @@ export const usersFetchLogic = createLogic({
     failType:REJECTED_GET_USERS_ACTIVITY,
   },
 
-  // async process() {
-  //   const users = await axios
-  //     .get("http://localhost:3000/users/")
-  //     .then((resp) => resp.data);
-  //   return users;
-  // },
   process() {
     const users = allUsersData().then((resp) => resp.data)
     return users;

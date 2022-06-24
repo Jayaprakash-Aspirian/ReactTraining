@@ -12,6 +12,27 @@ export const allUsersData = async () =>
         url: '/users'
     })
 
+export const addingUsersData = (data:any) =>
+    axiosInstance({
+        method: 'POST',
+        url: '/users',
+        data:data.payload
+    })
+
+export const addingTransactionsData = (data:any) =>
+    axiosInstance({
+        method: 'POST',
+        url: '/transaction-history',
+        data:data.payload
+    })
+
+export const allTransactionsData = async() =>
+    await axiosInstance({
+        method: 'get',
+        url: '/transaction-history'
+    })
+
+
 // const authenticateuser = (data :any) =>{
 
 //     allUsersData()
@@ -35,25 +56,6 @@ export const allUsersData = async () =>
 
 
 // }
-
-export const addingTransactionsData = (data:any) =>
-    axiosInstance({
-        method: 'POST',
-        url: '/transaction-history',
-        data:data
-    })
-
-export const allTransactionsData = async() =>
-    await axiosInstance({
-        method: 'get',
-        url: '/transaction-history'
-    })
-
-
-
-export default {
-    addingTransactionsData,
-}
 
 
 axiosInstance.interceptors.request.use((x:any) =>{

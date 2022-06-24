@@ -5,7 +5,9 @@ export interface Person {
   mobile: string;
   account: string;
   amount: string;
+  role : string;
 }
+
 
 export interface Transactions {
   from: string;

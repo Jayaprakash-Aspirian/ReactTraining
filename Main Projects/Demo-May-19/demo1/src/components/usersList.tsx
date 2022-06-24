@@ -7,7 +7,6 @@ import { usersFetchLogic } from "../store/logic/all-users-logic";
 import axios from "axios";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
 import { DateTime } from "luxon";
-import api from "../services/services-data";
 import { transactionsAddLogic } from "../store/logic/add-transactions-logic";
 import { addTransactionsData, ADD_TRANSACTIONS_ACTIVITY } from "../store/activity.actions";
 import {  userdetails } from "./session-storage";
@@ -15,12 +14,16 @@ import {  userdetails } from "./session-storage";
 const UsersList = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const user = JSON.parse(userdetails);
   const [transactions, setTransaction] = useState({})
   const [amount, setAmount] = useState<any>();
   const alltransactions = useSelector(
     (state: any) => state.alltransactionsdata.transactions
   );
+  const [user, setUserData] = useState({} as Person);
+  
+  useEffect(() => {
+    setUserData(JSON.parse(userdetails()));
+  }, []);
 
   useEffect(() => {
     dispatch(transactionsFetchLogic);
@@ -45,7 +48,7 @@ const UsersList = () => {
       ":" +
       dateis.getSeconds();
 
-    const userdatas = JSON.parse(userdetails);
+    const userdatas = JSON.parse(userdetails());
 
     setTransaction({
       id: alltransactions.length + 1,
@@ -54,28 +57,6 @@ const UsersList = () => {
       sentmoney: amount[datas.mobile],
       date: datedetails,
     })
-    
-
-    // dispatch(transactio)nsAddLogic({type:ADD_TRANSACTIONS_ACTIVITY}))
-    // dispatch(transactionsAddLogic)
-
-    
-    // api.addTransactionsData(transactions);
-
-    // dispatch({
-    //   type:ADD_TRANSACTIONS_ACTIVITY,
-    //   payload:transactions
-    // });
-
-    // dispatch({
-    //   type:addTransactionsData,
-    //   payload:transactions
-    // });
-
-
-    // useEffect(() => {
-    //   dispatch(transactionsAddLogic);
-    // }, []);
 
     alert(
       "Amount " +

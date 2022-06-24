@@ -15,16 +15,8 @@ export const transactionsFetchLogic = createLogic({
     failType:REJECTED_GET_TRANSACTIONS_ACTIVITY ,
   },
 
-  // async process() {
-  //   const users = await axios
-  //     .get("http://localhost:3000/transaction-history/")
-  //     .then((resp) => resp.data);
-  //   return users;
-  // },
-
   process() {
     const transactions = allTransactionsData().then((resp) => resp.data)
-    console.log("ath")
     return transactions;
   },
 });

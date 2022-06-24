@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SIGNUP_DATA } from "../store/activity.actions";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
 
 const SignUp = () => {
