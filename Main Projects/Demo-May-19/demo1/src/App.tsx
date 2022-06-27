@@ -8,7 +8,6 @@ import MainRoutes from "./routes/mainRoutes";
 import "./translation-i18next/translation";
 import configureStore from "./store/store";
 import Sidebar from "./components/sidebar";
-import WithPermission from "./components/withPermission";
 
 function App() {
   return (
@@ -19,9 +18,7 @@ function App() {
             <div className="row">
               <Topbar />
               <div id="main-body">
-                {/* <WithPermission roleRequired="USER" message=""> */}
-                  <Sidebar />
-                {/* </WithPermission> */}
+                <Sidebar />
                 <MainRoutes />
               </div>
             </div>

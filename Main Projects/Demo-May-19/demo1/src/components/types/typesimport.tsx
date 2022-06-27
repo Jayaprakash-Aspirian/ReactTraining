@@ -5,9 +5,8 @@ export interface Person {
   mobile: string;
   account: string;
   amount: string;
-  role : string;
+  role: string;
 }
-
 
 export interface Transactions {
   from: string;
@@ -16,4 +15,7 @@ export interface Transactions {
   sentmoney: string;
 }
 
-
+export interface LoginData {
+  mobile: string;
+  password: string;
+}

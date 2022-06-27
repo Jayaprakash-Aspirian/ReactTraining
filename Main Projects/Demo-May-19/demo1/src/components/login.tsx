@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { applyMiddleware } from "redux";
+import { DataLogin } from "../server-side-validation/login-validation";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
 import { LoginValidation } from "../validation/login-validation";
-// import api from '../services/services-data'
 
 const Login = () => {
   const { t } = useTranslation();
@@ -13,52 +12,21 @@ const Login = () => {
   const dispatch = useDispatch();
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
-  const [mobileError, setMobileError] = useState<string>();
-  const [passwordError, setPasswordError] = useState<string>();
-  const [clientErrors, setClientErrors] = useState("");
-  const [error, setError] = useState(null)
+  const [loginError, setLoginError] = useState<string>();
 
   useEffect(() => {
     dispatch(usersFetchLogic);
   }, []);
 
-
   const allusersare = useSelector((state: any) => state.allusersdata.list);
-  
+
   const AuthenticateLogin = (e: any) => {
-    const useris = allusersare.filter(
-      (data: any) => data.mobile === mobile && data.password === password
-    );
-    const mobileis = allusersare.filter((data: any) => data.mobile === mobile);       
-    
-    
-
-    
-    // const data = { mobile : mobile , password :password}
-    // const validation = LoginValidation(mobile,password)
-    
-    // if (validation) {
-    //   setClientErrors(validation)
-    // }else{
-    //   api.authenticateuser(data)
-      
-    //   debugger;                                                                                                 
-
-    // }
-    
-    if (useris[0]) { 
-      sessionStorage.setItem("user", JSON.stringify(useris[0]));
-      console.log('session');
-      debugger;
-      navigate("/dashboard");
-    } else if (mobileis) {
-      setMobileError(undefined);
-      setPasswordError("Invalid Password");
-    } else {
-      setMobileError("Invalid Mobile Number");
-      setPasswordError(undefined);
-    }
     e.preventDefault();
+    LoginValidation(mobile, password)
+      ? setLoginError(LoginValidation(mobile, password))
+      : DataLogin(mobile, password, allusersare)
+      ? setLoginError(DataLogin(mobile, password, allusersare))
+      : navigate("/dashboard");
   };
 
   return (
@@ -81,9 +49,9 @@ const Login = () => {
                       name="phone"
                       onChange={(e) => setMobile(e.target.value)}
                     />
-                    {mobileError ? (
+                    {/* {mobileError ? (
                       <h5 style={{ color: "red" }}>{mobileError}</h5>
-                    ) : null}
+                    ) : null} */}
                   </div>
                   <div className="form-group">
                     <input
@@ -94,8 +62,11 @@ const Login = () => {
                       name="password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    {passwordError ? (
+                    {/* {passwordError ? (
                       <h5 style={{ color: "red" }}>{passwordError}</h5>
+                    ) : null} */}
+                    {loginError ? (
+                      <h5 style={{ color: "red" }}>{loginError}</h5>
                     ) : null}
                   </div>
                   <br />

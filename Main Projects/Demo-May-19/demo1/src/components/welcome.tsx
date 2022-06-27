@@ -1,22 +1,16 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Person } from "./types/typesimport";
-import {  userdetails } from "./session-storage";
+import { userdetails } from "./session-storage";
 
 const Welcome = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  // const user = JSON.parse(userdetails());
-  // useEffect(() => {
-  //   setUserData(user)
-  // },);
-  // const [user, setUserData] = useState({} as Person);
-  
+
   useEffect(() => {
     setUserData(JSON.parse(userdetails()));
   }, []);
-  
+
   return (
     <>
       <div className="d-flex flex-column">

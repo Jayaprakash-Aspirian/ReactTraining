@@ -15,8 +15,6 @@ const TransactionHistory = () => {
     setUserData(JSON.parse(datas()));
   }, []);
 
-  // const userdetails = JSON.parse(datas());
-
   useEffect(() => {
     dispatch(transactionsFetchLogic);
   }, []);

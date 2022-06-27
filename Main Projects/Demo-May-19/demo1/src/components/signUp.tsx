@@ -1,9 +1,11 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Registration } from "../server-side-validation/signup-validation";
+import { addUsersData } from "../store/activity.actions";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
+import { RegisterValidation } from "../validation/signup-validation";
 
 const SignUp = () => {
   const { t } = useTranslation();
@@ -14,6 +16,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [mobile, setMobile] = useState("");
+  const [clientError, setClientError] = useState("");
 
   useEffect(() => {
     dispatch(usersFetchLogic);
@@ -21,7 +24,7 @@ const SignUp = () => {
 
   const allusersare = useSelector((state: any) => state.allusersdata.list);
 
-  const SubmitForm = () => {
+  const SubmitForm = (e: any) => {
     const datas = {
       id: allusersare.length + 1,
       firstname: firstname,
@@ -31,18 +34,12 @@ const SignUp = () => {
       mobile: mobile,
       role: " USER",
     };
-
-    // dispatch({ type: SIGNUP_DATA,payload:datas })
-
-    axios
-      .post("http://localhost:3000/users", datas)
-      .then((resp: any) => {
-        console.log(resp.data);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-    alert("Account created Successfully");
+    e.preventDefault();
+    RegisterValidation(datas)
+      ? setClientError(RegisterValidation(datas))
+      : Registration(datas, allusersare)
+      ? setClientError(Registration(datas, allusersare))
+      : dispatch(addUsersData(datas)) && navigate("/login");
   };
 
   let navigate = useNavigate();
@@ -128,6 +125,10 @@ const SignUp = () => {
                       {t("create_account")}
                     </button>
                   </div>
+                  <br />
+                  {clientError ? (
+                    <span style={{ color: "red" }}>{clientError}</span>
+                  ) : null}
                 </form>
               </div>
             </div>

@@ -1,16 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import Welcome from "./welcome";
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  
-  // const userdata = useSelector((state: any) => state.userdata);
-  // console.log(userdata)
-
-  // const userdatas = useSelector((state: any) => state.usersdata);
-  // sessionStorage.setItem("user",userdatas);
 
   return (
     <>

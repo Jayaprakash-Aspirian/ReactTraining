@@ -4,23 +4,18 @@ import Welcome from "./welcome";
 import { Person } from "./types/typesimport";
 import { useDispatch, useSelector } from "react-redux";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
-import axios from "axios";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
-import { DateTime } from "luxon";
-import { transactionsAddLogic } from "../store/logic/add-transactions-logic";
-import { addTransactionsData, ADD_TRANSACTIONS_ACTIVITY } from "../store/activity.actions";
-import {  userdetails } from "./session-storage";
+import { addTransactionsData } from "../store/activity.actions";
+import { userdetails } from "./session-storage";
+import { datedetails } from "./currenttime";
 
 const UsersList = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const [transactions, setTransaction] = useState({})
+
   const [amount, setAmount] = useState<any>();
-  const alltransactions = useSelector(
-    (state: any) => state.alltransactionsdata.transactions
-  );
   const [user, setUserData] = useState({} as Person);
-  
+
   useEffect(() => {
     setUserData(JSON.parse(userdetails()));
   }, []);
@@ -29,39 +24,40 @@ const UsersList = () => {
     dispatch(transactionsFetchLogic);
   }, []);
 
-  useEffect(() => {
-    dispatch(addTransactionsData(transactions))
-  },[transactions])
+  const alltransactions = useSelector(
+    (state: any) => state.alltransactionsdata.transactions
+  );
 
   const SentAmount = (datas: Person) => {
-    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const dateis = new Date();
-    const day = days[dateis.getDay()];
-    const datedetails =
-      day +
-      " " +
-      DateTime.now().toLocaleString(DateTime.DATE_MED) +
-      " " +
-      dateis.getHours() +
-      ":" +
-      dateis.getMinutes() +
-      ":" +
-      dateis.getSeconds();
+    // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    // const dateis = new Date();
+    // const day = days[dateis.getDay()];
+    // const datedetails =
+    //   day +
+    //   " " +
+    //   DateTime.now().toLocaleString(DateTime.DATE_MED) +
+    //   " " +
+    //   dateis.getHours() +
+    //   ":" +
+    //   dateis.getMinutes() +
+    //   ":" +
+    //   dateis.getSeconds();
 
     const userdatas = JSON.parse(userdetails());
 
-    setTransaction({
+    const transactions = {
       id: alltransactions.length + 1,
       from: userdatas.mobile,
       to: datas.mobile,
       sentmoney: amount[datas.mobile],
-      date: datedetails,
-    })
+      date: datedetails(),
+    };
+
+    dispatch(addTransactionsData(transactions));
 
     alert(
       "Amount " +
         amount[datas.mobile] +
-
         " sent to the " +
         datas.firstname +
         " " +
@@ -94,7 +90,7 @@ const UsersList = () => {
             style={{ width: "30%" }}
           />
           <br />
-          <div
+          <button
             className="btn btn-primary text-uppercase"
             style={{ color: "green" }}
             onClick={() => {
@@ -102,7 +98,7 @@ const UsersList = () => {
             }}
           >
             {t("sent_money")}
-          </div>
+          </button>
         </div>
       </div>
       <hr />
