@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {  userdetails } from "./session-storage";
+import { userdetails } from "./session-storage";
 import { Person } from "./types/typesimport";
 import Welcome from "./welcome";
 
 const AccountBalance = () => {
   const { t } = useTranslation();
   const [UserData, setUserData] = useState({} as Person);
-  
+
   useEffect(() => {
     setUserData(JSON.parse(userdetails()));
   }, []);
@@ -28,19 +28,18 @@ const AccountBalance = () => {
                     <p className="text-uppercase">
                       {t("user_name")}
                       <br />
-                      {t("name")}{" "}
-                    </p>{" "}
+                      {t("name")}
+                    </p>
                     <br />
                     {UserData.account}
                   </div>
                   <div>
-                    {" "}
                     <p className="text-uppercase">
                       {t("account")} <br />
                       {t("balance")}
                     </p>
                     <br />
-                    {UserData.amount}{" "}
+                    {UserData.amount}
                   </div>
                 </div>
               </div>

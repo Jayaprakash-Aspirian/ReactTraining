@@ -34,8 +34,7 @@ const Dashboard = () => {
                 >
                   <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                     <div className="btn btn-primary text-uppercase">
-                      {" "}
-                      {t("promotion_details")}{" "}
+                      {t("promotion_details")}
                     </div>
                   </div>
                 </Link>

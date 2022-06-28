@@ -1,3 +1,3 @@
-export const userdetails: any = ()=>{
-    return sessionStorage.getItem("user");
-}
+export const userdetails: any = () => {
+  return sessionStorage.getItem("user");
+};

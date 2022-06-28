@@ -6,11 +6,13 @@ import Login from "../components/login";
 import PermissionDenied from "../components/permissionDenied";
 import Profile from "../components/profile";
 import Promotions from "../components/promotions";
+import SentMoney from "../components/signup-demo";
 import SignUp from "../components/signUp";
 import TransactionHistory from "../components/transactionHistory";
 import UsersList from "../components/usersList";
 import ProtectedRoutes from "./protectedRoutes";
 import PublicRoutes from "./publicRoutes";
+import SignupDemo from "../components/signup-demo";
 
 const MainRoutes = () => {
   return (
@@ -32,6 +34,7 @@ const MainRoutes = () => {
         <Route path="" element={<PublicRoutes />}>
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
+          <Route path="signupdemo" element={<SignupDemo />} />
         </Route>
         <Route path="*" element={<PermissionDenied />} />
       </Routes>

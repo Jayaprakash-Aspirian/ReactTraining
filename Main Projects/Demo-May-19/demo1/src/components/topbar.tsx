@@ -35,7 +35,6 @@ const Topbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          {" "}
           <button
             className="navbar-toggler"
             type="button"
@@ -45,9 +44,8 @@ const Topbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            {" "}
-            <span className="navbar-toggler-icon"></span>{" "}
-          </button>{" "}
+            <span className="navbar-toggler-icon"></span>
+          </button>
           <div className="navbar-brand">
             <div className="d-flex">
               <div className="d-flex align-items-center logo bg-purple">
@@ -67,15 +65,14 @@ const Topbar = () => {
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  {" "}
                   <div
                     className="nav-link active"
                     aria-current="page"
                     onClick={() => navigate("/userslist")}
                   >
-                    {t("sent_money")}{" "}
+                    {t("sent_money")}
                     <span className="fas fa-th-large px-1"></span>
-                  </div>{" "}
+                  </div>
                 </li>
                 <li className="nav-item"> </li>
                 <li className="nav-item"> </li>

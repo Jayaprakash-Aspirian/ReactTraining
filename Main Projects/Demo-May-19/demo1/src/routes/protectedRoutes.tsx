@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-
 const useAuth = () => {
   const userdetails = sessionStorage.getItem("user");
   let user: any;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Person } from "./types/typesimport";
 import Welcome from "./welcome";
-import {  userdetails } from "./session-storage";
+import { userdetails } from "./session-storage";
 
 const TransactionHistory = () => {
   const { t } = useTranslation();

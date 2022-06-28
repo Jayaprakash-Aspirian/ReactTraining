@@ -10,7 +10,7 @@ const TransactionHistory = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [userdetails, setUserData] = useState({} as Person);
-  
+
   useEffect(() => {
     setUserData(JSON.parse(datas()));
   }, []);
@@ -66,7 +66,6 @@ const TransactionHistory = () => {
                     </div>
                     <div className="fs-8"> {post.date}</div>
                     <div className="rating d-flex align-items-center pt-1">
-                      {" "}
                     </div>
                   </div>
                 </div>
@@ -98,17 +97,15 @@ const TransactionHistory = () => {
                       {t("from")}:{post.from}
                     </div>
                     <div className="fs-8">
-                      {t("to")} :{post.to}{" "}
+                      {t("to")} :{post.to}
                     </div>
                     <div className="fs-8">
-                      {" "}
-                      {t("sent_money")}: {post.sentmoney}{" "}
+                      {t("sent_money")}: {post.sentmoney}
                     </div>
                     <div className="fs-8">
-                      {t("date")}: {post.date}{" "}
+                      {t("date")}: {post.date}
                     </div>
                     <div className="rating d-flex align-items-center pt-1">
-                      {" "}
                     </div>
                   </div>
                 </div>

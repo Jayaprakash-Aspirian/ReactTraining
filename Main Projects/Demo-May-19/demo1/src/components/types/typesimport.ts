@@ -19,3 +19,13 @@ export interface LoginData {
   mobile: string;
   password: string;
 }
+
+export interface SignupData{
+  firstname: string;
+  lastname: string;
+  email: string;
+  mobile: string;
+  password : string;
+  confirmpassword : string;
+  clientError : string;
+}

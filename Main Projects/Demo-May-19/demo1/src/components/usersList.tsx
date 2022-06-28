@@ -29,20 +29,6 @@ const UsersList = () => {
   );
 
   const SentAmount = (datas: Person) => {
-    // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    // const dateis = new Date();
-    // const day = days[dateis.getDay()];
-    // const datedetails =
-    //   day +
-    //   " " +
-    //   DateTime.now().toLocaleString(DateTime.DATE_MED) +
-    //   " " +
-    //   dateis.getHours() +
-    //   ":" +
-    //   dateis.getMinutes() +
-    //   ":" +
-    //   dateis.getSeconds();
-
     const userdatas = JSON.parse(userdetails());
 
     const transactions = {
