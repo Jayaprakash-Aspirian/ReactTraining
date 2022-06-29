@@ -34,7 +34,7 @@ const MainRoutes = () => {
         <Route path="" element={<PublicRoutes />}>
           <Route path="signup" element={<SignUp />} />
           <Route path="login" element={<Login />} />
-          <Route path="signupdemo" element={<SignupDemo />} />
+          {/* <Route path="signupdemo" element={<SignupDemo />} /> */}
         </Route>
         <Route path="*" element={<PermissionDenied />} />
       </Routes>

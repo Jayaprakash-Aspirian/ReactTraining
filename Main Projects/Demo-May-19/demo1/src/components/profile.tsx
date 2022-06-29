@@ -3,16 +3,37 @@ import { useTranslation } from "react-i18next";
 import { Person } from "./types/typesimport";
 import Welcome from "./welcome";
 import { userdetails } from "./session-storage";
+import React, { Component } from 'react'
+import { render } from "@testing-library/react";
 
-const TransactionHistory = () => {
-  const { t } = useTranslation();
-  const [UserData, setUserData] = useState({} as Person);
+type ProfileData = {
+  userdata: {  
+    firstname: string;
+    lastname: string;
+    email: string;
+    mobile: string;
+    account: string;
+    amount: string;
+    role: string;
+  }
+}
 
-  useEffect(() => {
-    setUserData(JSON.parse(userdetails()));
-  }, []);
+class Profile extends Component<ProfileData> {
+  // const { t } = useTranslation();
+  // const [UserData, setUserData] = useState({} as Person);
 
-  return (
+  // useEffect(() => {
+  //   setUserData(JSON.parse(userdetails()));
+  // }, []);
+  constructor(props:ProfileData){
+    super(props)
+    this.state = {userdata: JSON.parse(userdetails())}
+  }
+  // state : Person = {
+
+  // }
+  render(){
+   return (
     <>
       <div className="dashboard-change">
         <div id="main-content" className="bg-white border">
@@ -26,7 +47,7 @@ const TransactionHistory = () => {
                   <div>
                     <div className="d-flex align-items-center">
                       <div className="text-uppercase">{t("Name ")}:</div>
-                      {UserData.firstname} {UserData.lastname}
+                      {this.state.userdata} {UserData.lastname}
                     </div>
                     <br />
                     <div className="d-flex align-items-center">
@@ -60,7 +81,8 @@ const TransactionHistory = () => {
         </div>
       </div>
     </>
-  );
+   );
+   }
 };
 
-export default TransactionHistory;
+export default Profile ;

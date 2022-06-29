@@ -15,7 +15,6 @@ export default class SignupDemo extends Component<SignupData> {
       clientError : ""
     };
     this.SubmitForm = this.SubmitForm.bind(this);
-
   }
   // state: SignupData = {
   //   firstname:"",
@@ -26,12 +25,11 @@ export default class SignupDemo extends Component<SignupData> {
   //   confirmpassword : "",
   //   clientError : ""
   // };
-  componentDidMount() {
-    dispatch(usersFetchLogic);
+  componentWillReceiveProps() {
+    console.log("yes")
   }
   SubmitForm(e:any){
                   
-
     // dispatch(fetchJokes(this.state.value));
 
   }
@@ -40,7 +38,7 @@ export default class SignupDemo extends Component<SignupData> {
   render() {
     return (
       <div className="body-signup">
-        <div className="container">
+        {/* <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-5">
               <div className="card">
@@ -129,7 +127,7 @@ export default class SignupDemo extends Component<SignupData> {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   
