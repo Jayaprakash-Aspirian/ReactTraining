@@ -32,6 +32,8 @@ const SignUp = () => {
       email: email,
       password: password,
       mobile: mobile,
+      account: null,
+      amount:null,
       role: " USER",
     };
     e.preventDefault();
