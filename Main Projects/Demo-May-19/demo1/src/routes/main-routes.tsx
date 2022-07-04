@@ -1,21 +1,22 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import AccountBalance from "../components/accountBalance";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import AccountBalance from "../components/account-balance";
 import Contact from "../components/contact";
 import Dashboard from "../components/dashboard";
 import Login from "../components/login";
-import PermissionDenied from "../components/permissionDenied";
+import PermissionDenied from "../components/permission-denied";
 // import Profile from "../components/profile";
 import Promotions from "../components/promotions";
-import SentMoney from "../components/signup-demo";
-import SignUp from "../components/signUp";
-import TransactionHistory from "../components/transactionHistory";
+import SentMoney from "../components/signup";
+import SignUp from "../components/signup-function";
+import TransactionHistory from "../components/transaction-history";
 import UsersList from "../components/usersList";
-import ProtectedRoutes from "./protectedRoutes";
-import PublicRoutes from "./publicRoutes";
-import SignupDemo from "../components/signup-demo";
+import ProtectedRoutes from "./protected-routes";
+import PublicRoutes from "./public-routes";
+import Signup from "../components/signup";
 import Profile from "../components/profile";
 
 const MainRoutes = () => {
+  const navigate  = useNavigate()
   return (
     <>
       <Routes>
@@ -33,9 +34,8 @@ const MainRoutes = () => {
           <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="" element={<PublicRoutes />}>
-          <Route path="signup" element={<SignUp />} />
+          <Route path="signup" element={<Signup navigate={navigate} />} />
           <Route path="login" element={<Login />} />
-          {/* <Route path="signupdemo" element={<SignupDemo />} /> */}
         </Route>
         <Route path="*" element={<PermissionDenied />} />
       </Routes>

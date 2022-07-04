@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import Topbar from "./components/topbar";
 import { loadingMarkup } from "./loading-markup";
-import MainRoutes from "./routes/mainRoutes";
+import MainRoutes from "./routes/main-routes";
 import "./translation-i18next/translation";
 import configureStore from "./store/store";
 import Sidebar from "./components/sidebar";

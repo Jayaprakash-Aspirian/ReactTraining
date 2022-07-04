@@ -48,10 +48,8 @@ const Login = () => {
                       placeholder={t("enter_mobile")}
                       name="phone"
                       onChange={(e) => setMobile(e.target.value)}
+                      required
                     />
-                    {/* {mobileError ? (
-                      <h5 style={{ color: "red" }}>{mobileError}</h5>
-                    ) : null} */}
                   </div>
                   <div className="form-group">
                     <input
@@ -61,12 +59,10 @@ const Login = () => {
                       placeholder={t("enter_password")}
                       name="password"
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
-                    {/* {passwordError ? (
-                      <h5 style={{ color: "red" }}>{passwordError}</h5>
-                    ) : null} */}
                     {loginError ? (
-                      <h5 style={{ color: "red" }}>{loginError}</h5>
+                      <h5 className="error-red-color">{loginError}</h5>
                     ) : null}
                   </div>
                   <br />

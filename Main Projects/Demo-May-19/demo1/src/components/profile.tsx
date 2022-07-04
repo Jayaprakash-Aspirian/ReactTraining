@@ -1,52 +1,30 @@
-import { useEffect, useState } from "react";
 import { useTranslation, withTranslation } from "react-i18next";
-import { Person } from "./types/typesimport";
+import { Person, ProfileData } from "./types/typesimport";
 import Welcome from "./welcome";
-import { userdetails, userdetailsdata } from "./session-storage";
+import { userdetailsdata } from "./session-storage";
 import React, { Component } from "react";
-import { render } from "@testing-library/react";
 
-// type ProfileData = {
-//   userdata: {
-//     firstname: string;
-//     lastname: string;
-//     email: string;
-//     mobile: string;
-//     account: string;
-//     amount: string;
-//     role: string;
-//   };
-// };
+class Profile extends Component<{}, ProfileData> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      userdata: {
+        firstname: "",
+        lastname: "",
+        email: "",
+        mobile: "",
+        account: "",
+        amount: "",
+        role: "",
+      },
+    };
+  }
 
-class Profile extends Component {
-  // constructor(props: any) {
-  //   super(props);
-
-  //   this.state = {
-  //     userdata : userdetailsdata()
-  //   };
-  // }
-
-  // state: Person = {
-  // firstname: "",
-  // lastname: "",
-  // email: "",
-  // mobile: "",
-  // account: "",
-  // amount: "",
-  // role: "",
-  // };
-  // componentDidMount() {
-  //   this.setState((state) => ({
-  //     firstname: userdetailsdata().firstname,
-  //     lastname: userdetailsdata().lastname,
-  //     email: userdetailsdata().email,
-  //     mobile: userdetailsdata().mobile,
-  //     account: userdetailsdata().account,
-  //     amount: userdetailsdata().amount,
-  //     role: userdetailsdata().role,
-  //   }));
-  // }
+  componentDidMount() {
+    this.setState({
+      userdata: userdetailsdata(),
+    });
+  }
 
   render() {
     const { t }: any = this.props;
@@ -57,7 +35,7 @@ class Profile extends Component {
             <Welcome />
             <br />
             <div className="text-uppercase">{t("profile_page")}:</div>
-            {/* <div className="text-uppercase">{t("profile_page")}:</div>
+            <div className="text-uppercase">{t("profile_page")}:</div>
             <div className="order my-3 bg-light">
               <div className="column">
                 <div className="col-lg-8">
@@ -65,17 +43,18 @@ class Profile extends Component {
                     <div>
                       <div className="d-flex align-items-center">
                         <div className="text-uppercase">{t("Name ")}:</div>
-                        {this.state.firstname} {this.state.lastname}
+                        {this.state.userdata.firstname}{" "}
+                        {this.state.userdata.lastname}
                       </div>
                       <br />
                       <div className="d-flex align-items-center">
                         <div className="text-uppercase">{t("Email")}:</div>
-                        {this.state.email}
+                        {this.state.userdata.email}
                       </div>
                       <br />
                       <div className="d-flex align-items-center">
                         <div className="text-uppercase">{t("mobile")} :</div>
-                        {this.state.mobile}
+                        {this.state.userdata.mobile}
                       </div>
                     </div>
                     <div>
@@ -86,16 +65,16 @@ class Profile extends Component {
                         </div>
                         <div
                           className="btn btn-primary text-uppercase"
-                          style={{ color: "green" }}
+                          id="bank-color"
                         >
-                          {this.state.account}
+                          {this.state.userdata.account}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </>
@@ -103,4 +82,4 @@ class Profile extends Component {
   }
 }
 
-export default withTranslation() (Profile);
+export default withTranslation()(Profile);

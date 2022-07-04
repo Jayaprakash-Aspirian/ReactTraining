@@ -21,11 +21,35 @@ export interface LoginData {
 }
 
 export interface SignupData{
-  firstname: string;
-  lastname: string;
-  email: string;
-  mobile: string;
-  password : string;
-  confirmpassword : string;
-  clientError : string;
+  // userdata:{
+    firstname: string;
+    lastname: string;
+    email: string;
+    mobile: string;
+    password : string;
+    confirmpassword : string;
+  // }
+  // error :{
+    clientError : string;
+  // }
 }
+
+export interface PropsAllusersare{
+  allusersare :any,
+  dispatch:any,
+  navigate:any,
+  getAllusersdata:any,
+  updateUserdata :any
+}
+
+export interface ProfileData  {
+  userdata: {
+    firstname: string;
+    lastname: string;
+    email: string;
+    mobile: string;
+    account: string;
+    amount: string;
+    role: string;
+  };
+};

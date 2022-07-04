@@ -6,6 +6,7 @@ import HocFirstDemo from './HocFirstDemo';
 import ClickCounter from './ClickCounter';
 import HoverCounter from './HoverCounter';
 import HocCounter from './HocCounter';
+import ComponentDidMountDemo from './ComponentDidMount';
 
 const CallComponent=HocFirstDemo(FirstContent)
 
@@ -22,10 +23,11 @@ function App() {
       {/* <ClickCounter />
       <HoverCounter /> */}
       <hr />
-      <UpdatedClickCounter  name="Kavin"/>
-      <UpdatedHoverCounter />
+      {/* <UpdatedClickCounter  name="Kavin"/>
+      <UpdatedHoverCounter /> */}
       <div className='horedstr'> </div>
       <div className='ukflag'></div>
+      <ComponentDidMountDemo />
 
     </div>
   ); 

@@ -7,9 +7,9 @@
       "email": "kumar12@gmailcom",
       "password": "asdfghjk",
       "mobile": "6382409787",
-      "role": "USER",
       "account": "icici",
-      "amount": "10000"
+      "amount": "10000",
+      "role": "USER"
     },
     {
       "id": 2,
@@ -18,9 +18,9 @@
       "email": "kum2312@gmailcom",
       "password": "asdfghjk",
       "mobile": "6382403456",
-      "role": "USER",
       "account": "sbi",
-      "amount": "50000"
+      "amount": "50000",
+      "role": "USER"
     },
     {
       "id": 3,
@@ -29,6 +29,8 @@
       "email": "kavin2312@gmailcom",
       "password": "asdfghjk",
       "mobile": "6382401234",
+      "account": null,
+      "amount": null,
       "role": "ADMIN"
     },
     {
@@ -38,6 +40,8 @@
       "email": "indra4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "63824898800",
+      "account": null,
+      "amount": null,
       "role": "USER"
     },
     {
@@ -47,6 +51,8 @@
       "email": "naven4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "6387389327",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -56,6 +62,8 @@
       "email": "kamal4112000@gmail.com",
       "password": "asd",
       "mobile": "63348909787",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -65,6 +73,8 @@
       "email": "venky4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "6387789908",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -74,6 +84,8 @@
       "email": "madhu123@gmailcom",
       "password": "asdfghjk",
       "mobile": "63982735232",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -83,6 +95,8 @@
       "email": "indran123@gmail.com",
       "password": "asdfghjk",
       "mobile": "8890789012",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -92,6 +106,8 @@
       "email": "jaya4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382409345",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -101,6 +117,8 @@
       "email": "jaya4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382409456",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -110,6 +128,8 @@
       "email": "kamal4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382407890",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -119,6 +139,8 @@
       "email": "kamas4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6334890345",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -128,6 +150,8 @@
       "email": "yuvi4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382401267",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -137,6 +161,8 @@
       "email": "asdd4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382489076",
+      "account": null,
+      "amount": null,
       "role": " USER"
     },
     {
@@ -146,6 +172,41 @@
       "email": "qwer4112000@gmail.com",
       "password": "Kuamr@2000",
       "mobile": "6382412345",
+      "account": null,
+      "amount": null,
+      "role": " USER"
+    },
+    {
+      "id": 17,
+      "firstname": "as",
+      "lastname": "as",
+      "email": "cvbn4112000@gmail.com",
+      "password": "Kavin@2000",
+      "mobile": "6382345678",
+      "account": null,
+      "amount": null,
+      "role": " USER"
+    },
+    {
+      "id": 18,
+      "firstname": "vikram",
+      "lastname": "s",
+      "email": "vikram4112000@gmail.com",
+      "password": "Kavin@2000",
+      "mobile": "6382409876",
+      "account": null,
+      "amount": null,
+      "role": " USER"
+    },
+    {
+      "id": 19,
+      "firstname": "thanush",
+      "lastname": "s",
+      "email": "thanush4112000@gmail.com",
+      "password": "Kavin@2000",
+      "mobile": "6382476543",
+      "account": null,
+      "amount": null,
       "role": " USER"
     }
   ],
@@ -338,6 +399,13 @@
       "to": "6382401234",
       "sentmoney": "1233",
       "date": "Wed 29 Jun 2022 16:47:12"
+    },
+    {
+      "id": 28,
+      "from": "6382409787",
+      "to": "6382403456",
+      "sentmoney": "1234",
+      "date": "Fri 1 Jul 2022 12:56:34"
     }
   ]
 }

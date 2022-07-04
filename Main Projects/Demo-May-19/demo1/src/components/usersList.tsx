@@ -29,6 +29,7 @@ const UsersList = () => {
   );
 
   const SentAmount = (datas: Person) => {
+    
     const userdatas = JSON.parse(userdetails());
 
     const transactions = {
@@ -73,12 +74,12 @@ const UsersList = () => {
             onChange={(e) =>
               setAmount({ ...amount, [datas.mobile]: e.target.value })
             }
-            style={{ width: "30%" }}
+            className = "width30"
           />
           <br />
           <button
             className="btn btn-primary text-uppercase"
-            style={{ color: "green" }}
+            id="sent-moneny-button"
             onClick={() => {
               SentAmount(datas);
             }}

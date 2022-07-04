@@ -14,11 +14,10 @@ const Dashboard = () => {
           <div className="text-uppercase">{t("account")}</div>
           <div className="order my-3 bg-light">
             <br />
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className="col-lg-4" style={{ width: "20%" }}>
+            <div className="flex-direction-row" >
+              <div className="col-lg-4" >
                 <Link
-                  to="accountbalance"
-                  style={{ textDecoration: "inherit", color: "white" }}
+                  to="accountbalance" className="dashboard-links"
                 >
                   <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                     <div className="btn btn-primary text-uppercase">
@@ -27,10 +26,9 @@ const Dashboard = () => {
                   </div>
                 </Link>
               </div>
-              <div className="col-lg-4" style={{ width: "20%" }}>
+              <div className="col-lg-4" >
                 <Link
-                  to="promotions"
-                  style={{ textDecoration: "inherit", color: "white" }}
+                  to="promotions" className="dashboard-links"
                 >
                   <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                     <div className="btn btn-primary text-uppercase">
@@ -39,10 +37,9 @@ const Dashboard = () => {
                   </div>
                 </Link>
               </div>
-              <div className="col-lg-4" style={{ width: "20%" }}>
+              <div className="col-lg-4" >
                 <Link
-                  to="transactions"
-                  style={{ textDecoration: "inherit", color: "white" }}
+                  to="transactions" className="dashboard-links"
                 >
                   <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                     <div className="btn btn-primary text-uppercase">

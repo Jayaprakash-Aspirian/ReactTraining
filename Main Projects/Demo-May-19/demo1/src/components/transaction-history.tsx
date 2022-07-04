@@ -44,7 +44,7 @@ const TransactionHistory = () => {
                   <div>
                     <div
                       className="btn btn-primary text-uppercase"
-                      style={{ color: "red" }}
+                      id = "sent-money-color"
                     >
                       -{post.sentmoney}
                     </div>
@@ -74,7 +74,7 @@ const TransactionHistory = () => {
                 <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
                   <div
                     className="btn btn-primary text-uppercase"
-                    style={{ color: "green" }}
+                    id="get-money-color"
                   >
                     +{post.sentmoney}
                   </div>

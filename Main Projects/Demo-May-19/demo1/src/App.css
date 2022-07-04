@@ -491,6 +491,45 @@ Link{
 
   .btn btn-secondary a:hover {background-color: blue}
 
+  .flex-direction-row {
+     display: "flex" ;flex-direction : column
+  }
+
+  .col-lg-4{
+    width: 20%;
+  }
+
+  .dashboard-links{
+    text-decoration:none; color:white;
+  }
+
+  .error-red-color{
+    color: red;
+  }
+
+  #bank-color{
+    color: green;
+  }
+
+  #mynav{
+    margin-left: 30%;
+  }
+
+  #sent-money-color{
+    color: red;
+  }
+
+  #get-money-color{
+    color: green;
+  }
+
+  #sent-moneny-button{
+    color: green;
+  }
+
+  .width30 {
+    width: 30%;
+  }
 
  
 

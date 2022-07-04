@@ -37,8 +37,8 @@ const SignUp = () => {
       role: " USER",
     };
     e.preventDefault();
-    RegisterValidation(datas)
-      ? setClientError(RegisterValidation(datas))
+    RegisterValidation(datas,confirmpassword)
+      ? setClientError(RegisterValidation(datas,confirmpassword))
       : Registration(datas, allusersare)
       ? setClientError(Registration(datas, allusersare))
       : dispatch(addUsersData(datas)) && navigate("/login");
@@ -129,7 +129,7 @@ const SignUp = () => {
                   </div>
                   <br />
                   {clientError ? (
-                    <span style={{ color: "red" }}>{clientError}</span>
+                    <span className="error-red-color">{clientError}</span>
                   ) : null}
                 </form>
               </div>

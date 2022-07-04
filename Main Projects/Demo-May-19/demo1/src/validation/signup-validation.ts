@@ -5,7 +5,7 @@ import {
   PASSWORD_REGX,
 } from "../utils/constants/constants";
 
-export const RegisterValidation = (userdata: any) => {
+export const RegisterValidation = (userdata: any,confirmpassword:string) => {
   var userErrors = "";
 
   !userdata.firstname
@@ -23,6 +23,8 @@ export const RegisterValidation = (userdata: any) => {
     : !PASSWORD_REGX.test(userdata.password)
     ? (userErrors =
         "Password must contain one uppercase,one lowercase,one Digit,one special character")
+    : userdata.password != confirmpassword
+    ? (userErrors = "Password and confirm password mismatched")
     : console.log("");
 
   return userErrors;
