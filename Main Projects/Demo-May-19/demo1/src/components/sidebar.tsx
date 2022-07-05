@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import WithPermission from "./withPermission";
+import WithPermission from "./with-permission";
 
 const Sidebar = () => {
   const { t } = useTranslation();

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Person } from "../components/types/typesimport";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
@@ -14,14 +15,14 @@ export const addingUsersData = (data: any) =>
   axiosInstance({
     method: "POST",
     url: "/users",
-    data: data.payload,
+    data: data,
   });
 
 export const addingTransactionsData = (data: any) =>
   axiosInstance({
     method: "POST",
     url: "/transaction-history",
-    data: data.payload,
+    data: data,
   });
 
 export const allTransactionsData = async () =>
@@ -29,6 +30,14 @@ export const allTransactionsData = async () =>
     method: "get",
     url: "/transaction-history",
   });
+
+export const UpdateuserDatas =  (data:any) =>
+  axiosInstance({
+    method: "PUT",
+    url: `/users/${data.id}`,
+    data : data,
+  });
+
 
 axiosInstance.interceptors.request.use((x: any) => {
   console.log(x);

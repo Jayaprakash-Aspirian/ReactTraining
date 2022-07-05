@@ -531,6 +531,10 @@ Link{
     width: 30%;
   }
 
- 
+  .success-topbar{
+    background-color: rgb(60, 189, 60);
+    color: white; 
+    padding-left: 10px;
+  }
 
   

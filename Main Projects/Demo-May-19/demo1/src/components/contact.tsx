@@ -15,10 +15,8 @@ const Contact = () => {
             <br />
             <div className="row">
               <div className="col-lg-4">
-                <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                  <div className="text-uppercase">{t("email")} :</div>
-                  <p>{t("aspay_mailid")}</p>
-                </div>
+                <div className="text-uppercase">{t("email")} :</div>
+                <p>{t("aspay_mailid")}</p>
                 <br />
                 <div className="text-uppercase">{t("contact_us")} :</div>
                 <p>12345</p>

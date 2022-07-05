@@ -18,12 +18,48 @@ export const CANCEL_ADD_TRANSACTIONS_ACTIVITY = "CANCEL_ADD_TRANSACTIONS_ACTIVIT
 export const FULLFILLED_ADD_TRANSACTIONS_ACTIVITY = "FULLFILLED_ADD_TRANSACTIONS_ACTIVITY"
 export const REJECTED_ADD_TRANSACTIONS_ACTIVITY= "REJECTED_ADD_TRANSACTIONS_ACTIVITY"
 
+export const UPDATE_USER_ACTIVITY = "UPDATE_USER_ACTIVITY"
+export const CANCEL_UPDATE_USER_ACTIVITY = "CANCEL_UPDATE_USER_ACTIVITY"
+export const FULLFILLED_UPDATE_USER_ACTIVITY = "FULLFILLED_UPDATE_USER_ACTIVITY"
+export const REJECTED_UPDATE_USER_ACTIVITY="REJECTED_UPDATE_USER_ACTIVITY"
+
+// export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS"
+// export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const SUCCESS_MESSAGE = "SUCCESS_MESSAGE"
+export const ERROR_MESSAGE = "ERROR_MESSAGE"
+
+export const MESSAGE_REMOVE = "MESSAGE_REMOVE"
+
+// export const signupSuccess = () =>{
+//     return { type:SIGNUP_SUCCESS};
+// }
+
+// export const loginSuccess = () =>{
+//     return { type:LOGIN_SUCCESS};
+// }
+
+export const successMessage = (message:any) =>{
+    return { type:SUCCESS_MESSAGE, payload:message};
+}
+
+export const errorMessage = () =>{
+    return { type:ERROR_MESSAGE};
+}
+
+export const messageRemove = () =>{
+    return { type: MESSAGE_REMOVE };
+}
+
 export const addUsersData = (usersdata :any) =>{
     return { type: ADD_USERS_ACTIVITY,payload:usersdata};
 }
 
 export const addTransactionsData = (transactions :any) =>{
     return { type: ADD_TRANSACTIONS_ACTIVITY,payload:transactions };
+}
+
+export const updateUserData = (userdata:any) =>{
+    return { type:UPDATE_USER_ACTIVITY ,payload:userdata };
 }
 
 export const rejecttransactionsData = (payload :any) =>{

@@ -1,17 +1,29 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import WithPermission from "./withPermission";
+import WithPermission from "./with-permission";
 import { languages } from "../translation-i18next/languages";
 import cookies from "js-cookie";
 import i18next from "i18next";
 import { userdetails } from "./session-storage";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { messageRemove} from "../store/activity.actions";
 
 const Topbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const user = JSON.parse(userdetails());
   const currentLanguageCode = cookies.get("i18next");
+
+  setTimeout(function(){
+      dispatch(messageRemove())
+  },5000); 
+  
+  const checkmessage = useSelector((state:any) => state.topbarmessage ) 
+
+  console.log(checkmessage)
 
   const GlobeIcon = ({ width = 24, height = 24 }) => (
     <svg
@@ -131,8 +143,9 @@ const Topbar = () => {
           </div>
         </div>
       </nav>
-    </div>
-  );
+
+        {checkmessage ?  <b><p className="success-topbar">{checkmessage}</p></b> : ""}
+      </div>  );
 };
 
 export default Topbar;

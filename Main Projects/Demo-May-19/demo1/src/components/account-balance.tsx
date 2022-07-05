@@ -47,6 +47,7 @@ const AccountBalance = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };

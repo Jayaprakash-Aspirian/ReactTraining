@@ -3,7 +3,7 @@ import { withTranslation } from "react-i18next";
 import { PropsAllusersare, SignupData } from "./types/typesimport";
 import { RegisterValidation } from "../validation/signup-validation";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
-import { addUsersData } from "../store/activity.actions";
+import { addUsersData,successMessage } from "../store/activity.actions";
 import { connect } from "react-redux";
 import { Registration } from "../server-side-validation/signup-validation";
 
@@ -50,7 +50,9 @@ class Signup extends Component<PropsAllusersare, SignupData> {
       ? this.setState({
           clientError: Registration(datas, this.props.allusersare),
         })
-      : this.props.updateUserdata(datas) && this.props.navigate("/login");
+      : this.props.updateUserdata(datas) && this.props.message("Your Data, Successfully Registered....Login Here!!!") && this.props.navigate("/login");
+
+    
   }
 
   render() {
@@ -174,6 +176,7 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     getAllusersdata: () => dispatch(usersFetchLogic),
     updateUserdata: (datas: any) => dispatch(addUsersData(datas)),
+    message: (message:string) => dispatch(successMessage(message)),
   };
 };
 

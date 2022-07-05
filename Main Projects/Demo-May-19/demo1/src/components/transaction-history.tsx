@@ -29,98 +29,92 @@ const TransactionHistory = () => {
 
   const usertransactionspage = usertransactions.map(
     (post: Transactions, index: number) => {
-      if (userdetails.mobile === post.from) {
-        return (
-          <div className="order my-3 bg-light" key={index}>
-            <div className="column">
-              <div className="col-lg-8">
-                <div className="d-flex flex-column justify-content-between order-summary">
-                  <div>
-                    <div className="d-flex align-items-center">
-                      <div className="text-uppercase">{post.to}</div>
-                    </div>
-                    <div className="fs-8">{post.date}</div>
+      return userdetails.mobile === post.from ? (
+        <div className="order my-3 bg-light" key={index}>
+          <div className="column">
+            <div className="col-lg-8">
+              <div className="d-flex flex-column justify-content-between order-summary">
+                <div>
+                  <div className="d-flex align-items-center">
+                    <div className="text-uppercase">{post.to}</div>
                   </div>
-                  <div>
-                    <div
-                      className="btn btn-primary text-uppercase"
-                      id = "sent-money-color"
-                    >
-                      -{post.sentmoney}
-                    </div>
-                  </div>
+                  <div className="fs-8">{post.date}</div>
                 </div>
-              </div>
-            </div>
-          </div>
-        );
-      } else if (userdetails.mobile === post.to) {
-        return (
-          <div className="order my-3 bg-light" key={index}>
-            <div className="column">
-              <div className="col-lg-8">
-                <div className="d-flex flex-column justify-content-between order-summary">
-                  <div>
-                    <div className="d-flex align-items-center">
-                      <div className="text-uppercase">{post.from}</div>
-                    </div>
-                    <div className="fs-8"> {post.date}</div>
-                    <div className="rating d-flex align-items-center pt-1">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+                <div>
                   <div
                     className="btn btn-primary text-uppercase"
-                    id="get-money-color"
+                    id="sent-money-color"
                   >
-                    +{post.sentmoney}
+                    -{post.sentmoney}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        );
-      } else if (userdetails.role === "ADMIN") {
-        return (
-          <div className="order my-3 bg-light" key={index}>
-            <div className="column">
-              <div className="col-lg-8">
-                <div className="d-flex flex-column justify-content-between order-summary">
-                  <div>
-                    <div className="d-flex align-items-center">
-                      <div className="text-uppercase"></div>
-                    </div>
-                    <div className="fs-8">
-                      {t("from")}:{post.from}
-                    </div>
-                    <div className="fs-8">
-                      {t("to")} :{post.to}
-                    </div>
-                    <div className="fs-8">
-                      {t("sent_money")}: {post.sentmoney}
-                    </div>
-                    <div className="fs-8">
-                      {t("date")}: {post.date}
-                    </div>
-                    <div className="rating d-flex align-items-center pt-1">
-                    </div>
+        </div>
+      ) : userdetails.mobile === post.to ? (
+        <div className="order my-3 bg-light" key={index}>
+          <div className="column">
+            <div className="col-lg-8">
+              <div className="d-flex flex-column justify-content-between order-summary">
+                <div>
+                  <div className="d-flex align-items-center">
+                    <div className="text-uppercase">{post.from}</div>
                   </div>
+                  <div className="fs-8"> {post.date}</div>
+                  <div className="rating d-flex align-items-center pt-1"></div>
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
-                  <div className="btn btn-primary text-uppercase">
-                    {t("edit_details")}
-                  </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+                <div
+                  className="btn btn-primary text-uppercase"
+                  id="get-money-color"
+                >
+                  +{post.sentmoney}
                 </div>
               </div>
             </div>
           </div>
-        );
-      }
+        </div>
+      ) : userdetails.role === "ADMIN" ? (
+        <div className="order my-3 bg-light" key={index}>
+          <div className="column">
+            <div className="col-lg-8">
+              <div className="d-flex flex-column justify-content-between order-summary">
+                <div>
+                  <div className="d-flex align-items-center">
+                    <div className="text-uppercase"></div>
+                  </div>
+                  <div className="fs-8">
+                    {t("from")}:{post.from}
+                  </div>
+                  <div className="fs-8">
+                    {t("to")} :{post.to}
+                  </div>
+                  <div className="fs-8">
+                    {t("sent_money")}: {post.sentmoney}
+                  </div>
+                  <div className="fs-8">
+                    {t("date")}: {post.date}
+                  </div>
+                  <div className="rating d-flex align-items-center pt-1"></div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+                <div className="btn btn-primary text-uppercase">
+                  {t("edit_details")}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      );
     }
   );
 

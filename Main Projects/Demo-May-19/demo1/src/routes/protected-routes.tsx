@@ -2,22 +2,18 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const useAuth = () => {
   const userdetails = sessionStorage.getItem("user");
-  let user: any;
 
-  if (userdetails) {
-    user = JSON.parse(userdetails);
-  }
-  if (user) {
-    return {
-      auth: true,
-      role: user.role,
-    };
-  } else {
-    return {
-      auth: false,
-      role: null,
-    };
-  }
+  const user = userdetails ? JSON.parse(userdetails) : "";
+
+  return user
+    ? {
+        auth: true,
+        role: user.role,
+      }
+    : {
+        auth: false,
+        role: null,
+      };
 };
 
 type ProtectedRouteType = {
@@ -26,8 +22,9 @@ type ProtectedRouteType = {
 
 const ProtectedRoutes = (props: ProtectedRouteType) => {
   const { auth, role } = useAuth();
-  if (props.roleRequired) {
-    return auth ? (
+
+  return props.roleRequired ? (
+    auth ? (
       props.roleRequired === role ? (
         <Outlet />
       ) : (
@@ -35,10 +32,12 @@ const ProtectedRoutes = (props: ProtectedRouteType) => {
       )
     ) : (
       <Navigate to="/login" />
-    );
-  } else {
-    return auth ? <Outlet /> : <Navigate to="/login" />;
-  }
+    )
+  ) : auth ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" />
+  );
 };
 
 export default ProtectedRoutes;

@@ -6,8 +6,7 @@ export const usersAddLogic = createLogic({
   type: ADD_USERS_ACTIVITY,
   latest: true,
 
-  process({ action }) {
-    
-    addingUsersData(action);
+  process({ action }:any) {
+    addingUsersData(action.payload);
   },
 });

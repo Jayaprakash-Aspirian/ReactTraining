@@ -6,7 +6,7 @@ export const transactionsAddLogic = createLogic({
   type: ADD_TRANSACTIONS_ACTIVITY,
   latest: true,
 
-  process({ action }) {
-    addingTransactionsData(action);
+  process({ action }:any) {
+    addingTransactionsData(action.payload);
   },
 });

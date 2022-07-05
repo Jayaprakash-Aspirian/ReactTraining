@@ -35,7 +35,6 @@ class Profile extends Component<{}, ProfileData> {
             <Welcome />
             <br />
             <div className="text-uppercase">{t("profile_page")}:</div>
-            <div className="text-uppercase">{t("profile_page")}:</div>
             <div className="order my-3 bg-light">
               <div className="column">
                 <div className="col-lg-8">

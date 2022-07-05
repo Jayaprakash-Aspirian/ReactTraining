@@ -5,15 +5,14 @@ import { Person } from "./types/typesimport";
 import { useDispatch, useSelector } from "react-redux";
 import { usersFetchLogic } from "../store/logic/all-users-logic";
 import { transactionsFetchLogic } from "../store/logic/all-transaction-history-logic";
-import { addTransactionsData } from "../store/activity.actions";
+import { addTransactionsData, updateUserData } from "../store/activity.actions";
 import { userdetails } from "./session-storage";
 import { datedetails } from "./currenttime";
 
 const UsersList = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
-  const [amount, setAmount] = useState<any>();
+  const [amount, setAmount] = useState<any>("");
   const [user, setUserData] = useState({} as Person);
 
   useEffect(() => {
@@ -51,6 +50,13 @@ const UsersList = () => {
         datas.lastname +
         " successfully"
     );
+
+    user.amount = String(Number(user.amount)- amount[datas.mobile] )
+    dispatch(updateUserData(user));
+    sessionStorage.setItem("user", JSON.stringify(user))
+    setAmount({...amount,[datas.mobile]:""})
+
+  
   };
 
   useEffect(() => {
@@ -63,7 +69,7 @@ const UsersList = () => {
     return user.mobile !== datas.mobile;
   });
 
-  const usersdatas = withoutuserdata.map((datas: any, index: number) => (
+  const usersdatas = withoutuserdata.map((datas: any, index: number,mobile :any) => (
     <div key={index}>
       <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
         <div className="text-uppercase">
@@ -75,6 +81,7 @@ const UsersList = () => {
               setAmount({ ...amount, [datas.mobile]: e.target.value })
             }
             className = "width30"
+            value = {amount[datas.mobile]}
           />
           <br />
           <button

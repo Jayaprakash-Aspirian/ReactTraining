@@ -7,16 +7,9 @@ type Props = {
 };
 
 const useRole = () => {
-  let user: any;
   const userdetails = sessionStorage.getItem("user");
-  if (userdetails) {
-    user = JSON.parse(userdetails);
-  }
-  if (user) {
-    return user.role;
-  } else {
-    return "NO USER";
-  }
+  const user = userdetails ? JSON.parse(userdetails) : "";
+  return user ? user.role : "NO USER";
 };
 
 const WithPermission = (props: Props) => {

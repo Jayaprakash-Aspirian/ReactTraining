@@ -39,7 +39,8 @@ export interface PropsAllusersare{
   dispatch:any,
   navigate:any,
   getAllusersdata:any,
-  updateUserdata :any
+  updateUserdata :any,
+  message :any
 }
 
 export interface ProfileData  {
