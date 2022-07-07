@@ -8,6 +8,7 @@ import { transactionsFetchLogic } from "../store/logic/all-transaction-history-l
 import { addTransactionsData, errorMessage, updateUserData } from "../store/activity.actions";
 import { userdetails } from "./session-storage";
 import { datedetails } from "./currenttime";
+import { UserPermission } from "./with-permission";
 
 const UsersList = () => {
   const dispatch = useDispatch();
@@ -127,6 +128,7 @@ const UsersList = () => {
 
   return (
     <>
+
       <div className="dashboard-change">
         <div id="main-content" className="bg-white border">
           <div className="d-flex flex-column">
@@ -140,6 +142,7 @@ const UsersList = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

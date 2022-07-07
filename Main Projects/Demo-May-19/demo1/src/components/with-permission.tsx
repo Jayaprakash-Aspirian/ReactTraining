@@ -31,10 +31,10 @@ export const WithPermission = (props:PermissionProps) => {
 //   return user ? user.role : "NO USER";
 // };
 
-// const accountHaveUser = () =>{
-//   const userdetails = userdetailsdata();
-//   return userdetails.account!==null ? "BankAccountHaveUser" : ""
-// }
+const accountHaveUser = () =>{
+  const userdetails = userdetailsdata();
+  return userdetails.account!==null ? "BankAccountHaveUser" : ""
+}
 
 // export const WithPermission = (props:PermissionProps) => {
 //   const { roleRequired, message, children } = props;
@@ -45,15 +45,15 @@ export const WithPermission = (props:PermissionProps) => {
 //   );
 // };
 
-// export const UserPermission = (props:AccountPermissionProps) =>{
-//   const { roleRequired, message, children } = props;
-//   const roleis = accountHaveUser()
-//   console.log(roleis)
-//   console.log(roleRequired)
-//   return(
-//     <>{ roleRequired===roleis ? children : "" }</>
-//   )
-// }
+export const UserPermission = (props:AccountPermissionProps) =>{
+  const { roleRequired, message, children } = props;
+  const roleis = accountHaveUser()
+  console.log(roleis)
+  console.log(roleRequired)
+  return(
+    <>{ roleRequired===roleis ? children : "" }</>
+  )
+}
 
 
 
