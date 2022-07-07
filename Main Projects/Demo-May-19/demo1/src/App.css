@@ -536,5 +536,10 @@ Link{
     color: white; 
     padding-left: 10px;
   }
+  .error-topbar{
+    background-color: rgb(201, 39, 17);
+    color: white; 
+    padding-left: 10px;
+  }
 
   

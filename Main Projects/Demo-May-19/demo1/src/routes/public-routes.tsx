@@ -1,7 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { userdetailsdata } from "../components/session-storage";
 
 const useAuth = () => {
-  const user = sessionStorage.getItem("user");
+  const user = userdetailsdata()
   return ( (user) ? true : false )
 };
 

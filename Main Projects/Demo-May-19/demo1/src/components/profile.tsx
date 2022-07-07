@@ -1,5 +1,5 @@
-import { useTranslation, withTranslation } from "react-i18next";
-import { Person, ProfileData } from "./types/typesimport";
+import { withTranslation } from "react-i18next";
+import { ProfileData } from "./types/typesimport";
 import Welcome from "./welcome";
 import { userdetailsdata } from "./session-storage";
 import React, { Component } from "react";

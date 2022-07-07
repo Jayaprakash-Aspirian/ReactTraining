@@ -23,27 +23,16 @@ export const CANCEL_UPDATE_USER_ACTIVITY = "CANCEL_UPDATE_USER_ACTIVITY"
 export const FULLFILLED_UPDATE_USER_ACTIVITY = "FULLFILLED_UPDATE_USER_ACTIVITY"
 export const REJECTED_UPDATE_USER_ACTIVITY="REJECTED_UPDATE_USER_ACTIVITY"
 
-// export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS"
-// export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const SUCCESS_MESSAGE = "SUCCESS_MESSAGE"
 export const ERROR_MESSAGE = "ERROR_MESSAGE"
-
 export const MESSAGE_REMOVE = "MESSAGE_REMOVE"
-
-// export const signupSuccess = () =>{
-//     return { type:SIGNUP_SUCCESS};
-// }
-
-// export const loginSuccess = () =>{
-//     return { type:LOGIN_SUCCESS};
-// }
 
 export const successMessage = (message:any) =>{
     return { type:SUCCESS_MESSAGE, payload:message};
 }
 
-export const errorMessage = () =>{
-    return { type:ERROR_MESSAGE};
+export const errorMessage = (message:any) =>{
+    return { type:ERROR_MESSAGE,payload:message};
 }
 
 export const messageRemove = () =>{

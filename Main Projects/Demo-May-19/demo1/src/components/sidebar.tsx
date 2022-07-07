@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import WithPermission from "./with-permission";
+import { WithPermission } from "./with-permission";
+
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -31,6 +32,7 @@ const Sidebar = () => {
                   </div>
                 </li>
               </Link>
+              {/* <UserPermission roleRequired="BankAccountHaveUser" message=""> */}
               <Link
                 to="/userslist"
                 style={{ textDecoration: "inherit", color: "white" }}
@@ -47,6 +49,7 @@ const Sidebar = () => {
                   </div>
                 </li>
               </Link>
+              {/* </UserPermission> */}
               <Link
                 to="/profile"
                 style={{ textDecoration: "inherit", color: "white" }}

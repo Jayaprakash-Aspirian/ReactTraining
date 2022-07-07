@@ -54,3 +54,15 @@ export interface ProfileData  {
     role: string;
   };
 };
+
+export interface PermissionProps {
+  roleRequired: "ADMIN" | "USER";
+  message: string;
+  children?: React.ReactNode;
+};
+
+export interface AccountPermissionProps {
+  roleRequired: "BankAccountHaveUser";
+  message: string;
+  children?: React.ReactNode;
+};

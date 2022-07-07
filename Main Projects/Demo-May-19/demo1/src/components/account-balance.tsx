@@ -24,9 +24,10 @@ const AccountBalance = () => {
             <div className="column">
               <div className="col-lg-8">
                 <div className="d-sm-flex align-items-sm-start justify-content-sm-between">
+
                   <div>
                     <p className="text-uppercase">
-                      {t("user_name")}
+                      {t("user_bank")}
                       <br />
                       {t("name")}
                     </p>
@@ -41,6 +42,7 @@ const AccountBalance = () => {
                     <br />
                     {UserData.amount}
                   </div>
+                  
                 </div>
               </div>
             </div>

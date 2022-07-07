@@ -8,7 +8,7 @@
       "password": "asdfghjk",
       "mobile": "6382409787",
       "account": "icici",
-      "amount": "9853",
+      "amount": "9799",
       "role": "USER"
     },
     {
@@ -19,7 +19,7 @@
       "password": "asdfghjk",
       "mobile": "6382403456",
       "account": "sbi",
-      "amount": "50000",
+      "amount": "1000121212112353",
       "role": "USER"
     },
     {
@@ -29,8 +29,8 @@
       "email": "kavin2312@gmailcom",
       "password": "asdfghjk",
       "mobile": "6382401234",
-      "account": null,
-      "amount": null,
+      "account": "icici",
+      "amount": "10000",
       "role": "ADMIN"
     },
     {
@@ -40,8 +40,8 @@
       "email": "indra4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "63824898800",
-      "account": null,
-      "amount": null,
+      "account": "indian",
+      "amount": "2000",
       "role": "USER"
     },
     {
@@ -51,8 +51,8 @@
       "email": "naven4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "6387389327",
-      "account": null,
-      "amount": null,
+      "account": "sbi",
+      "amount": "30000",
       "role": " USER"
     },
     {
@@ -62,8 +62,8 @@
       "email": "kamal4112000@gmail.com",
       "password": "asd",
       "mobile": "63348909787",
-      "account": null,
-      "amount": null,
+      "account": "indian",
+      "amount": "20000",
       "role": " USER"
     },
     {
@@ -73,8 +73,8 @@
       "email": "venky4112000@gmail.com",
       "password": "asdfghjk",
       "mobile": "6387789908",
-      "account": null,
-      "amount": null,
+      "account": "icici",
+      "amount": "100",
       "role": " USER"
     },
     {
@@ -326,6 +326,17 @@
       "email": "dddmd4112000@gmail.com",
       "password": "Kumar@2000",
       "mobile": "6382462894",
+      "account": null,
+      "amount": null,
+      "role": " USER"
+    },
+    {
+      "id": 31,
+      "firstname": "vinay",
+      "lastname": "s",
+      "email": "vinay123@gmail.com",
+      "password": "Kumar@2000",
+      "mobile": "6382473498",
       "account": null,
       "amount": null,
       "role": " USER"
@@ -684,164 +695,11 @@
     },
     {
       "id": 51,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "12",
+      "from": "6382403456",
+      "to": "6382409787",
+      "sentmoney": "1000",
       "date": "Tue 5 Jul 2022 17:28:12"
-    },
-    {
-      "id": 52,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:28:50"
-    },
-    {
-      "id": 53,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:32:4"
-    },
-    {
-      "id": 54,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:33:3"
-    },
-    {
-      "id": 55,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:41:35"
-    },
-    {
-      "id": 56,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:42:53"
-    },
-    {
-      "id": 57,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:43:35"
-    },
-    {
-      "id": 58,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:45:11"
-    },
-    {
-      "id": 59,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:46:57"
-    },
-    {
-      "id": 60,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:51:19"
-    },
-    {
-      "id": 61,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:55:46"
-    },
-    {
-      "id": 62,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 17:58:32"
-    },
-    {
-      "id": 63,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "12",
-      "date": "Tue 5 Jul 2022 18:0:6"
-    },
-    {
-      "id": 64,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:1:37"
-    },
-    {
-      "id": 65,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:3:42"
-    },
-    {
-      "id": 66,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:5:49"
-    },
-    {
-      "id": 67,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:6:15"
-    },
-    {
-      "id": 68,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:8:30"
-    },
-    {
-      "id": 69,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:10:17"
-    },
-    {
-      "id": 70,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "1",
-      "date": "Tue 5 Jul 2022 18:10:47"
-    },
-    {
-      "id": 71,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "12",
-      "date": "Tue 5 Jul 2022 18:13:32"
-    },
-    {
-      "id": 72,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "12",
-      "date": "Tue 5 Jul 2022 18:14:1"
-    },
-    {
-      "id": 73,
-      "from": "6382409787",
-      "to": "6382403456",
-      "sentmoney": "123",
-      "date": "Tue 5 Jul 2022 18:22:37"
     }
+ 
   ]
 }

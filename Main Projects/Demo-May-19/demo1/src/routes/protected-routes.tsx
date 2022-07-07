@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { userdetailsdata } from "../components/session-storage";
 
 const useAuth = () => {
-  const userdetails = sessionStorage.getItem("user");
+  const userdetails = userdetailsdata()
 
-  const user = userdetails ? JSON.parse(userdetails) : "";
+  const user = userdetails ? userdetails : "";
 
   return user
     ? {
