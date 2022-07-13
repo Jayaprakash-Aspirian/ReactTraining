@@ -11,6 +11,7 @@ import ProtectedRoutes from "./protected-routes";
 import PublicRoutes from "./public-routes";
 import Signup from "../components/signup";
 import Profile from "../components/profile";
+import { UserPermission } from "../components/with-permission";
 
 const MainRoutes = () => {
   const navigate  = useNavigate()
@@ -26,7 +27,9 @@ const MainRoutes = () => {
             path="dashboard/transactions"
             element={<TransactionHistory />}
           />
-          <Route path="userslist" element={<UsersList />} />
+          <UserPermission roleRequired="BankAccountHaveUser" message="">
+            <Route path="userslist" element={<UsersList />} />
+            </UserPermission>
           <Route path="profile" element={<Profile />} />
           <Route path="contact" element={<Contact />} />
         </Route>

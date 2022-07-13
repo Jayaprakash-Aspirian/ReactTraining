@@ -8,7 +8,7 @@
       "password": "asdfghjk",
       "mobile": "6382409787",
       "account": "icici",
-      "amount": "9799",
+      "amount": "9787",
       "role": "USER"
     },
     {
@@ -19,7 +19,7 @@
       "password": "asdfghjk",
       "mobile": "6382403456",
       "account": "sbi",
-      "amount": "1000121212112353",
+      "amount": "100012121211235312",
       "role": "USER"
     },
     {
@@ -53,7 +53,7 @@
       "mobile": "6387389327",
       "account": "sbi",
       "amount": "30000",
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "mobile": "63348909787",
       "account": "indian",
       "amount": "20000",
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "mobile": "6387789908",
       "account": "icici",
       "amount": "100",
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "mobile": "63982735232",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "mobile": "8890789012",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "mobile": "6382409345",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 11,
@@ -119,7 +119,7 @@
       "mobile": "6382409456",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "mobile": "6382407890",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 13,
@@ -141,7 +141,7 @@
       "mobile": "6334890345",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 14,
@@ -152,7 +152,7 @@
       "mobile": "6382401267",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 15,
@@ -163,7 +163,7 @@
       "mobile": "6382489076",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 16,
@@ -174,7 +174,7 @@
       "mobile": "6382412345",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 17,
@@ -185,7 +185,7 @@
       "mobile": "6382345678",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 18,
@@ -196,7 +196,7 @@
       "mobile": "6382409876",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 19,
@@ -207,7 +207,7 @@
       "mobile": "6382476543",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 20,
@@ -218,7 +218,7 @@
       "mobile": "6382456743",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 21,
@@ -229,7 +229,7 @@
       "mobile": "6382765456",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 22,
@@ -240,7 +240,7 @@
       "mobile": "6382478934",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 23,
@@ -251,7 +251,7 @@
       "mobile": "6382424567",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 24,
@@ -262,7 +262,7 @@
       "mobile": "6382436784",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 25,
@@ -273,7 +273,7 @@
       "mobile": "6382487456",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 26,
@@ -284,7 +284,7 @@
       "mobile": "6382434528",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 27,
@@ -295,7 +295,7 @@
       "mobile": "6382418729",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 28,
@@ -306,7 +306,7 @@
       "mobile": "6382475290",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 29,
@@ -317,7 +317,7 @@
       "mobile": "6382475345",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 30,
@@ -328,7 +328,7 @@
       "mobile": "6382462894",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     },
     {
       "id": 31,
@@ -339,7 +339,7 @@
       "mobile": "6382473498",
       "account": null,
       "amount": null,
-      "role": " USER"
+      "role": "USER"
     }
   ],
   "transaction-history": [
@@ -699,7 +699,13 @@
       "to": "6382409787",
       "sentmoney": "1000",
       "date": "Tue 5 Jul 2022 17:28:12"
+    },
+    {
+      "id": 52,
+      "from": "6382409787",
+      "to": "6382403456",
+      "sentmoney": "12",
+      "date": "Fri 8 Jul 2022 10:44:10"
     }
- 
   ]
 }

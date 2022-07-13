@@ -20,30 +20,10 @@ export const WithPermission = (props:PermissionProps) => {
   );
 };
 
-// import React from "react";
-// import { userdetailsdata } from "./session-storage";
-// import { AccountPermissionProps, PermissionProps } from "./types/typesimport";
-
-// const userdetails = userdetailsdata();
-
-// const useRole = () => {
-//   const user = userdetails ? userdetails : "";
-//   return user ? user.role : "NO USER";
-// };
-
 const accountHaveUser = () =>{
   const userdetails = userdetailsdata();
   return userdetails.account!==null ? "BankAccountHaveUser" : ""
 }
-
-// export const WithPermission = (props:PermissionProps) => {
-//   const { roleRequired, message, children } = props;
-//   const role = useRole();
-
-//   return (
-//     <>{roleRequired === role ? children : <h3>{message ? message : ""}</h3>}</>
-//   );
-// };
 
 export const UserPermission = (props:AccountPermissionProps) =>{
   const { roleRequired, message, children } = props;
