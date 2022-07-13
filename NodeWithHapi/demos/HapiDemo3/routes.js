@@ -3,19 +3,20 @@ const dbConnect = require('./db');
 const userRoutes = [ 
     {
         method:'POST',
-        path : '/check',
+        path : '/',
         handler : async function(request,reply){
             
-        // const promise = new Promise((resolve,reject)=>{
-        //     dbConnect.query('SELECT * FROM people ',(err,res)=>{
-        //         if(err){
-        //             console.log(err)
-        //         }
-        //         resolve(res)
-        //     })
-        // })
-        // return promise
-        return "yes"
+        const promise = new Promise((resolve,reject)=>{
+            dbConnect.query('SELECT * FROM people ',(err,res)=>{
+                if(err){
+                    console.log(err)
+                }
+                resolve(res)
+            })
+        })
+        return promise
+
+        // return "yes"
         }
     },
     {
@@ -23,10 +24,10 @@ const userRoutes = [
         path : '/signup',
         handler : async function(request,reply){
 
-            // const name =  request.payload.name
-            // const team =  request.payload.team
+            const name =  request.payload.name
+            const team =  request.payload.team
 
-            // console.log(name)
+            console.log(name)
             
             // const promise = new Promise((resolve,reject)=>{
             //     dbConnect.query("INSERT INTO people (name,team) VALUES (?,?)",[name,team], (err,result)=>{
