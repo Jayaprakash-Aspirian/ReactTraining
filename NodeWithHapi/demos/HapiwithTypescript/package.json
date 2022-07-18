@@ -1,0 +1,24 @@
+{
+  "name": "hapiwithtypescript",
+  "version": "1.0.0",
+  "description": "hapi with typescript using mysql",
+  "main": "index.ts",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"yarn run compile\"",
+    "compile": "tsc && node ./dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "@types/nodemon": "^1.19.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/hapi": "^18.0.7",
+    "@types/mysql": "^2.15.21",
+    "@types/node": "^18.0.4",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
+  }
+}

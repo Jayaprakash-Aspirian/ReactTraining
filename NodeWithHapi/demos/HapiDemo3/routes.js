@@ -2,7 +2,7 @@ const dbConnect = require('./db');
 
 const userRoutes = [ 
     {
-        method:'POST',
+        method:'GET',
         path : '/',
         handler : async function(request,reply){
             
@@ -15,45 +15,70 @@ const userRoutes = [
             })
         })
         return promise
-
-        // return "yes"
         }
     },
     {
-        method:'post',
-        path : '/signup',
-        handler : async function(request,reply){
-
+        method :'POST',
+        path : '/adduser',
+        handler: async function(request,reply)
+           {
+            const id = request.payload.id
             const name =  request.payload.name
             const team =  request.payload.team
-
-            console.log(name)
-            
-            // const promise = new Promise((resolve,reject)=>{
-            //     dbConnect.query("INSERT INTO people (name,team) VALUES (?,?)",[name,team], (err,result)=>{
-            //         if(err) {
-            //             console.log(err)
-            //         } 
-            //         resolve(res)
-            //     })
-            // })
-
-        
-            dbConnect.query("INSERT INTO people (name,team) VALUES (?,?)",[name,team], (err,result)=>{
-                if(err) {
-                    console.log(err)
-                } 
+            const promise = new Promise((resolve,reject)=>{
+                dbConnect.query("INSERT INTO people (id,name,team) VALUES (?,?,?)",[id,name,team] ,(err,res)=>{
+                    if(err){
+                        throw new Error(err)
+                    }
+                    resolve("Data Inserted Successfully")
+                })
             })
-       
-            return "Data Inserted Succcessfully"
-            // return promise
+            return promise;             
+           }
+    },
+    {
+        method :'PUT',
+        path : '/updateuser',
+        handler:async function(request,reply)
+           {
+            const id = request.payload.id
+            const name =  request.payload.name
+            const team =  request.payload.team
+            const promise = new Promise((resolve,reject)=>{
+                dbConnect.query("UPDATE people SET name=?,team=?  WHERE id = ?",[name,team,id] ,(err,res)=>{
+                    if(err){
+                        throw new Error(err)
+                    }
+                    resolve("Data Updated Successfully")
+                })
+            })
+            return promise;             
+           }
+    },
+    {
+        method :'DELETE',
+        path : '/deleteuser',
+        handler:async function(request,reply)
+           {
+            const id = request.payload.id
+            const promise = new Promise((resolve,reject)=>{
+                dbConnect.query("DELETE from people WHERE id = ?",[id] ,(err,res)=>{
+                    if(err){
+                        throw new Error(err)
+                    }
+                    resolve("Data Deleted Successfully")
+                })
+            })
+            return promise;             
+           }
+    },
+    {
+        method: '*',
+        path: '/{any*}',
+        handler: function (request, h) {
+            return '404 Error! Page Not Found!';
         }
     }
-    
-    
-    
 ]
-
-// export default userRoutes;
 
 module.exports = userRoutes

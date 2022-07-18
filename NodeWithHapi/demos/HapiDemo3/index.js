@@ -1,7 +1,8 @@
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 const userRoutes = require('./routes');
 // const { userRoutes } = require('./routes');
 
+console.log(userRoutes)
 const server = Hapi.Server({
     port: 3000,
     host: 'localhost'
@@ -10,6 +11,7 @@ const server = Hapi.Server({
 const init = async()=>{
 
    await server.route(userRoutes)
+   
    await server.start().then(()=>{   
         console.log("connected")
     })   

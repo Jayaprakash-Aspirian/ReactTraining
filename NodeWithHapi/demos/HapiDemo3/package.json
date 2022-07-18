@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/hapi": "^20.2.2",
     "hapi": "^18.1.0",
     "mysql": "^2.18.1"
   },
